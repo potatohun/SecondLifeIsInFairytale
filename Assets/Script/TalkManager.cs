@@ -18,7 +18,9 @@ public class TalkManager : MonoBehaviour
     //private bool checkbool = false;
 
     void Awake()
-    { instance = this; }
+    { instance = this; 
+      fade.gameObject.SetActive(true);
+    }
 
     private void Start()
     {
