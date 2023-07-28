@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -142,23 +143,19 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        
-
         if (collision.gameObject.tag == "ground")
             ani.SetBool("isJump", false);
 
-      //이게 foot의 콜라이더떄문에 플레이어콜라이더가 꺼져도 피가 닳음
-            if (collision.gameObject.tag == "Enemy")
-            {
-  
-                    HP -= collision.gameObject.GetComponent<Enemy>().Attack;
+        //이게 foot의 콜라이더떄문에 플레이어콜라이더가 꺼져도 피가 닳음
+        if (collision.gameObject.tag == "Enemy")
+        {
 
-                    Debug.Log(" Player HP :" + HP);
-                    ani.SetTrigger("Hit");
-                    StartCoroutine(KnockBack());             
-            }
-        
+            HP -= collision.gameObject.GetComponent<Enemy>().Attack;
 
+            Debug.Log(" Player HP :" + HP);
+            ani.SetTrigger("Hit");
+            StartCoroutine(KnockBack());
+        }
     }
 
     void Attack()
@@ -176,9 +173,17 @@ public class Player : MonoBehaviour
 
                 foreach (Collider2D collider in enemy)
                 {
-                    if (collider.tag == "Enemy")
-                        collider.GetComponent<Enemy>().TakeDamage(10);//데미지 어케함
-                        
+                    if (collider.tag == "Monster")
+                    {
+                        //몬스터 데미지 주는 코드 필요
+                        Destroy(collider.gameObject); //임시로 삭제
+                    }
+                    else if (collider.tag == "Boss") //보스 때릴때
+                    {
+                        Boss boss = collider.GetComponent<Boss>();
+                        boss.isDie = true;
+                        //Destroy(collider.gameObject); //임시로 삭제
+                    }
                 }
               
             }

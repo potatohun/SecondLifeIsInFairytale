@@ -8,6 +8,8 @@ TagManager:
   - 2Page
   - Portal
   - ground
+  - Boss
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - Object
   - Water
   - UI
-  - 
-  - 
+  - Monster
+  - Player
   - 
   - 
   - 

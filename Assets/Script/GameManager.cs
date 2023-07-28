@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
     public static TalkManager talkManager;
-    public static MonsterSpawner monsterSpawner;
+    //public static MonsterSpawner monsterSpawner;
 
     public Player player;
     public Enemy enemy;
@@ -23,10 +23,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameManager = this;
-        maxChapter = 3;
+        maxChapter = 2;
         currentChapter = 1;
         talkManager = TalkManager.instance;
-        monsterSpawner = MonsterSpawner.instance;
+        //monsterSpawner = MonsterSpawner.instance;
     }
 
     public static GameManager gamemanager
@@ -60,12 +60,12 @@ public class GameManager : MonoBehaviour
         return currentChapter;
     }
 
-    public void Pozol_Spawn()
+    /*public void Pozol_Spawn()
     {
         monsterSpawner.PozolSpawn();
     }
     public void ArrowPozol_Spawn()
     {
         monsterSpawner.Arrow_PozolSpawn();
-    }
+    }*/
 }

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2123167186958418104}
   - component: {fileID: 2123167186958418111}
   - component: {fileID: 1547624996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pozol
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2123167187661501144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

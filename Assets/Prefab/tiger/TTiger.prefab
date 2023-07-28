@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6711816785145629394}
   - component: {fileID: 6711816785788347558}
   - component: {fileID: -1033378456511562125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TTiger
-  m_TagString: Monster
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6711816785623792481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -46,9 +46,8 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
         parentObject.SetActive(false);
 
         // 아이템 선택 후 씬 이동
-
         SceneManager.LoadScene("MainGame");
-        GameManager.gameManager.player.transform.position = new Vector3(0, 0, 0); // 이동 위치 초기화.
+        
     }
 
     private void SetIcon()
