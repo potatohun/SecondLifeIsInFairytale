@@ -6,27 +6,22 @@ using UnityEngine.XR;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
-    public static TalkManager talkManager;
-    //public static MonsterSpawner monsterSpawner;
 
     public Player player;
     public Enemy enemy;
 
-    public int level;
-    public int maxhp;
-    public int hp;
-    public int attack;
+    public static int level;
+    public static int maxhp;
+    public static int hp;
+    public static int attack;
 
-    public int maxChapter;
-    public int currentChapter;
+    public static int maxVerse;
+    private static int chapter;
+    private static int verse;
 
     private void Awake()
     {
         gameManager = this;
-        maxChapter = 2;
-        currentChapter = 1;
-        talkManager = TalkManager.instance;
-        //monsterSpawner = MonsterSpawner.instance;
     }
 
     public static GameManager gamemanager
@@ -51,21 +46,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChapterPlus()
+    public void Chapter2Setting()
     {
-        currentChapter++;
+        chapter = 2;
+        verse = 1;
+        maxVerse = 6;
+    }
+
+    public void Chapter1Setting()
+    {
+        chapter = 1;
+        verse = 1;
+        maxVerse = 1;
+    }
+
+    public void VersePlus()
+    {
+        verse++;
     }
     public int GetChapter()
     {
-        return currentChapter;
+        return chapter;
     }
-
-    /*public void Pozol_Spawn()
+    public int GetVerse()
     {
-        monsterSpawner.PozolSpawn();
+        return verse;
     }
-    public void ArrowPozol_Spawn()
+    public void SetVerse(int i)
     {
-        monsterSpawner.Arrow_PozolSpawn();
-    }*/
+        verse = i;
+    }
+    public void SetChapter(int i)
+    {
+        chapter = i;
+    }
 }
