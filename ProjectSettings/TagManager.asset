@@ -10,6 +10,7 @@ TagManager:
   - ground
   - Boss
   - Monster
+  - MonsterSpawner
   layers:
   - Default
   - TransparentFX

@@ -13,12 +13,16 @@ public class ArrowPozol : MonoBehaviour
     private SpriteRenderer render;
     private bool isAttacking = false;
 
-
+    MonsterSpawner monsterspawner;
     void Start()
     {
         ani = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         render = GetComponent<SpriteRenderer>();
+
+
+        //spawner
+        monsterspawner = GameObject.FindGameObjectWithTag("MonsterSpawner").GetComponent<MonsterSpawner>();
     }
 
     void Update()
@@ -73,5 +77,16 @@ public class ArrowPozol : MonoBehaviour
     void SpawnArrow()
     {
         Instantiate(arrowPrefab, transform.position + new Vector3(0f, -0.564207f, 0f), Quaternion.identity);
+    }
+
+    private void OnDestroy()
+    {
+        monsterspawner.monsters.Remove(this.gameObject);
+        if (monsterspawner.ListEmptyCheck())
+        {
+            monsterspawner.ActivePortal();
+            Debug.Log("포탈생성!");
+        }
+        Debug.Log("주금");
     }
 }

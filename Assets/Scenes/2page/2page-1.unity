@@ -194,7 +194,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2310772264651120322, guid: 3428b17ce77b8d643b823f63ccc65e69, type: 3}
       propertyPath: m_Name
-      value: Monqster
+      value: Monster
       objectReference: {fileID: 0}
     - target: {fileID: 2310772264651120323, guid: 3428b17ce77b8d643b823f63ccc65e69, type: 3}
       propertyPath: m_RootOrder

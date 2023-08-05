@@ -16,12 +16,16 @@ public class Pozol : MonoBehaviour
     public Vector2 boxsize;
     public float idleTime = 1f; // 공격 후 idle 시간
 
+    MonsterSpawner monsterspawner;
     void Start()
     {
         ani = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         render = GetComponent<SpriteRenderer>();
         box = GetComponent<BoxCollider2D>();
+
+        //spawner
+        monsterspawner = GameObject.FindGameObjectWithTag("MonsterSpawner").GetComponent<MonsterSpawner>();
     }
 
     void Update()
@@ -98,5 +102,16 @@ public class Pozol : MonoBehaviour
                 UnityEngine.Debug.Log(collider.tag);
         }
 
+    }
+
+    private void OnDestroy()
+    {
+        monsterspawner.monsters.Remove(this.gameObject);
+        if (monsterspawner.ListEmptyCheck())
+        {
+            monsterspawner.ActivePortal();
+            Debug.Log("포탈생성!");
+        }
+        Debug.Log("주금");
     }
 }

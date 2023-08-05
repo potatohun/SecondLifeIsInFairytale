@@ -15,8 +15,12 @@ public class TalkManager : MonoBehaviour
     public Image fade;
     public Text chapterText;
 
+    private void Awake()
+    {
+    }
     private void Start()
     {
+        // 맵 진입시 뜨는 UI 관리
         if (GameManager.gameManager.GetChapter() == 0)
         {
             Debug.Log(GameManager.gameManager.GetChapter() + " " + GameManager.gameManager.GetVerse());
@@ -27,7 +31,7 @@ public class TalkManager : MonoBehaviour
         else if(GameManager.gameManager.GetVerse() == GameManager.maxVerse)
         {
             Debug.Log(GameManager.gameManager.GetChapter() + " " + GameManager.gameManager.GetVerse());
-            chapterText.text = "보스";
+            chapterText.text = "호랑이";
             GameManager.gameManager.SetChapter(0);
             GameManager.gameManager.SetVerse(0);
         }
@@ -36,7 +40,7 @@ public class TalkManager : MonoBehaviour
             Debug.Log(GameManager.gameManager.GetChapter() + " " + GameManager.gameManager.GetVerse());
             int chapter = GameManager.gameManager.GetChapter();
             int verse = GameManager.gameManager.GetVerse();
-            chapterText.text = chapter + "장" + verse + "절";
+            chapterText.text = chapter + "장 " + verse + "절";
             GameManager.gameManager.VersePlus();
         }
         fade.gameObject.SetActive(true);
