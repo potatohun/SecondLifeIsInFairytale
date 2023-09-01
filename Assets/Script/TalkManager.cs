@@ -94,6 +94,10 @@ public class TalkManager : MonoBehaviour
                     Debug.Log("Portal 감지");
                     PortalAction();
                 }
+                else
+                {
+                    Debug.Log("Object 감지");
+                }
             }
         }
     }

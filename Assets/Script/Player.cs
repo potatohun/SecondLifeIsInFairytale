@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -36,6 +37,10 @@ public class Player : MonoBehaviour
     public Vector3 dirvec;
     public GameObject scanObj;
 
+    public GameObject[] inventory = new GameObject[5];
+    public int MAXHP = 100; public float potionCoolTime = 2f;
+    public bool canHpPotionDrink = true;
+    public GameObject[] accessory = new GameObject[2];
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded; // sceneLoaded 이벤트에 OnSceneLoaded 메소드를 연결
@@ -70,23 +75,177 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        RaycastHit2D rayhit;
+
+        if (transform.localScale.x > 0)
+        {
+            Debug.DrawRay(transform.position + new Vector3(1, 0, 0), Vector3.forward*20f, Color.green);
+            rayhit = Physics2D.Raycast(transform.position + new Vector3(1, 0, 0), Vector3.forward*20f, LayerMask.GetMask("Object"));
+        }
+        else
+        {
+            Debug.DrawRay(transform.position + new Vector3(-1, 0, 0), Vector3.back*20f, Color.green);
+            rayhit = Physics2D.Raycast(transform.position + new Vector3(-1, 0, 0), Vector3.back*20f, LayerMask.GetMask("Object"));
+        }
+      
+        if (rayhit.collider != null)
+        {
+            scanObj = rayhit.collider.gameObject;
+            if (scanObj.layer == LayerMask.NameToLayer("Item")){
+                Item item = scanObj.GetComponent<Item>();
+                item.isWatched = true; //아이템 쳐다보는중
+            }
+        }
+        else
+            scanObj = null;
+
         Jump();
         Attack();
         Roll();
         Dead();
     }
     void FixedUpdate()
-    {      
-       Move();
+    {
+        Move();
+    }
 
-       Debug.DrawRay(rigid.position, dirvec * 2f, new Color(0, 1, 0));
-       RaycastHit2D rayhit = Physics2D.Raycast(rigid.position, dirvec, 2f, LayerMask.GetMask("Object"));
-       if (rayhit.collider != null)
-       {
-           scanObj = rayhit.collider.gameObject;
-       }
-       else
-           scanObj = null;
+    void UseItem()
+    {
+        CheckItem(KeyCode.Alpha1, 0);
+        CheckItem(KeyCode.Alpha2, 1);
+        CheckItem(KeyCode.Alpha3, 2);
+        CheckItem(KeyCode.Alpha4, 3);
+        CheckItem(KeyCode.Alpha5, 4);
+    }
+
+    void CheckItem(KeyCode key, int slotNumber)
+    {
+        if (Input.GetKeyDown(key))
+        {
+            if (inventory[slotNumber] == null)
+                return;
+
+            if (inventory[slotNumber].gameObject.CompareTag("Potion"))
+                UsePotion(slotNumber);
+            else if (inventory[slotNumber].gameObject.CompareTag("Weapon"))
+                changeWeapon(slotNumber);
+            else if (inventory[slotNumber].gameObject.CompareTag("Accessory"))
+                EquipAccessory(slotNumber);
+
+        }
+    }
+
+    void changeWeapon(int slotNumber)
+    {
+
+    }
+
+    void UsePotion(int slotNumber) // 원래 ref썼었음 callbyreference?
+    {
+        if (canHpPotionDrink)
+        {
+            GameObject what = inventory[slotNumber].gameObject;
+
+            if (HP == MAXHP && !what.name.Equals("Yakgwa"))
+            {
+                Debug.Log("풀피에용");
+                return;
+            }
+
+            switch (what.name)
+            {
+
+                case "Apple":
+                    HP += 5;
+                    break;
+                case "RiceCake":
+                    HP += 15;
+                    break;
+                case "Yakgwa":
+                    {
+                        MAXHP += 20;
+                        HP += 10;
+                        speed += 10;
+                    }
+                    break;
+            }
+
+
+            if (HP > MAXHP)
+                HP = MAXHP;
+
+            Debug.Log("Player HP : " + HP);
+            canHpPotionDrink = false;
+
+            inventory[slotNumber] = null;
+            Destroy(what);
+            StartCoroutine(PotionDelay(value => canHpPotionDrink = value));
+
+        }
+        else
+            Debug.Log("쿨타임이에용ㅋ");
+    }
+
+    void EquipAccessory(int slotNumber) // 코드정리좀
+    {
+
+        GameObject acc = inventory[slotNumber].gameObject;
+        inventory[slotNumber] = null;
+
+        int accSlotNum = 0;
+
+        for (int i = 0; i < accessory.Length; i++)
+        {
+            if (accessory[i] == null) // 빈 슬롯 찾기
+            {
+                accSlotNum = i;
+
+                if (acc.name.Equals("StrawShoes"))
+                {
+                    speed += 10;
+                }
+                else if (acc.name.Equals("Yeomju"))
+                {
+                    MAXHP += 10;
+                    //스트렝스,공속
+                }
+                break;
+            }
+            else // 빈곳없으면 첫번째칸 고정
+            {
+                accSlotNum = 0;
+
+                if (accessory[accSlotNum].name.Equals("StrawShoes")) // 첫 칸 악세 능력치빼고, 착용할거 더해주기
+                {
+                    speed -= 10;
+                }
+                else if (accessory[accSlotNum].name.Equals("Yeomju"))
+                {
+                    MAXHP -= 10;
+                }
+
+
+                if (acc.name.Equals("StrawShoes"))
+                {
+                    speed += 10;
+                }
+                else if (acc.name.Equals("Yeomju"))
+                {
+                    MAXHP += 10;
+                    //스트렝스,공속
+                }
+
+
+            }
+        }
+
+        accessory[accSlotNum] = acc;
+
+    }
+    IEnumerator PotionDelay(Action<bool> setBool)
+    {
+        yield return new WaitForSeconds(potionCoolTime);
+        setBool(true);
     }
 
     //오브젝트 스캔
@@ -210,9 +369,6 @@ public class Player : MonoBehaviour
 
             rigid.velocity = Vector2.zero;
             rigid.velocity = new Vector2(lookingDir, 0) * rollSpeed;
-            
-           
-             
         }
     }
 

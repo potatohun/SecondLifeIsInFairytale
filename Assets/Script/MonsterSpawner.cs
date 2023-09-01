@@ -22,7 +22,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         portal = GameObject.FindGameObjectWithTag("Portal");
         portal.gameObject.SetActive(false);
-        howMany = Random.Range(2, 10);
+        howMany = Random.Range(2, 5);
     }
     public void Start()
     {

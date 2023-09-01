@@ -12,7 +12,7 @@ public class Tiger : MonoBehaviour
     private bool isIdleAfterAttack = false; // 공격 후 idle
     private SpriteRenderer render;
     public float speed = 1f;
-    public GameObject[] pos;
+    public Transform[] pos;
     public Vector2[] boxsize;
     public float idleTime = 1f; // 공격 후 idle 시간
     private System.Random rand;
@@ -20,22 +20,34 @@ public class Tiger : MonoBehaviour
     public float HP = 100f;
     public Scrollbar Health;
     public bool dead { get; protected set; }
+    public bool isDead = false;
+    private bool isFirst = false;
+    private Vector3[] posx;
+    private Rigidbody2D rid;
+    private Vector3 direction;
 
     // Start is called before the first frame update
     void Start()
     {
         rand = new System.Random();
-
+        posx = new Vector3[3];
+        posx[0] = new Vector3(-pos[0].localPosition.x, pos[0].localPosition.y, 0f);
+        posx[1] = new Vector3(-pos[1].localPosition.x, pos[1].localPosition.y, 0f);
+        posx[2] = new Vector3(-pos[2].localPosition.x, pos[2].localPosition.y, 0f);
         ani = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         render = GetComponent<SpriteRenderer>();
         Health.value = HP;
-
+        rid = GetComponent<Rigidbody2D>();
+        direction = new Vector3(-1f, 0f, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (dead)
+            return;
+
         currentTime += Time.deltaTime;
         float distance = Vector2.Distance(transform.position, target.position);
 
@@ -71,73 +83,99 @@ public class Tiger : MonoBehaviour
         }
     }
 
-        IEnumerator AttackRoutine()
-        {
-            isAttacking = true;
-            if (rand.NextDouble() > 0.5)
-            {
-                ani.SetTrigger("attack1");
-                posIndex = 0;
-            }
-            else
-            {
-                ani.SetTrigger("bite");
-                posIndex = 1;
-            }
-            yield return new WaitForSeconds(0.5f); // 공격 애니메이션 재생 시간
-            isAttacking = false;
-            isIdleAfterAttack = true;
-            yield return new WaitForSeconds(idleTime); // 수정된 부분: 일정 시간 동안 idle 상태로 대기
-            isIdleAfterAttack = false;
+    IEnumerator AttackRoutine()
+    {
+        isAttacking = true;
+        if (render.flipX == false)
+            direction = new Vector3(0.5f, 0f, 0f);
+        else
+            direction = new Vector3(-0.5f, 0f, 0f);
+
+
+        if (rand.NextDouble() > 0.5)
+        { 
+            ani.SetTrigger("attack1");
+            transform.Translate(direction * 300f * Time.deltaTime);
+            yield return new WaitForSeconds(0.7f);
+            transform.Translate(direction * -300f * Time.deltaTime);
+
+            //lerp
+            posIndex = 0;
         }
-
-        IEnumerator axeAttackRoutine()
+        else
         {
-            isAttacking = true;
-            ani.SetTrigger("attack2");
-            posIndex = 2;
-            yield return new WaitForSeconds(1f); // 공격 애니메이션 재생 시간
-            isAttacking = false;
-            isIdleAfterAttack = true;
-            yield return new WaitForSeconds(idleTime); // 수정된 부분: 일정 시간 동안 idle 상태로 대기
-            isIdleAfterAttack = false;
+            ani.SetTrigger("bite");
+            posIndex = 1;
         }
+        yield return new WaitForSeconds(0.5f); // 공격 애니메이션 재생 시간
+        isAttacking = false;
+        isIdleAfterAttack = true;
+        yield return new WaitForSeconds(idleTime); // 수정된 부분: 일정 시간 동안 idle 상태로 대기
+        isIdleAfterAttack = false;
+    }
 
-        void OnDrawGizmosSelected() // 에디터에서 해당 오브젝트를 선택했을 때에만 실행되도록 변경
+    IEnumerator axeAttackRoutine()
+    {
+        isAttacking = true;
+        ani.SetTrigger("attack2");
+        posIndex = 2;
+        yield return new WaitForSeconds(1f); // 공격 애니메이션 재생 시간
+        isAttacking = false;
+        isIdleAfterAttack = true;
+        yield return new WaitForSeconds(idleTime); // 수정된 부분: 일정 시간 동안 idle 상태로 대기
+        isIdleAfterAttack = false;
+    }
+
+    void OnDrawGizmosSelected() // 에디터에서 해당 오브젝트를 선택했을 때에만 실행되도록 변경
+    {
+
+        for (int i = 0; i < pos.Length; i++)
         {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(pos[i].transform.position, boxsize[i]);
+        }
+    }
 
+    void DirectionEnemy(float target, float baseobj)
+    {
+        if (target < baseobj)
+            render.flipX = true;
+        else
+            render.flipX = false;
+    }
+
+    void FindAnd()
+    {
+        if (render.flipX == true)
+        {
             for (int i = 0; i < pos.Length; i++)
             {
-                Gizmos.color = Color.red;
-                Gizmos.DrawWireCube(pos[i].transform.position, boxsize[i]);
+                pos[i].localPosition = pos[i].localPosition = new Vector3(-posx[i].x, posx[i].y, 0f);
             }
         }
-
-        void DirectionEnemy(float target, float baseobj)
+        else
         {
-            if (target < baseobj)
-                render.flipX = true;
-            else
-                render.flipX = false;
-        }
-
-        void FindAnd()
-        {
-            Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(pos[posIndex].transform.position, boxsize[posIndex], 0);
-            foreach (Collider2D collider in collider2Ds)
+            for (int i = 0; i < pos.Length; i++)
             {
-                if (collider.tag == "Player")
-                    UnityEngine.Debug.Log(collider.tag + posIndex + "!!");
+                pos[i].localPosition = posx[i];
             }
         }
+
+        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(pos[posIndex].transform.position, boxsize[posIndex], 0);
+        foreach (Collider2D collider in collider2Ds)
+        {
+            if (collider.tag == "Player")
+                UnityEngine.Debug.Log(collider.tag + posIndex + "!!");
+        }
+    }
 
     public void TakeDamage(int damage)
-    { 
+    {
         HP -= damage;
         Health.value = HP;
         Debug.Log(damage);
 
-        if (HP == 0)
+        if (HP <= 0 && !dead)
         {
             dead = true;
             ani.SetTrigger("die");

@@ -11,6 +11,8 @@ TagManager:
   - Boss
   - Monster
   - MonsterSpawner
+  - Potion
+  - Accessory
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - UI
   - Monster
   - Player
-  - 
+  - Item
   - 
   - 
   - 
