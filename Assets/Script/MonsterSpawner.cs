@@ -47,6 +47,7 @@ public class MonsterSpawner : MonoBehaviour
 
     public void Update()
     {
+        Debug.Log(ListEmptyCheck());
     }
 
     public void PozolSpawn(int i)

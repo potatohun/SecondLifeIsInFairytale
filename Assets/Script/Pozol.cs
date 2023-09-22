@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Pozol : MonoBehaviour
+public class Pozol : MonoBehaviour // 일단 해당 포졸에 hp 감소와 데미지 출력 테스트
 { 
     private Animator ani;
     private float currentTime = 0f;
@@ -12,29 +13,33 @@ public class Pozol : MonoBehaviour
     private SpriteRenderer render;
     public float speed = 1f;
     public Transform pos;
-    public BoxCollider2D box;
     public Vector2 boxsize;
     public float idleTime = 1f; // 공격 후 idle 시간
+    public GameObject hudDamageText;
+    public Transform hudPos;
+    public Slider Health;
+    public Transform HPPos;
+    public float HP = 100f;
+    public float SetTime;
+    private bool takeAttack = false;
 
-    MonsterSpawner monsterspawner;
+    public bool dead { get; protected set; }
+
     void Start()
     {
         ani = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         render = GetComponent<SpriteRenderer>();
-        box = GetComponent<BoxCollider2D>();
-
-        //spawner
-        monsterspawner = GameObject.FindGameObjectWithTag("MonsterSpawner").GetComponent<MonsterSpawner>();
+        Health.value = HP;
     }
 
     void Update()
     {
-        float distance = Vector2.Distance(transform.position, target.position);
+        if(dead) return;
 
+        float distance = Vector2.Distance(transform.position, target.position);
         if (!isAttacking && distance < 8f && distance > 2f)
         {
-            
             if (!isIdleAfterAttack)
             {
                 DirectionEnemy(target.transform.position.x, transform.position.x);
@@ -50,7 +55,7 @@ public class Pozol : MonoBehaviour
         else if (distance <= 2f)
         {
             ani.SetBool("isFollow", false);
-            if (!isAttacking && !isIdleAfterAttack) // 공격 중이거나 이미 idle 중이라면 실행하지 않음
+            if (!isAttacking && !isIdleAfterAttack && !takeAttack) // 공격 중이거나 이미 idle 중이라면 실행하지 않음
             {
                 DirectionEnemy(target.transform.position.x, transform.position.x);
                 ani.SetTrigger("attack");
@@ -69,14 +74,13 @@ public class Pozol : MonoBehaviour
         isIdleAfterAttack = false;
     }
 
-
     private void OnDrawGizmos() // 컴파일 할 때 자동 실행됨.
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(pos.position, boxsize);
     }
 
-    public void DirectionEnemy(float target, float baseobj)
+    void DirectionEnemy(float target, float baseobj)
     {
         if (target < baseobj)
             render.flipX = true;
@@ -84,7 +88,7 @@ public class Pozol : MonoBehaviour
             render.flipX = false;
     }
 
-    public void FindAnd()
+    void FindAnd()
     {
         if (render.flipX == false)
         {
@@ -101,17 +105,45 @@ public class Pozol : MonoBehaviour
             if (collider.tag == "Player")
                 UnityEngine.Debug.Log(collider.tag);
         }
-
     }
 
-    private void OnDestroy()
+    public void TakeDamage(int damage)
     {
-        monsterspawner.monsters.Remove(this.gameObject);
-        if (monsterspawner.ListEmptyCheck())
+        if (dead) return;
+
+        if (takeAttack)
+            return;
+
+        StartCoroutine(TakeHit(damage));
+    }
+
+    IEnumerator TakeHit(int damage)
+    {
+        takeAttack = true;
+        GameObject hudText = Instantiate(hudDamageText);
+        hudText.transform.position = hudPos.position;
+        hudText.GetComponent<DamageText>().damage = damage;
+        HP -= damage;
+        Health.value = HP;
+        Debug.Log(damage);
+
+        if (HP == 40)
         {
-            monsterspawner.ActivePortal();
-            Debug.Log("포탈생성!");
+            ani.SetTrigger("Hit");
         }
-        Debug.Log("주금");
+
+        if (HP <= 0)
+        {
+            dead = true;
+            ani.SetTrigger("die");
+            Invoke("SetFalse", SetTime);
+        }
+        takeAttack = false;
+        yield return new WaitForEndOfFrame();
+    }
+
+    private void SetFalse()
+    {
+        Destroy(gameObject);
     }
 }

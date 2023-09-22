@@ -123,21 +123,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &585036705
+--- !u!1001 &165853011
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1237354376}
     m_Modifications:
-    - target: {fileID: 690855492, guid: 15420b624cbbef8479a28749d6377698, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 690855492, guid: 15420b624cbbef8479a28749d6377698, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 932321984940335380, guid: 15420b624cbbef8479a28749d6377698, type: 3}
       propertyPath: m_Name
       value: "\uD638\uB791\uC774"
@@ -188,6 +180,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 932321984940335386, guid: 15420b624cbbef8479a28749d6377698, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624488490607726323, guid: 15420b624cbbef8479a28749d6377698, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624488490607726323, guid: 15420b624cbbef8479a28749d6377698, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

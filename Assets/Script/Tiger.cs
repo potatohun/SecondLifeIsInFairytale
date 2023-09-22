@@ -18,7 +18,7 @@ public class Tiger : MonoBehaviour
     private System.Random rand;
     private int posIndex = 0;
     public float HP = 100f;
-    public Scrollbar Health;
+    public Slider Health;
     public bool dead { get; protected set; }
     public bool isDead = false;
     private bool isFirst = false;
@@ -171,11 +171,14 @@ public class Tiger : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if(dead) return;
+
         HP -= damage;
         Health.value = HP;
         Debug.Log(damage);
+        ani.SetTrigger("Hit");
 
-        if (HP <= 0 && !dead)
+        if (HP <= 0)
         {
             dead = true;
             ani.SetTrigger("die");
