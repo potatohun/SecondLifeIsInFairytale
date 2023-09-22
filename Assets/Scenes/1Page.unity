@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 932321984940335380, guid: 15420b624cbbef8479a28749d6377698, type: 3}
       propertyPath: m_TagString
-      value: Boss
+      value: Tiger
       objectReference: {fileID: 0}
     - target: {fileID: 932321984940335386, guid: 15420b624cbbef8479a28749d6377698, type: 3}
       propertyPath: m_RootOrder

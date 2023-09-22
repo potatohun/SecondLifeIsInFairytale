@@ -26,6 +26,8 @@ public class Tiger : MonoBehaviour
     private Rigidbody2D rid;
     private Vector3 direction;
 
+    public Boss boss;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -181,6 +183,7 @@ public class Tiger : MonoBehaviour
         if (HP <= 0)
         {
             dead = true;
+            boss.isDie = true;
             ani.SetTrigger("die");
         }
     }

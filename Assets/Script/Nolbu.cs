@@ -38,6 +38,8 @@ public class Nolbu : MonoBehaviour
     private Transform playerTransform;      // 플레이어의 Transform
     private Coroutine currentPatternCoroutine = null;
 
+    public Boss boss;
+
     void Start()
     {
         Health.value = HP;
@@ -257,6 +259,7 @@ public class Nolbu : MonoBehaviour
         if (Health.value <= 0f)
         {
             dead = true;
+            boss.isDie = true;
             if (currentPatternCoroutine != null)
             {
                 StopCoroutine(currentPatternCoroutine);

@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 6653175767484606720}
   m_Layer: 0
   m_Name: Arrowpo
-  m_TagString: Monster
+  m_TagString: Arrow_Pozol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

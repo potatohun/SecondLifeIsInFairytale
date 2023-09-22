@@ -79,7 +79,7 @@ AnimationClip:
   - time: 0.16666667
     functionName: SetActiveF
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 4540390684243753098, guid: ababd6163cf5764469f0fc87e143fe36, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

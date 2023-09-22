@@ -13,6 +13,10 @@ TagManager:
   - MonsterSpawner
   - Potion
   - Accessory
+  - Nolbu
+  - Pozol
+  - Arrow_Pozol
+  - Tiger
   layers:
   - Default
   - TransparentFX

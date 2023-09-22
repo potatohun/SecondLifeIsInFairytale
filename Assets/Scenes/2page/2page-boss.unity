@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4529613152117377581, guid: eed13e4e268864b4f9373f0b4a169882, type: 3}
       propertyPath: m_TagString
-      value: Boss
+      value: Nolbu
       objectReference: {fileID: 0}
     - target: {fileID: 4529613152117377618, guid: eed13e4e268864b4f9373f0b4a169882, type: 3}
       propertyPath: m_RootOrder

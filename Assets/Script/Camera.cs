@@ -25,8 +25,12 @@ public class Camera : MonoBehaviour
             transform.position = playerVector;
         }
 
-        if (GameManager.gameManager.player.ani.GetBool("Hit"))
-            StartCoroutine("ShakeCamera");
+        //if (GameManager.gameManager.player.ani.GetBool("Hit"))
+        //{
+        //    Debug.Log("¤§¤²¤¸¤§");
+        //   StartCoroutine("ShakeCamera");
+        //}
+            
     }
 
     IEnumerator ShakeCamera()

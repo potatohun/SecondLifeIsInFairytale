@@ -47,7 +47,7 @@ public class MonsterSpawner : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(ListEmptyCheck());
+        ListEmptyCheck();
     }
 
     public void PozolSpawn(int i)
@@ -65,12 +65,25 @@ public class MonsterSpawner : MonoBehaviour
         monsters.Add(monster);
     }
 
-    public bool ListEmptyCheck()
+    public void ListEmptyCheck()
     {
-        if (monsters.Any())
-            return false;
-        else
-            return true;
+        for (int i = 0; i < howMany; i++)
+        {
+            if (monsters[i] == true)
+            {
+                Debug.Log("존재함");
+            }
+            else
+            {
+                Debug.Log("존재 하지않음");
+                howMany--;
+                monsters.RemoveAt(i);
+            }
+        }
+        if (monsters.Count == 0)
+        {
+            ActivePortal();
+        }
     }
     public void ActivePortal()
     {

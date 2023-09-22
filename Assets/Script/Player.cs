@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     public Vector2 boxSize;
     public Transform pos;
 
-    public Particle Particle;
+    //public Particle Particle;
 
     public float potionCoolTime = 2f;
     public bool canHpPotionDrink = true;
@@ -340,10 +340,24 @@ public class Player : MonoBehaviour
     {
         attackAudio.Play();
         Collider2D[] enemy = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
-        foreach (Collider2D collider in enemy)
+        foreach (Collider2D collider in enemy) //병철이랑 진규랑 통합해야 하는 파트
         {
-            if (collider.tag == "Enemy")
-                collider.GetComponent<Enemy>().TakeDamage(10);//데미지 어케함                     
+            Debug.Log(collider.tag);
+            switch (collider.tag)
+            {
+                case "Pozol":
+                    collider.GetComponent<Pozol>().TakeDamage(10);//데미지 어케함               
+                    break;
+                case "Arrow_Pozol":
+                    collider.GetComponent<ArrowPozol>().TakeDamage(10);//데미지 어케함             
+                    break;
+                case "Tiger":
+                    collider.GetComponent<Tiger>().TakeDamage(10);//데미지 어케함             
+                    break;
+                case "Nolbu":
+                    collider.GetComponent<Nolbu>().TakeDamage(2);//데미지 어케함             
+                    break;
+            }           
         }
     }
 
@@ -467,13 +481,12 @@ public class Player : MonoBehaviour
 
     void ParticlePlay()
     {
-        Particle.ParticlePlay();
+        //Particle.ParticlePlay();
     }
 
     void ParticleStop()
     {
-        Particle.ParticleStop();
-
+        //Particle.ParticleStop();
     }
 }
 

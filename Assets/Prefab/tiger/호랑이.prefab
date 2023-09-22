@@ -386,6 +386,7 @@ MonoBehaviour:
   HP: 100
   Health: {fileID: 6608875257466723128}
   isDead: 0
+  boss: {fileID: 15380234274522712}
 --- !u!114 &15380234274522712
 MonoBehaviour:
   m_ObjectHideFlags: 0

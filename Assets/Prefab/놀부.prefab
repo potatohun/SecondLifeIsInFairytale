@@ -366,6 +366,7 @@ MonoBehaviour:
   coinBomb: {fileID: 8978186307469733585, guid: 2961228b83da5aa4987d3c218d9a0190, type: 3}
   projectilePrefab: {fileID: 967589447590298579, guid: b8a321544c1fb214e9bebae1da64d6f3, type: 3}
   projectileSpeed: 10
+  boss: {fileID: 408616083819624389}
 --- !u!95 &4529613152117377620
 Animator:
   serializedVersion: 5
