@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CardData
-{    
+public class CardData : MonoBehaviour
+{
     public Sprite icon;
     public string title;
     public string text;

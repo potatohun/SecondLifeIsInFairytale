@@ -1,84 +1,109 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Item : MonoBehaviour
+
+public class Item: MonoBehaviour
 {
-    //Ãæµ¹·¹ÀÌ¾î·Î ÇÃ·¹ÀÌ¾î¸»°í´Â ¾ÈºÎµúÈ÷°ÔÇØ¾ß´ï
-    //ÇÃ·¹ÀÌ¾î ´ë½¬ÇÒ¶§ ¸ø¸ÔÀ½?
-    // scriptable object·Î ¾ÆÀÌÅÛ µ¥ÀÌÅÍ ÀúÀå?
-    Rigidbody2D rigid;
-    public int emptySlot;
-    public GameObject ItemStatus;
-    public bool isWatched;
-    private void Awake()
+    public GameObject ItemStatusPrefab;
+    protected GameObject ItemStatus;
+    protected Vector3 ItemStatusPos;
+
+    protected Transform playerTransform;
+
+    protected float activationDistance = 1.0f;
+
+    //
+    public Image uiPrefab; // Image ì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì§„ UI ì´ë¯¸ì§€ í”„ë¦¬íŒ¹
+    protected Image uiInstance; // ìƒì„±ëœ UI ì´ë¯¸ì§€ë¥¼ ì €ì¥í•  ë³€ìˆ˜
+
+    protected Canvas targetCanvas;
+    protected RectTransform SlotPostion;
+
+
+    protected GameObject Player;
+    protected Player playerScript;
+    protected InventroyManager Inventory;
+
+    protected void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
-        isWatched = false;
+        ItemStatusPos = transform.position + new Vector3(0f, 3.0f, 0f);
+        ItemStatus = Instantiate(ItemStatusPrefab, ItemStatusPos, Quaternion.identity);
+        ItemStatus.transform.parent = this.transform;
+        ItemStatus.SetActive(false);
+
+        Player = GameObject.Find("Player");
+        playerScript = Player.GetComponent<Player>();
+        playerTransform = Player.transform;
+        Inventory = Player.GetComponentInChildren<InventroyManager>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        if (isWatched) //ÇÃ·¹ÀÌ¾î°¡ ÃÄ´Ùº¸¸é status Ã¢ on
+        //ì•„ì´í…œ ìŠ¤í…Œì´í„°ìŠ¤ ë„ìš°ëŠ” ì¡°ê±´
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (ItemStatus != null && distance <= activationDistance)
         {
-            ShowStatus();
-            isWatched = false;
+            ItemStatus.SetActive(true);
         }
         else
-            CloseStatus();
-    }
-
-    public void ShowStatus()
-    {
-        Debug.Log(this.gameObject.name + "½ºÅÈÃ¢ ");
-        ItemStatus.SetActive(true);
-    }
-    public void CloseStatus()
-    {
-        ItemStatus.SetActive(false);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag.Equals("Player"))
         {
-            for (emptySlot = 0; emptySlot < GameManager.gameManager.player.inventory.Length; emptySlot++)
-            {
-
-                if (GameManager.gameManager.player.inventory[emptySlot] == null)  
-                break;
-            
-            }
-
-            switch (this.gameObject.name)
-            {
-
-                case "Apple":
-                    GameManager.gameManager.player.inventory[emptySlot] = this.gameObject;
-                    gameObject.SetActive(false);
-                    break;            
-                case "RiceCake":
-                    GameManager.gameManager.player.inventory[emptySlot] = this.gameObject;
-                    gameObject.SetActive(false);
-                    break;
-                case "Yakgwa":
-                    GameManager.gameManager.player.inventory[emptySlot] = this.gameObject;
-                    gameObject.SetActive(false);
-                    break;
-                case "Weapon":
-                    GameManager.gameManager.player.inventory[emptySlot] = this.gameObject;
-                    gameObject.SetActive(false);
-                    break;
-                case "StrawShoes":
-                    GameManager.gameManager.player.inventory[emptySlot] = this.gameObject;
-                    gameObject.SetActive(false);
-                    break;
-
-
-            }
+            if (ItemStatus != null)
+                ItemStatus.SetActive(false);
         }
 
     }
+    public virtual void AddUI(float index)
+    {
+        //ìº”ë²„ìŠ¤ ì°¾ì•„ì„œ
+        targetCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        SlotPostion = GameObject.Find("Slot" + index).GetComponent<RectTransform>();
+        //í•´ë‹¹ ìœ„ì¹˜ì— uiì´ë¯¸ì§€ ìƒì„±
+        uiInstance = Instantiate(uiPrefab);
+        uiInstance.rectTransform.position = SlotPostion.position;
+        uiInstance.rectTransform.localScale = new Vector3(0.345f, 0.345f, 0f);
+        uiInstance.transform.SetParent(targetCanvas.transform);
+
+    }
+    protected void OnDisable()
+    {
+        if (ItemStatus != null)
+        {
+            ItemStatus.SetActive(false);
+        }
+
+    }
+
+    protected void OnDestroy()
+    {
+        if (ItemStatus != null)
+        {
+            Destroy(ItemStatus);
+        }
+    }
+    /*
+    protected void letsCooldown()
+    {
+        coolTimeInstance.fillAmount=1.0f;
+        currentCooldown = 0.0f;
+        isCoolingDown=true;
+    }
+    protected void UpdateCooldown()
+    {
+        
+        currentCooldown += Time.deltaTime;
+        coolTimeInstance.fillAmount = 1-currentCooldown;
+        if (currentCooldown >= cooldownTime)
+        {
+            isCoolingDown = false;
+            Destroy(uiInstance);
+            Destroy(coolTimeInstance);
+            if(this.gameObject.tag=="Potion")Destroy(this.gameObject);
+    
+        }
+    }
+    */
 }
-
-

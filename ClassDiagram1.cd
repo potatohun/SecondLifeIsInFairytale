@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Arrow" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAIAAAIAAAAAAEAEAAAQAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Script\Arrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArrowPozol" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQCCKAAgCEACAAIIAAAAAAAQAECAQCIAAAAiAAUAAI=</HashCode>
+      <FileName>Assets\Script\ArrowPozol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="bomb" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACEACAAACAAAAAEAIAACIgAAAAAAAAAAAgwAAAAABA=</HashCode>
+      <FileName>Assets\Script\bomb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Boss" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAgAAAAAAAAAAAAABAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Script\Boss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="box" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\box.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAIAAACAAAAgAAAAEAAAAAAACAwAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Card" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAAIAAQiAAAAEAAAQAAAAAAAAggAAIAAAAAQEAAAA=</HashCode>
+      <FileName>Assets\Script\Card.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CardData" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAQAAAAAAAAAAAAAAAAAAAEAAIAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardManager" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\CardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageText" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAECCAhAAAAAAAAAAAAAAAAAAIAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Script\DamageText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy" Collapsed="true">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIACAAACAAAAAAAAAAAAAAQIBAAAAAAAAAiAAAAAA=</HashCode>
+      <FileName>Assets\Script\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAJCACBAAAAACAgAAAAgAAAECQACBCABAAAQAAEI=</HashCode>
+      <FileName>Assets\Script\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAABIgAAAAAAAABAAAQAAAAgAAAAQEA=</HashCode>
+      <FileName>Assets\Script\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemStatus" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\ItemStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jump">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\Jump.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpawner" Collapsed="true">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQCACABABAAABAAgQAAAAAAAACAEAAIAAAEA=</HashCode>
+      <FileName>Assets\Script\MonsterSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nolbu">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABTACIBAgCGAMBBABAZIAEAA4BEDAQCIAIAYgCgSGAY=</HashCode>
+      <FileName>Assets\Script\Nolbu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="14.25" Y="0.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AgwEAKYBkvBIARACgCQAIMggSIBAwhACIAQgGIEAAFA=</HashCode>
+      <FileName>Assets\Script\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Pozol">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQECCAAgCEAAAAIIAAAEIAAQAEDAQCYEQABgAAQAAI=</HashCode>
+      <FileName>Assets\Script\Pozol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RewardManager">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAEAEA=</HashCode>
+      <FileName>Assets\Script\RewardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TalkManager">
+    <Position X="2.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACKAAQACgAAAAAAAAAQAEAABgAAAAIAEAEI=</HashCode>
+      <FileName>Assets\Script\TalkManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tiger">
+    <Position X="10.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACKAAACMAIAgoIAAAEMAAQBAgAQCIAQABgAAUAAA=</HashCode>
+      <FileName>Assets\Script\Tiger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Weapon">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="UseType">
+    <Position X="17.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAIAAgAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

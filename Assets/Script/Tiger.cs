@@ -95,7 +95,7 @@ public class Tiger : MonoBehaviour
 
 
         if (rand.NextDouble() > 0.5)
-        { 
+        {
             ani.SetTrigger("attack1");
             transform.Translate(direction * 300f * Time.deltaTime);
             yield return new WaitForSeconds(0.7f);
@@ -173,7 +173,7 @@ public class Tiger : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(dead) return;
+        if (dead) return;
 
         HP -= damage;
         Health.value = HP;

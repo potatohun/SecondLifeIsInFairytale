@@ -30,7 +30,7 @@ public class Camera : MonoBehaviour
         //    Debug.Log("ㄷㅂㅈㄷ");
         //   StartCoroutine("ShakeCamera");
         //}
-            
+
     }
 
     IEnumerator ShakeCamera()
@@ -60,5 +60,6 @@ public class Camera : MonoBehaviour
         {
             Debug.LogWarning("Player 오브젝트를 찾을 수 없습니다. Player 오브젝트에 'Player' 태그를 추가하세요.");
         }
+
     }
 }

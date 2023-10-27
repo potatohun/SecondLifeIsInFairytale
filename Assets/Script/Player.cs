@@ -16,8 +16,6 @@ public class Player : MonoBehaviour
     Vector2 input;
     public int HP = 100;
     public int MAXHP = 100;
-    public GameObject[] inventory = new GameObject[3]; // 이새기 왜 맨밑으로 내리면 안됨????????????????????이해가안되네진짜.
-    public GameObject[] accessory = new GameObject[2];
 
     public int moveSpeed = 5;
     public float jumpPower = 5;
@@ -51,6 +49,30 @@ public class Player : MonoBehaviour
 
     public Vector3 dirvec;
     public GameObject scanObj;
+
+    public bool isSeegRight = true;
+
+    public float x;
+
+    public InventroyManager Inventory;
+
+
+    public GameObject ApplePrefab;
+    public GameObject RiceCakePrefab;
+    public GameObject YakgwaPrefab;
+    public GameObject TrapPrefab;
+    public GameObject RockPrefab;
+    public GameObject RollPaperPrefab;
+    public GameObject WeponPrefab1;
+    public GameObject WeponPrefab2;
+    public Player Player1
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded; // sceneLoaded 이벤트에 OnSceneLoaded 메소드를 연결
@@ -81,6 +103,8 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
 
+        Inventory = GetComponentInChildren<InventroyManager>();
+
     }
     void Update()
     {
@@ -88,21 +112,22 @@ public class Player : MonoBehaviour
 
         if (transform.localScale.x > 0)
         {
-            Debug.DrawRay(transform.position + new Vector3(1, 0, 0), Vector3.forward*20f, Color.green);
-            rayhit = Physics2D.Raycast(transform.position + new Vector3(1, 0, 0), Vector3.forward*20f, LayerMask.GetMask("Object"));
+            Debug.DrawRay(transform.position + new Vector3(1, 0, 0), Vector3.forward * 20f, Color.green);
+            rayhit = Physics2D.Raycast(transform.position + new Vector3(1, 0, 0), Vector3.forward * 20f, LayerMask.GetMask("Object"));
         }
         else
         {
-            Debug.DrawRay(transform.position + new Vector3(-1, 0, 0), Vector3.back*20f, Color.green);
-            rayhit = Physics2D.Raycast(transform.position + new Vector3(-1, 0, 0), Vector3.back*20f, LayerMask.GetMask("Object"));
+            Debug.DrawRay(transform.position + new Vector3(-1, 0, 0), Vector3.back * 20f, Color.green);
+            rayhit = Physics2D.Raycast(transform.position + new Vector3(-1, 0, 0), Vector3.back * 20f, LayerMask.GetMask("Object"));
         }
-      
+
         if (rayhit.collider != null)
         {
             scanObj = rayhit.collider.gameObject;
-            if (scanObj.layer == LayerMask.NameToLayer("Item")){
+            if (scanObj.layer == LayerMask.NameToLayer("Item"))
+            {
                 Item item = scanObj.GetComponent<Item>();
-                item.isWatched = true; //아이템 쳐다보는중
+                //item.isWatched = true; //아이템 쳐다보는중
             }
         }
         else
@@ -112,7 +137,6 @@ public class Player : MonoBehaviour
         ComboAttack();
         Roll();
         Dead();
-        UseItem();
     }
     void FixedUpdate()
     {
@@ -122,149 +146,6 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         ani.SetFloat("speed", input.magnitude);
-    }
-
-    void UseItem()
-    {
-        UsePotion(KeyCode.Alpha1, 0);
-        UsePotion(KeyCode.Alpha2, 1);
-        UsePotion(KeyCode.Alpha3, 2);
-    }
-
-    void UsePotion(KeyCode key, int slotNumber) // 원래 ref썼었음 callbyreference?
-    {
-        if (!Input.GetKey(KeyCode.F) && Input.GetKeyDown(key))
-        {
-            if (canHpPotionDrink)
-            {
-
-                if (inventory[slotNumber] == null)
-                    return;
-
-
-                GameObject what = inventory[slotNumber].gameObject;
-
-                if (HP == MAXHP && !what.name.Equals("Yakgwa"))
-                {
-                    Debug.Log("풀피에용");
-                    return;
-                }
-
-                switch (what.name)
-                {
-
-                    case "Apple":
-                        HP += 5;
-                        break;
-                    case "RiceCake":
-                        HP += 15;
-                        break;
-                    case "Yakgwa":
-                        {
-                            MAXHP += 20;
-                            HP += 10;
-                            moveSpeed += 10;
-                        }
-                        break;
-                }
-
-
-                if (HP > MAXHP)
-                    HP = MAXHP;
-
-                Debug.Log("Player HP : " + HP);
-                canHpPotionDrink = false;
-
-                inventory[slotNumber] = null;
-                Destroy(what);
-                StartCoroutine(PotionDelay(value => canHpPotionDrink = value));
-
-            }
-            else
-                Debug.Log("쿨타임이에용ㅋ");
-        }
-    }
-
-    IEnumerator PotionDelay(Action<bool> setBool) // 매개변수를 이렇게 한 이유는 , 원래 포션 딜레이 종류가 두개였는데 사용 포션종류를 매개변수로 받아서 구분지으려했음, 근데 스피드포션없애서 있으나마나됨 아무튼
-    {
-        yield return new WaitForSeconds(potionCoolTime);
-        setBool(true);
-    }
-
-    void changeWeapon(int slotNumber)
-    {
-
-        GameObject what = inventory[slotNumber].gameObject;
-        inventory[slotNumber] = null;
-
-
-        what.transform.position = weapon.transform.position;
-        what.transform.rotation = weapon.transform.rotation;
-        what.transform.localScale = weapon.transform.localScale;
-
-        weapon.transform.SetParent(null);
-        //  what.transform.SetParent(hand.transform);
-
-        what.gameObject.SetActive(true);
-        Destroy(weapon);
-    }
-
-
-    void EquipAccessory(int slotNumber)
-    {
-
-        GameObject acc = inventory[slotNumber].gameObject;
-        inventory[slotNumber] = null;
-
-        int accSlotNum = 0;
-
-        for (int i = 0; i < accessory.Length; i++)
-        {
-            if (accessory[i] == null) // 빈 슬롯 찾기
-            {
-                accSlotNum = i;
-
-                if (acc.name.Equals("StrawShoes"))
-                {
-                    moveSpeed += 10;
-                }
-                else if (acc.name.Equals("Yeomju"))
-                {
-                    MAXHP += 10;
-                    //스트렝스,공속
-                }
-                break;
-            }
-            else // 빈곳없으면 첫번째칸 고정
-            {
-                accSlotNum = 0;
-
-                if (accessory[accSlotNum].name.Equals("StrawShoes")) // 첫 칸 악세 능력치빼고, 착용할거 더해주기
-                {
-                    moveSpeed -= 10;
-                }
-                else if (accessory[accSlotNum].name.Equals("Yeomju"))
-                {
-                    MAXHP -= 10;
-                }
-
-
-                if (acc.name.Equals("StrawShoes"))
-                {
-                    moveSpeed += 10;
-                }
-                else if (acc.name.Equals("Yeomju"))
-                {
-                    MAXHP += 10;
-                    //스트렝스,공속
-                }
-
-
-            }
-        }
-
-        accessory[accSlotNum] = acc; // 착용은 했는데 . .. 능력치는 어떻게 입히지 // 프레임단위로 accessory배열 확인하는건 어때
-
     }
 
     //오브젝트 스캔
@@ -316,9 +197,6 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-
-
         if (collision.gameObject.tag.Equals("ground"))
             ani.SetBool("isJump", false);
 
@@ -357,7 +235,7 @@ public class Player : MonoBehaviour
                 case "Nolbu":
                     collider.GetComponent<Nolbu>().TakeDamage(2);//데미지 어케함             
                     break;
-            }           
+            }
         }
     }
 
@@ -487,6 +365,123 @@ public class Player : MonoBehaviour
     void ParticleStop()
     {
         //Particle.ParticleStop();
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        Debug.Log("충돌");
+        switch (other.tag)
+        { 
+            case "Potion":
+            case "Bojo":
+                Debug.Log("보조");
+                bool TryAddInventory = Inventory.AddSobi(other.gameObject);
+                
+                if (TryAddInventory)
+                {
+                    Debug.Log("DZ");
+                    other.gameObject.transform.position = new Vector3(999f, 999f, 0);
+                    Inventory.canAddItem = false;
+                    StartCoroutine(Inventory.StartAddItemCooldown());
+                }
+                break;
+            case "RollPaper":
+                bool TryAddRollPaper = Inventory.AddRollPaper(other.gameObject);
+                if (TryAddRollPaper)
+                {
+                    other.gameObject.SetActive(false);
+                    Inventory.canAddItem = false;
+                    StartCoroutine(Inventory.StartAddItemCooldown());
+                }
+                break;
+            case "Accessory":
+                bool TryAddAccessory = Inventory.AddAccessory(other.gameObject);
+                
+                if (TryAddAccessory)
+                {
+                    other.gameObject.SetActive(false);
+                    Inventory.canAddItem = false;
+                    StartCoroutine(Inventory.StartAddItemCooldown());
+                }
+                break;
+            case "Weapon":
+                bool TryChnageWeapon = Inventory.ChangeWeapon(other.gameObject);
+                if (TryChnageWeapon)
+                {
+                    Inventory.canAddItem = false;
+                    StartCoroutine(Inventory.StartAddItemCooldown());
+                }
+                break;
+        }
+    }
+
+    private void TryUseSobiItem()
+    {
+        if (!Input.GetKey(KeyCode.F) && Inventory.canUseItem && Input.GetKey(KeyCode.Alpha1))
+        {
+            Inventory.UseSobiItem(0);
+        }
+        if (!Input.GetKey(KeyCode.F) && Inventory.canUseItem && Input.GetKey(KeyCode.Alpha2))
+        {
+            Inventory.UseSobiItem(1);
+        }
+        if (!Input.GetKey(KeyCode.F) && Inventory.canUseItem && Input.GetKey(KeyCode.Alpha3))
+        {
+            Inventory.UseSobiItem(2);
+        }
+    }
+
+    private void TestItem()
+    {
+        if (Input.GetKey(KeyCode.Alpha5) && Inventory.canUseItem)
+        {
+            GameObject Apple = Instantiate(ApplePrefab, transform.position, Quaternion.identity);
+            Inventory.canUseItem = false;
+            StartCoroutine(Inventory.StartUseItemCooldown());
+        }
+        if (Input.GetKey(KeyCode.Alpha6) && Inventory.canUseItem)
+        {
+            GameObject RiceCake = Instantiate(RiceCakePrefab, transform.position, Quaternion.identity);
+            Inventory.canUseItem = false;
+            StartCoroutine(Inventory.StartUseItemCooldown());
+        }
+        if (Input.GetKey(KeyCode.Alpha7) && Inventory.canUseItem)
+        {
+            GameObject Yakgwa = Instantiate(YakgwaPrefab, transform.position, Quaternion.identity);
+            Inventory.canUseItem = false;
+            StartCoroutine(Inventory.StartUseItemCooldown());
+        }
+        if (Input.GetKey(KeyCode.Alpha8) && Inventory.canUseItem)
+        {
+            GameObject Trap = Instantiate(TrapPrefab, transform.position, Quaternion.identity);
+            Inventory.canUseItem = false;
+            StartCoroutine(Inventory.StartUseItemCooldown());
+        }
+        if (Input.GetKey(KeyCode.Alpha9) && Inventory.canUseItem)
+        {
+            GameObject Rock = Instantiate(RockPrefab, transform.position, Quaternion.identity);
+            Inventory.canUseItem = false;
+            StartCoroutine(Inventory.StartUseItemCooldown());
+        }
+        if (Input.GetKey(KeyCode.Alpha0) && Inventory.canUseItem)
+        {
+            GameObject RollPaper = Instantiate(RollPaperPrefab, transform.position, Quaternion.identity);
+            Inventory.canUseItem = false;
+            StartCoroutine(Inventory.StartUseItemCooldown());
+        }
+        if (Input.GetKey(KeyCode.U) && Inventory.canUseItem)
+        {
+            GameObject TestWeapon1 = Instantiate(WeponPrefab1, transform.position, Quaternion.identity);
+            Inventory.canUseItem = false;
+            StartCoroutine(Inventory.StartUseItemCooldown());
+        }
+        if (Input.GetKey(KeyCode.I) && Inventory.canUseItem)
+        {
+            GameObject TestWeapon2 = Instantiate(WeponPrefab2, transform.position, Quaternion.identity);
+            Inventory.canUseItem = false;
+            StartCoroutine(Inventory.StartUseItemCooldown());
+        }
+
     }
 }
 

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8255574088053871385}
   - component: {fileID: 5123119559220755275}
   - component: {fileID: 4281572351638483812}
-  - component: {fileID: 5252149115867452885}
   - component: {fileID: 1196287078346682921}
-  m_Layer: 8
+  - component: {fileID: -2618047294744731552}
+  m_Layer: 0
   m_Name: RiceCake
   m_TagString: Potion
   m_Icon: {fileID: 0}
@@ -29,10 +29,9 @@ Transform:
   m_GameObject: {fileID: 2996274718830421279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.24, y: -0.37, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1.8839, y: 1.789705, z: 1.8839}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5214702790263866705}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,21 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5252149115867452885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2996274718830421279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da41b02ddbff4394d860bf536d50184a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emptySlot: 0
-  ItemStatus: {fileID: 5214702790263866704}
-  isWatched: 0
 --- !u!58 &1196287078346682921
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,132 +118,29 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!1001 &8888593072336664449
-PrefabInstance:
+--- !u!114 &-2618047294744731552
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8255574088053871385}
-    m_Modifications:
-    - target: {fileID: 906959022759768546, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661329, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_Name
-      value: ItemStatus
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661329, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336704382661330, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3676336705050930952, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-      propertyPath: m_text
-      value: Rice Cake
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
---- !u!1 &5214702790263866704 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3676336704382661329, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-  m_PrefabInstance: {fileID: 8888593072336664449}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &5214702790263866705 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3676336704382661328, guid: b8ed2d4a45b3a744989380c701bab775, type: 3}
-  m_PrefabInstance: {fileID: 8888593072336664449}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2996274718830421279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed761450133a345d382d6305df4c23df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemStatusPrefab: {fileID: 6564505999613588870, guid: 10ffb787461b7486ab7572d32e815fb4, type: 3}
+  ItemStatusPos: {x: 0, y: 0, z: 0}
+  playerTransform: {fileID: 0}
+  activationDistance: 1
+  ItemStatus: {fileID: 0}
+  uiPrefab: {fileID: 6910069457707709919, guid: 21817381f5954493bbf6d1ca6c436048, type: 3}
+  coolTimePrefab: {fileID: 7245457028196654339, guid: fa3e3dc10038048a6a9548394c73e1c7, type: 3}
+  isCoolingDown: 0

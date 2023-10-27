@@ -47,14 +47,14 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
 
         // 아이템 선택 후 씬 이동
         SceneManager.LoadScene("MainGame");
-        
+
     }
 
     private void SetIcon()
     {
         if (carddata.Length > 0)
         {
-            randomIndex  = Random.Range(0, carddata.Length);
+            randomIndex = Random.Range(0, carddata.Length);
             Image imageComponent = Icon.GetComponent<Image>();
             imageComponent.sprite = carddata[randomIndex].icon;
             TMP_Text titleComponent = title.GetComponent<TMP_Text>();
@@ -62,7 +62,7 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
             TMP_Text textComponent = text.GetComponent<TMP_Text>();
             textComponent.text = carddata[randomIndex].text;
             textComponent.text = textComponent.text + " " + amount;
-}
+        }
         else
         {
             Debug.Log("저장된 이미지가 없습니다.");

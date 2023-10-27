@@ -29,7 +29,7 @@ public class MonsterSpawner : MonoBehaviour
         monsters = new List<GameObject>();
 
         Debug.Log("몬스터스폰!");
-        for(int i = 0; i < howMany; i++)
+        for (int i = 0; i < howMany; i++)
         {
             int n = Random.Range(1, 3);
 
@@ -59,7 +59,7 @@ public class MonsterSpawner : MonoBehaviour
     }
     public void Arrow_PozolSpawn(int i)
     {
-        GameObject monster = Instantiate(arrow_pozol, spawnPoint.transform.position + new Vector3(i,0,0), Quaternion.identity);
+        GameObject monster = Instantiate(arrow_pozol, spawnPoint.transform.position + new Vector3(i, 0, 0), Quaternion.identity);
         //monster.transform.position = new Vector3(3, 0, 0);
         monster.SetActive(true);
         monsters.Add(monster);

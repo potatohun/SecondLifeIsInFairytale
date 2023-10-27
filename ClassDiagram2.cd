@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Arrow">
+    <Position X="38" Y="10.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAIAAAIAAAAAAEAEAAAQAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Script\Arrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArrowPozol">
+    <Position X="37.75" Y="3.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ABQCCKAAgCEACAAIIAAAAAAAQAECAQCIAAAAiAAUAAI=</HashCode>
+      <FileName>Assets\Script\ArrowPozol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="bomb">
+    <Position X="30.5" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>EACEACAAACAAAAAEAIAACIgAAAAAAAAAAAgwAAAAABA=</HashCode>
+      <FileName>Assets\Script\bomb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Boss">
+    <Position X="27" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAgAAAAAAAAAAAAABAAAAAAAAAAABA=</HashCode>
+      <FileName>Assets\Script\Boss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="box">
+    <Position X="30.5" Y="9.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\box.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera">
+    <Position X="16.25" Y="13.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAIAAACAAAAgAAAAEAAAAAAACAwAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Card" BaseTypeListCollapsed="true">
+    <Position X="34" Y="20.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAAIAAQiAAAAEAAAQAAAAAAAAggAAIAAAAAQEAAAA=</HashCode>
+      <FileName>Assets\Script\Card.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CardData">
+    <Position X="37.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAQAAAAAAAAAAAAAAAAAAAEAAIAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CardManager">
+    <Position X="31.75" Y="20.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\CardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DamageText">
+    <Position X="45.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAECCAhAAAAAAAAAAAAAAAAAAIAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Script\DamageText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="28.5" Y="20.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AEAAAJCACBAAAAACAgAAAAgAAAECQACBCABAAAQAAEI=</HashCode>
+      <FileName>Assets\Script\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bojo">
+    <Position X="16.25" Y="5.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAACAAAQAAAAAgAIAAAEBQAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Item\Bojo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventroyManager">
+    <Position X="7.75" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAASBEEABAAACAIiAAAAEACACgAAAAAKAUAAAYQAAEA=</HashCode>
+      <FileName>Assets\Script\Item\InventroyManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Potion">
+    <Position X="16" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Item\Potion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RollPaper">
+    <Position X="13.25" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAQAAAAAAAAAAAAAAAAAACAAAAAAAAAAACA=</HashCode>
+      <FileName>Assets\Script\Item\RollPaper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sobi">
+    <Position X="13.25" Y="5.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAAIBAACABAAAAAgAIAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Item\Sobi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item">
+    <Position X="10.75" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAgAAAAgEAAkAAAAAAAAAIBCASEwAAEEA=</HashCode>
+      <FileName>Assets\Script\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jump">
+    <Position X="9.75" Y="13.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Script\Jump.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterSpawner">
+    <Position X="25.75" Y="20.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQCACABABAAABAAgQAAAAAAAACAEAAIAAAEA=</HashCode>
+      <FileName>Assets\Script\MonsterSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nolbu">
+    <Position X="26.75" Y="5.25" Width="3.5" />
+    <InheritanceLine Type="Boss" FixedToPoint="true">
+      <Path>
+        <Point X="28.25" Y="5.011" />
+        <Point X="28.25" Y="5.127" />
+        <Point X="28.354" Y="5.127" />
+        <Point X="28.354" Y="5.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>ABTACIBAgCGAMBBABAZIAEAA4BEDAQCIAIAYgCgSGAY=</HashCode>
+      <FileName>Assets\Script\Nolbu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="11.75" Y="13.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>ggwEAKIBkvBIERACoCQgJMggSIJAQhAAIGhgGoEAAFA=</HashCode>
+      <FileName>Assets\Script\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pozol">
+    <Position X="41.5" Y="3.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ABQECCAAgCEAAAAIIAAAEIAAQAEDAQCYEQABgAAQAAI=</HashCode>
+      <FileName>Assets\Script\Pozol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RewardManager">
+    <Position X="29" Y="17.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAEAEA=</HashCode>
+      <FileName>Assets\Script\RewardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TalkManager">
+    <Position X="16.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACKAAQACgAAAAAAAAAQAEAABgAAAAIAEAEI=</HashCode>
+      <FileName>Assets\Script\TalkManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tiger">
+    <Position X="23" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACKAAACMAIAgoIAAAEMAAQBAgAQCIAQABgAAUAAA=</HashCode>
+      <FileName>Assets\Script\Tiger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Weapon">
+    <Position X="10.75" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQACCAAACAAAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="UseType">
+    <Position X="10" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAIAAgAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\CardData.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

@@ -28,7 +28,7 @@ public class TalkManager : MonoBehaviour
             GameManager.gameManager.SetChapter(0);
             GameManager.gameManager.SetVerse(0);
         }
-        else if(GameManager.gameManager.GetVerse() == GameManager.maxVerse)
+        else if (GameManager.gameManager.GetVerse() == GameManager.maxVerse)
         {
             Debug.Log(GameManager.gameManager.GetChapter() + " " + GameManager.gameManager.GetVerse());
             chapterText.text = "호랑이";
@@ -74,9 +74,10 @@ public class TalkManager : MonoBehaviour
 
         if (player.ScanObj() != null)
         {
-            if(Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                if (player.ScanObj().gameObject.CompareTag("1Page")){
+                if (player.ScanObj().gameObject.CompareTag("1Page"))
+                {
                     Debug.Log("1Page 감지");
                     GameManager.gameManager.Chapter1Setting();
                     Debug.Log("세팅오ㅓㄴ");
@@ -131,13 +132,13 @@ public class TalkManager : MonoBehaviour
     public void Move2Page()
     {
         moveAble = false;
-        SceneManager.LoadScene("2Page");       
+        SceneManager.LoadScene("2Page");
     }
     public void MovePortal()
     {
         int num = GameManager.gameManager.GetVerse();
 
-        if(num == GameManager.maxVerse) //보스
+        if (num == GameManager.maxVerse) //보스
         {
             moveAble = false;
             string scenes = "2page-boss";
@@ -155,7 +156,7 @@ public class TalkManager : MonoBehaviour
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {    
+    {
         Debug.Log("새로운 씬이 로드되었습니다: " + scene.name);
     }
     IEnumerator FadeIn()

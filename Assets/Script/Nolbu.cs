@@ -226,7 +226,7 @@ public class Nolbu : MonoBehaviour
             {
                 Destroy(prefab);
             }
-            
+
             activePrefabs.Clear();
             currentPatternCoroutine = null;
             coll.enabled = false;
@@ -245,7 +245,7 @@ public class Nolbu : MonoBehaviour
             }
             coll.enabled = true;
             yield return new WaitForSeconds(1f);
-            
+
             adActiveMoney(0);
             bossTransform.position -= new Vector3(0f, 1.3f, 0f);
         }
@@ -255,7 +255,7 @@ public class Nolbu : MonoBehaviour
             yield return new WaitForSeconds(1f);
             coll.enabled = true;
         }
-        
+
         if (Health.value <= 0f)
         {
             dead = true;
