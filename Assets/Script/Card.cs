@@ -31,11 +31,13 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //마우스 커서 가져다 대면 1.1배 커짐
         cardScale.localScale = defaultScale * 1.1f;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        //마우스 커서 떼면 다시 기본 사이즈로
         cardScale.localScale = defaultScale * 1.0f;
     }
 
@@ -46,6 +48,8 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
         parentObject.SetActive(false);
 
         // 아이템 선택 후 씬 이동
+        // 저장 챕터 + 1;
+        PlayerPrefs.SetInt("currentChapter", PlayerPrefs.GetInt("currentChapter")+1);
         SceneManager.LoadScene("MainGame");
 
     }

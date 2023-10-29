@@ -60,7 +60,7 @@ public class Item: MonoBehaviour
     {
         //캔버스 찾아서
         targetCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        SlotPostion = GameObject.Find("Slot" + index).GetComponent<RectTransform>();
+        //SlotPostion = GameObject.Find("Slot" + index).GetComponent<RectTransform>();
         //해당 위치에 ui이미지 생성
         uiInstance = Instantiate(uiPrefab);
         uiInstance.rectTransform.position = SlotPostion.position;

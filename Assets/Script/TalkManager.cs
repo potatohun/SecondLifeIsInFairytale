@@ -21,28 +21,7 @@ public class TalkManager : MonoBehaviour
     private void Start()
     {
         // 맵 진입시 뜨는 UI 관리
-        if (GameManager.gameManager.GetChapter() == 0)
-        {
-            Debug.Log(GameManager.gameManager.GetChapter() + " " + GameManager.gameManager.GetVerse());
-            chapterText.text = "마을";
-            GameManager.gameManager.SetChapter(0);
-            GameManager.gameManager.SetVerse(0);
-        }
-        else if (GameManager.gameManager.GetVerse() == GameManager.maxVerse)
-        {
-            Debug.Log(GameManager.gameManager.GetChapter() + " " + GameManager.gameManager.GetVerse());
-            chapterText.text = "호랑이";
-            GameManager.gameManager.SetChapter(0);
-            GameManager.gameManager.SetVerse(0);
-        }
-        else
-        {
-            Debug.Log(GameManager.gameManager.GetChapter() + " " + GameManager.gameManager.GetVerse());
-            int chapter = GameManager.gameManager.GetChapter();
-            int verse = GameManager.gameManager.GetVerse();
-            chapterText.text = chapter + "장 " + verse + "절";
-            GameManager.gameManager.VersePlus();
-        }
+        chapterText.text = SceneManager.GetActiveScene().name;
         fade.gameObject.SetActive(true);
         chapterText.gameObject.SetActive(true);
 
@@ -55,8 +34,7 @@ public class TalkManager : MonoBehaviour
     }
     private void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.F) && moveAble == true)
+        if (Input.GetKeyDown(KeyCode.F) /*&& moveAble == true*/)
         {
             if (player.ScanObj().gameObject.CompareTag("1Page"))
             {
@@ -72,7 +50,7 @@ public class TalkManager : MonoBehaviour
             }
         }
 
-        if (player.ScanObj() != null)
+        /*if (player.ScanObj() != null)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
@@ -80,7 +58,6 @@ public class TalkManager : MonoBehaviour
                 {
                     Debug.Log("1Page 감지");
                     GameManager.gameManager.Chapter1Setting();
-                    Debug.Log("세팅오ㅓㄴ");
                     Page1Action();
                 }
                 else if (player.ScanObj().gameObject.CompareTag("2Page"))
@@ -100,9 +77,9 @@ public class TalkManager : MonoBehaviour
                     Debug.Log("Object 감지");
                 }
             }
-        }
+        }*/
     }
-    public void Page1Action()
+    /*public void Page1Action()
     {
         textBox.gameObject.SetActive(true);
         talkText.text = "1 Page portal.. " +
@@ -122,7 +99,7 @@ public class TalkManager : MonoBehaviour
         talkText.text = "This is Portal.. " +
             "press F";
         moveAble = true;
-    }
+    }*/
 
     public void Move1Page()
     {

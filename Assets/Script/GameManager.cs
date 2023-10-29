@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private static int chapter;
     private static int verse;
 
+
     private void Awake()
     {
         gameManager = this;

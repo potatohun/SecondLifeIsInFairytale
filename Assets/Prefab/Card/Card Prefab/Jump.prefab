@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1953051222433127919
+--- !u!1 &1744712317339708481
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1953051222433127905}
-  - component: {fileID: 1953051222433127904}
+  - component: {fileID: 850520781273709266}
+  - component: {fileID: 6539517869762022887}
   m_Layer: 0
-  m_Name: CardManager
+  m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1953051222433127905
+--- !u!4 &850520781273709266
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953051222433127919}
+  m_GameObject: {fileID: 1744712317339708481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 663, y: 393, z: 0}
+  m_LocalPosition: {x: 7.6658554, y: 2.2050762, z: 0.6068533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1953051222433127904
+--- !u!114 &6539517869762022887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953051222433127919}
+  m_GameObject: {fileID: 1744712317339708481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f13a2683ff47ca34fb7fb4ac4360c384, type: 3}
+  m_Script: {fileID: 11500000, guid: 523b05ffab41b6745a3bd7786c7854df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData:
-  - {fileID: 6539517869762022887, guid: edb535e1efc483d4a94f459b97b9148c, type: 3}
-  - {fileID: 6539517869762022887, guid: 9de119fc67fb8f74ab7ec5ded034fe55, type: 3}
-  - {fileID: 6539517869762022887, guid: b159edc6d59186f459a9247ea41bc14f, type: 3}
-  - {fileID: 6539517869762022887, guid: 2500460a44f2aa747a8389de847a920c, type: 3}
-  - {fileID: 6539517869762022887, guid: 65ff8521ffb9a9f45b578d616e76958f, type: 3}
+  icon: {fileID: 21300000, guid: d4c40aee38e021042b4edf1e64443033, type: 3}
+  title: JUMP
+  text: Jump +
+  useType: 3
