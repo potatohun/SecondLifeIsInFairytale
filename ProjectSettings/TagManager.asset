@@ -17,6 +17,10 @@ TagManager:
   - Pozol
   - Arrow_Pozol
   - Tiger
+  - CoolUI
+  - Bojo
+  - RollPaper
+  - MapController
   layers:
   - Default
   - TransparentFX

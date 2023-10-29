@@ -14,6 +14,7 @@ public class TalkManager : MonoBehaviour
     public Player player;
     public Image fade;
     public Text chapterText;
+    public MapController mapController;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class TalkManager : MonoBehaviour
         moveAble = false;
         SceneManager.sceneLoaded += OnSceneLoaded;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapController>();
     }
     private void Update()
     {
@@ -46,38 +48,10 @@ public class TalkManager : MonoBehaviour
             }
             else if (player.ScanObj().gameObject.CompareTag("Portal"))
             {
-                MovePortal();
+                mapController.MapChange();
+                //MovePortal();
             }
         }
-
-        /*if (player.ScanObj() != null)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                if (player.ScanObj().gameObject.CompareTag("1Page"))
-                {
-                    Debug.Log("1Page 감지");
-                    GameManager.gameManager.Chapter1Setting();
-                    Page1Action();
-                }
-                else if (player.ScanObj().gameObject.CompareTag("2Page"))
-                {
-                    Debug.Log("2Page 감지");
-                    GameManager.gameManager.Chapter2Setting();
-                    Debug.Log("세팅오ㅓㄴ");
-                    Page2Action();
-                }
-                else if (player.ScanObj().gameObject.CompareTag("Portal"))
-                {
-                    Debug.Log("Portal 감지");
-                    PortalAction();
-                }
-                else
-                {
-                    Debug.Log("Object 감지");
-                }
-            }
-        }*/
     }
     /*public void Page1Action()
     {
