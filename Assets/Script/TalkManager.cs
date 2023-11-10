@@ -38,42 +38,30 @@ public class TalkManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) /*&& moveAble == true*/)
         {
-            if (player.ScanObj().gameObject.CompareTag("1Page"))
+            if (player.ScanObj().gameObject.CompareTag("Npc"))
             {
+                Debug.Log("NPC와 대화");
+                TalkWithNPC();
+            }
+            else if (player.ScanObj().gameObject.CompareTag("1Page"))
+            {
+                //1포탈일때
                 Move1Page();
             }
             else if (player.ScanObj().gameObject.CompareTag("2Page"))
             {
+                //2포탈일때
                 Move2Page();
             }
             else if (player.ScanObj().gameObject.CompareTag("Portal"))
             {
+                //그냥 포탈일때
                 mapController.MapChange();
+                StartCoroutine(FadeIn());
                 //MovePortal();
             }
         }
     }
-    /*public void Page1Action()
-    {
-        textBox.gameObject.SetActive(true);
-        talkText.text = "1 Page portal.. " +
-            "press F";
-        moveAble = true;
-    }
-    public void Page2Action()
-    {
-        textBox.gameObject.SetActive(true);
-        talkText.text = "2 Page portal.. " +
-            "press F";
-        moveAble = true;
-    }
-    public void PortalAction()
-    {
-        textBox.gameObject.SetActive(true);
-        talkText.text = "This is Portal.. " +
-            "press F";
-        moveAble = true;
-    }*/
 
     public void Move1Page()
     {
@@ -119,6 +107,22 @@ public class TalkManager : MonoBehaviour
             fade.color = new Color(0, 0, 0, fadeCount);
             chapterText.color = new Color(1, 1, 1, fadeCount);
             yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    public void TalkWithNPC()
+    {
+        Npc npc = player.ScanObj().gameObject.GetComponent<Npc>();
+
+        if (npc.talk_count == npc.words.Count)
+        {
+            textBox.SetActive(false);
+            npc.talk_count = 0;
+        }
+        else
+        {
+            textBox.SetActive(true);
+            talkText.text = npc.words[npc.talk_count++];
         }
     }
 }

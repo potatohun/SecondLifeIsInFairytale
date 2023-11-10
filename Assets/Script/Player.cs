@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(PlayerPrefs.GetInt("currentChapter"));
+        //Debug.Log(PlayerPrefs.GetInt("currentChapter"));
         RaycastHit2D rayhit;
 
         if (transform.localScale.x > 0)

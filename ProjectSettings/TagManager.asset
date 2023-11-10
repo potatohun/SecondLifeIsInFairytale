@@ -21,6 +21,7 @@ TagManager:
   - Bojo
   - RollPaper
   - MapController
+  - Npc
   layers:
   - Default
   - TransparentFX

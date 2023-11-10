@@ -8,6 +8,7 @@ public class MapController : MonoBehaviour
     //public GameObject[] map;
     public List<GameObject> map;
     public GameObject boss_map;
+    public GameObject Player;
     int currentmap;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,9 @@ public class MapController : MonoBehaviour
         {
             map[currentmap].SetActive(true);
         }
+
+        Player = GameObject.FindWithTag("Player");
+        Player.transform.position = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -42,5 +46,6 @@ public class MapController : MonoBehaviour
             currentmap = Random.Range(0, map.Count);
             map[currentmap].SetActive(true);
         }
+        Player.transform.position = new Vector3(0, 0, 0);
     }
 }
