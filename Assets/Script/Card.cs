@@ -47,10 +47,7 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
         GameObject parentObject = this.gameObject.transform.parent.gameObject;
         parentObject.SetActive(false);
 
-        // 아이템 선택 후 씬 이동
-        // 저장 챕터 + 1;
-        PlayerPrefs.SetInt("currentChapter", PlayerPrefs.GetInt("currentChapter")+1);
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("마을");
 
     }
 

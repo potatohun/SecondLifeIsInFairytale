@@ -5,37 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/1Page.unity
+    path: "Assets/Scenes/1\uC7A5.unity"
     guid: 4ac155c17deac6a4e87e454f7a10a9b7
   - enabled: 1
-    path: Assets/Scenes/MainGame.unity
+    path: "Assets/Scenes/\uB9C8\uC744.unity"
     guid: 814bf6890512b6e498bc0721c6d3c0ba
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: "Assets/Scenes/\uBA54\uB274.unity"
     guid: fbb97d3f51ed5f747b604134fedc8a4b
   - enabled: 1
-    path: Assets/Scenes/2page/2page-1.unity
-    guid: 5712a68ebd40cee48bf8c0a2561a4a8f
+    path: "Assets/Scenes/3\uC7A5.unity"
+    guid: d4373327c49e9134c9f288b2c6134902
   - enabled: 1
-    path: Assets/Scenes/2page/2page-2.unity
-    guid: fedf410ef31d1d0498c45251d710a46b
-  - enabled: 1
-    path: Assets/Scenes/2page/2page-3.unity
-    guid: 52a696ac8f34d904dbf2d56fe4ba8047
-  - enabled: 1
-    path: Assets/Scenes/2page/2page-4.unity
-    guid: 6f4b457a4aab4f04ebc9c376cb746386
-  - enabled: 1
-    path: Assets/Scenes/2page/2page-5.unity
-    guid: c48b103631f628a4495e7d2bd1cd6a48
-  - enabled: 1
-    path: Assets/Scenes/2page/2page-boss.unity
-    guid: 3ee2ebdb4344c4f44b60935df5abe290
-  - enabled: 1
-    path: Assets/Scenes/2page/2Page.unity
+    path: "Assets/Scenes/2\uC7A5.unity"
     guid: b2f136b343fb7d24c8f65474defea306
+  - enabled: 1
+    path: "Assets/Scenes/\uC2DC\uC791.unity"
+    guid: 226bd11c41c302d4e9d6f7db6bc04c88
   m_configObjects: {}

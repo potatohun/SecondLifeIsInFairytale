@@ -34,6 +34,11 @@ public class Boss : MonoBehaviour
             StartCoroutine(this.Die());
         }
     }
+    public void IsDie()
+    {
+        isDie = true;
+    }
+
     IEnumerator Die()
     {
         yield return new WaitForSeconds(1f);

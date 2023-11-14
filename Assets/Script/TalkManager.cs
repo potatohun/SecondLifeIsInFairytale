@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,10 +9,10 @@ using UnityEngine.UI;
 
 public class TalkManager : MonoBehaviour
 {
-    public TMP_Text talkText;
+    public Text talkText;
     public GameObject textBox;
     public bool moveAble;
-    public Player player;
+    public PlayerScanner playerscanner;
     public Image fade;
     public Text chapterText;
     public MapController mapController;
@@ -22,41 +23,56 @@ public class TalkManager : MonoBehaviour
     private void Start()
     {
         // 맵 진입시 뜨는 UI 관리
-        chapterText.text = SceneManager.GetActiveScene().name;
+        if(SceneManager.GetActiveScene().name == "마을")
+        {
+            chapterText.text = "마을";
+        }
+        else
+        {
+            chapterText.text = SceneManager.GetActiveScene().name + "1절";
+        }
+
         fade.gameObject.SetActive(true);
         chapterText.gameObject.SetActive(true);
 
         StartCoroutine(FadeIn());                     //코루틴    //판넬 투명도 조절
-        talkText = textBox.GetComponentInChildren<TMP_Text>();
+        talkText = textBox.GetComponentInChildren<Text>();
         textBox.gameObject.SetActive(false);
         moveAble = false;
         SceneManager.sceneLoaded += OnSceneLoaded;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        playerscanner = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScanner>();
         mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapController>();
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) /*&& moveAble == true*/)
+        if (Input.GetKeyDown(KeyCode.F) && playerscanner.ScanObj() != null)
         {
-            if (player.ScanObj().gameObject.CompareTag("Npc"))
+            if (playerscanner.ScanObj().gameObject.CompareTag("Npc"))
             {
                 Debug.Log("NPC와 대화");
                 TalkWithNPC();
             }
-            else if (player.ScanObj().gameObject.CompareTag("1Page"))
+            else if (playerscanner.ScanObj().gameObject.CompareTag("1Page"))
             {
                 //1포탈일때
                 Move1Page();
             }
-            else if (player.ScanObj().gameObject.CompareTag("2Page"))
+            else if (playerscanner.ScanObj().gameObject.CompareTag("2Page"))
             {
                 //2포탈일때
                 Move2Page();
             }
-            else if (player.ScanObj().gameObject.CompareTag("Portal"))
+            else if (playerscanner.ScanObj().gameObject.CompareTag("3Page"))
+            {
+                //3포탈일때
+                Move3Page();
+            }
+            else if (playerscanner.ScanObj().gameObject.CompareTag("Portal"))
             {
                 //그냥 포탈일때
                 mapController.MapChange();
+                PlayerPrefs.SetInt("CurrentVerse", PlayerPrefs.GetInt("CurrentVerse") + 1);
+                chapterText.text = PlayerPrefs.GetInt("CurrentChapter").ToString() + "장" + PlayerPrefs.GetInt("CurrentVerse").ToString() + "절";
                 StartCoroutine(FadeIn());
                 //MovePortal();
             }
@@ -65,33 +81,24 @@ public class TalkManager : MonoBehaviour
 
     public void Move1Page()
     {
+        PlayerPrefs.SetInt("CurrentChapter", 1);
+        PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
-        SceneManager.LoadScene("1Page");
+        SceneManager.LoadScene("1장");
     }
     public void Move2Page()
     {
+        PlayerPrefs.SetInt("CurrentChapter", 2);
+        PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
-        SceneManager.LoadScene("2Page");
+        SceneManager.LoadScene("2장");
     }
-    public void MovePortal()
+    public void Move3Page()
     {
-        int num = GameManager.gameManager.GetVerse();
-
-        if (num == GameManager.maxVerse) //보스
-        {
-            moveAble = false;
-            string scenes = "2page-boss";
-            Debug.Log(scenes);
-            SceneManager.LoadScene(scenes);
-        }
-        else // 일반
-        {
-            moveAble = false;
-            int randomNumber = Random.Range(1, 6);
-            string scenes = "2page-" + randomNumber;
-            Debug.Log(scenes);
-            SceneManager.LoadScene(scenes);
-        }
+        PlayerPrefs.SetInt("CurrentChapter", 3);
+        PlayerPrefs.SetInt("CurrentVerse", 1);
+        moveAble = false;
+        SceneManager.LoadScene("3장");
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -112,7 +119,7 @@ public class TalkManager : MonoBehaviour
 
     public void TalkWithNPC()
     {
-        Npc npc = player.ScanObj().gameObject.GetComponent<Npc>();
+        Npc npc = playerscanner.ScanObj().gameObject.GetComponent<Npc>();
 
         if (npc.talk_count == npc.words.Count)
         {

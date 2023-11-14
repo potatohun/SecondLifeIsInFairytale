@@ -47,9 +47,6 @@ public class Player : MonoBehaviour
 
     public GameObject weapon;
 
-    public Vector3 dirvec;
-    public GameObject scanObj;
-
     public bool isSeegRight = true;
 
     public float x;
@@ -106,34 +103,9 @@ public class Player : MonoBehaviour
         Inventory = GetComponentInChildren<InventroyManager>();
 
     }
-    void Update()
+
+    private void Update()
     {
-        //Debug.Log(PlayerPrefs.GetInt("currentChapter"));
-        RaycastHit2D rayhit;
-
-        if (transform.localScale.x > 0)
-        {
-            Debug.DrawRay(transform.position + new Vector3(1, 0, 0), Vector3.forward * 20f, Color.green);
-            rayhit = Physics2D.Raycast(transform.position + new Vector3(1, 0, 0), Vector3.forward * 20f, LayerMask.GetMask("Object"));
-        }
-        else
-        {
-            Debug.DrawRay(transform.position + new Vector3(-1, 0, 0), Vector3.back * 20f, Color.green);
-            rayhit = Physics2D.Raycast(transform.position + new Vector3(-1, 0, 0), Vector3.back * 20f, LayerMask.GetMask("Object"));
-        }
-
-        if (rayhit.collider != null)
-        {
-            scanObj = rayhit.collider.gameObject;
-            if (scanObj.layer == LayerMask.NameToLayer("Item"))
-            {
-                Item item = scanObj.GetComponent<Item>();
-                //item.isWatched = true; //아이템 쳐다보는중
-            }
-        }
-        else
-            scanObj = null;
-
         Jump();
         ComboAttack();
         Roll();
@@ -148,13 +120,6 @@ public class Player : MonoBehaviour
     {
         ani.SetFloat("speed", input.magnitude);
     }
-
-    //오브젝트 스캔
-    public GameObject ScanObj()
-    {
-        return scanObj;
-    }
-
     void Move()
     {
 
@@ -225,16 +190,16 @@ public class Player : MonoBehaviour
             switch (collider.tag)
             {
                 case "Pozol":
-                    collider.GetComponent<Pozol>().TakeDamage(10);//데미지 어케함               
+                    collider.GetComponent<Pozol>().TakeDamage(20);//데미지 어케함               
                     break;
                 case "Arrow_Pozol":
-                    collider.GetComponent<ArrowPozol>().TakeDamage(10);//데미지 어케함             
+                    collider.GetComponent<ArrowPozol>().TakeDamage(20);//데미지 어케함             
                     break;
                 case "Tiger":
-                    collider.GetComponent<Tiger>().TakeDamage(10);//데미지 어케함             
+                    collider.GetComponent<Tiger>().TakeDamage(20);//데미지 어케함             
                     break;
                 case "Nolbu":
-                    collider.GetComponent<Nolbu>().TakeDamage(2);//데미지 어케함             
+                    collider.GetComponent<NewNolbu>().TakeDamage(1);//데미지 어케함             
                     break;
             }
         }

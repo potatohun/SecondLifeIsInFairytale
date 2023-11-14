@@ -22,8 +22,8 @@ public class DamageText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0f, moveSpeed * Time.deltaTime, 0f));
-        alpha.a = Mathf.Lerp(alpha.a, 0, Time.deltaTime * alphaSpeed);
+        transform.Translate(new Vector3(0f, moveSpeed*Time.deltaTime, 0f));
+        alpha.a = Mathf.Lerp(alpha.a, 0, Time.deltaTime*alphaSpeed);
         text.color = alpha;
     }
 

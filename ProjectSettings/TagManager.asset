@@ -22,6 +22,9 @@ TagManager:
   - RollPaper
   - MapController
   - Npc
+  - manim
+  - box
+  - 3Page
   layers:
   - Default
   - TransparentFX

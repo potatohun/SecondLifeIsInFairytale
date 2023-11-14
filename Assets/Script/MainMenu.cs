@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentChapter", 1);
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("Intro");
     }
 
     public void ContinueBtn()

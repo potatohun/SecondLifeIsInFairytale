@@ -4,37 +4,47 @@ using UnityEngine;
 
 public class bomb : MonoBehaviour
 {
-    public float throwForce = 6f;      // 던질 힘
     public float explosionRadius = 1f; // 폭발 범위
-
-    private Animator ani;
-    public float size;
-    public GameObject pos;
     private Rigidbody2D rb;
-    private bool isExploded = false;
+    private Animator ani;
+
+    public GameObject pos;
+    public float size;
+    private bool isExploded;
     private Transform playerTransform; // 플레이어의 Transform
 
+    float distance;
+    bool isRight;
+    float gravityScale = 1f;
+    
     void Start()
     {
+        isExploded = false;
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // 플레이어를 찾아서 Transform 가져오기
-        ThrowBomb();
-        Invoke("destroyBomb", 3f);
-
+        isRight = playerTransform.position.x > transform.position.x;
+        distance = Mathf.Sqrt((playerTransform.position.x - transform.position.x)*(playerTransform.position.x - transform.position.x) + (playerTransform.position.y - transform.position.y) * (playerTransform.position.y - transform.position.y)); // 둘 사이 거리
+        Launch();
     }
 
-    void ThrowBomb()
+    void Launch()
     {
-        // 플레이어와 폭탄 간의 방향 벡터 계산
-        Vector2 direction = (playerTransform.position - transform.position).normalized;
+        float initialSpeed = Calculate_speed(distance, Physics2D.gravity.y);
+        float angle = isRight ? 45f : 135f;
 
-        // 초기 속도 계산 (폭탄을 위로 던지려면 Y 방향 속도가 양수여야 합니다)
-        Vector2 velocity = direction * throwForce;
-        velocity.y = Mathf.Abs(velocity.y); // Y 방향 속도를 양수로 보정
+        float radianAngle = angle * Mathf.Deg2Rad;
 
-        // Rigidbody2D에 힘 적용
-        rb.velocity = velocity;
+        float VelocityX = initialSpeed * Mathf.Cos(radianAngle);
+        float VelocityY = initialSpeed * Mathf.Sin(radianAngle);
+
+        rb.velocity = new Vector2(VelocityX, VelocityY);
+        rb.gravityScale = gravityScale;
+    }
+
+    float Calculate_speed(float distance, float gravity)
+    {
+        return Mathf.Sqrt(distance * Mathf.Abs(gravity) / Mathf.Sin(2f * 45f * Mathf.Deg2Rad));
     }
 
     void Explode()
@@ -43,18 +53,13 @@ public class bomb : MonoBehaviour
 
         isExploded = true;
 
-        // 폭발 효과를 여기에 추가하세요.
-        // 예를 들어, 폭발 사운드를 재생하거나 폭발 이펙트를 생성할 수 있습니다.
-
-        // 주변에 있는 모든 Collider2D 가져오기
+        Destroy(rb);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(pos.transform.position, explosionRadius);
 
         foreach (Collider2D col in colliders)
         {
-            // 여기에서 각 Collider에 대한 작업을 수행하세요.
             if (col.CompareTag("Player"))
             {
-                // 플레이어에게 데미지 주기 또는 다른 동작 수행
                 Debug.Log("플레이어에게 데미지 주기");
             }
             else
@@ -69,7 +74,7 @@ public class bomb : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmos() // 컴파일 할 때 자동 실행됨.
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(pos.transform.position, size);
@@ -81,9 +86,8 @@ public class bomb : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Player"))
             {
-                ani.SetTrigger("bomb");
                 transform.localScale = new Vector3(2f, 2f, 0f);
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                ani.SetTrigger("bomb");
                 Explode();
             }
         }
