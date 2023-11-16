@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: d4c40aee38e021042b4edf1e64443033, type: 3}
-  title: JUMP
-  text: Jump +
+  title: "\uB3C4\uC57D \uAC70\uB9AC \uC99D\uAC00"
+  text: "\uB3C4\uC57D \uAC70\uB9AC \uC99D\uAC00 \uBE44\uC6A9 : "
   useType: 3

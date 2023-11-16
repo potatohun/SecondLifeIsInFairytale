@@ -30,6 +30,9 @@ public class CardData : MonoBehaviour
             case UseType.speed:
                 Debug.Log(useType + " " + amount);
                 break;
+            case UseType.item:
+                Debug.Log(useType + " ");
+                break;
         }
     }
 }
@@ -39,5 +42,6 @@ public enum UseType
     heal,
     damage,
     jump,
-    speed
+    speed,
+    item
 }

@@ -14,7 +14,7 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
     public GameObject text;
 
     int randomIndex;
-    int amount;
+    int cost;
 
     public Transform cardScale;
 
@@ -23,11 +23,11 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
     private void Start()
     {
         //랜덤 1~10 값 설정
-        amount = Random.Range(1, 10);
+        cost = Random.Range(1, 4);
         carddata = CardManager.instance.cardData;
         defaultScale = cardScale.localScale;
         this.SetIcon();
-        Debug.Log(amount);
+        Debug.Log(cost);
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -43,12 +43,18 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        carddata[0].UseItem(carddata[randomIndex].useType, amount);
-        GameObject parentObject = this.gameObject.transform.parent.gameObject;
-        parentObject.SetActive(false);
-
-        SceneManager.LoadScene("마을");
-
+        if(PlayerPrefs.GetInt("RollPaper") >= cost)
+        {
+            carddata[0].UseItem(carddata[randomIndex].useType, cost);
+            PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") - cost);
+            GameObject parentObject = this.gameObject.transform.parent.gameObject;
+            parentObject.SetActive(false);
+            SceneManager.LoadScene("마을");
+        }
+        else
+        {
+            Debug.Log("두루마기가 부족합니다.");
+        }
     }
 
     private void SetIcon()
@@ -58,11 +64,11 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
             randomIndex = Random.Range(0, carddata.Length);
             Image imageComponent = Icon.GetComponent<Image>();
             imageComponent.sprite = carddata[randomIndex].icon;
-            TMP_Text titleComponent = title.GetComponent<TMP_Text>();
+            Text titleComponent = title.GetComponent<Text>();
             titleComponent.text = carddata[randomIndex].title;
-            TMP_Text textComponent = text.GetComponent<TMP_Text>();
+            Text textComponent = text.GetComponent<Text>();
             textComponent.text = carddata[randomIndex].text;
-            textComponent.text = textComponent.text + " " + amount;
+            textComponent.text = textComponent.text + " " + cost;
         }
         else
         {

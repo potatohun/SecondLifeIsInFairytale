@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 4941e3bee5383e64faf2138112b9d204, type: 3}
-  title: Damage
-  text: Damage +
+  title: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+  text: "\uACF5\uACA9\uB825 \uC99D\uAC00 \uBE44\uC6A9 : "
   useType: 2

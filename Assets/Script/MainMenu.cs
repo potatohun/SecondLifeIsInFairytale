@@ -5,37 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public GameObject optionWindow;
     public void NewStartBtn()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentChapter", 1);
-        SceneManager.LoadScene("Intro");
+        PlayerPrefs.SetInt("RollPaper", 10);
+        SceneManager.LoadScene("시작");
     }
 
     public void ContinueBtn()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("마을");
     }
 
     public void OptionBtn()
     {
-
+        OptionWindowOpen();
     }
 
     public void ExitBtn()
     {
         Application.Quit();
+    }
+
+    public void OptionWindowOpen()
+    {
+        optionWindow.SetActive(true);
+    }
+
+    public void OptionWindowClose()
+    {
+        optionWindow.SetActive(false);
     }
 }

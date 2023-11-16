@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RewardManager : MonoBehaviour
 {
@@ -17,9 +18,14 @@ public class RewardManager : MonoBehaviour
             newObject.gameObject.name = "Card " + i;
         }
     }
-
     void RewardUI()
     {
         this.gameObject.SetActive(true);
+    }
+
+    public void SkipBtnClick()
+    {
+        this.gameObject.SetActive(false);
+        SceneManager.LoadScene("¸¶À»");
     }
 }

@@ -137,10 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemStatusPrefab: {fileID: 6564505999613588870, guid: 10ffb787461b7486ab7572d32e815fb4, type: 3}
-  ItemStatus: {fileID: 0}
-  ItemStatusPos: {x: 0, y: 0, z: 0}
-  playerTransform: {fileID: 0}
-  activationDistance: 1
   uiPrefab: {fileID: 6910069457707709919, guid: 21817381f5954493bbf6d1ca6c436048, type: 3}
   coolTimePrefab: {fileID: 7245457028196654339, guid: fa3e3dc10038048a6a9548394c73e1c7, type: 3}
   isCoolingDown: 0

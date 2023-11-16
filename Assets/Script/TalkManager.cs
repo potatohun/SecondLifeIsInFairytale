@@ -23,9 +23,9 @@ public class TalkManager : MonoBehaviour
     private void Start()
     {
         // 맵 진입시 뜨는 UI 관리
-        if(SceneManager.GetActiveScene().name == "마을")
+        if(SceneManager.GetActiveScene().name == "마을" || SceneManager.GetActiveScene().name == "시작")
         {
-            chapterText.text = "마을";
+            chapterText.text = SceneManager.GetActiveScene().name;
         }
         else
         {

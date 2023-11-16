@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 924700d9585b9c54ea9c66c601c90ab1, type: 3}
-  title: HP UP
-  text: Heal +
+  title: "\uD68C\uBCF5"
+  text: "\uD68C\uBCF5 \uBE44\uC6A9 : "
   useType: 1

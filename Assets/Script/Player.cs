@@ -201,6 +201,9 @@ public class Player : MonoBehaviour
                 case "Nolbu":
                     collider.GetComponent<NewNolbu>().TakeDamage(1);//데미지 어케함             
                     break;
+                case "manim":
+                    collider.GetComponent<Pozol>().TakeDamage(20);//데미지 어케함             
+                    break;
             }
         }
     }
@@ -335,7 +338,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("충돌");
         switch (other.tag)
         { 
             case "Potion":
