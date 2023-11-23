@@ -25,6 +25,10 @@ TagManager:
   - manim
   - box
   - 3Page
+  - Weapon
+  - Amulet
+  - TimeLine
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -36,7 +40,7 @@ TagManager:
   - Player
   - Item
   - foot
-  - 
+  - Enemy
   - 
   - 
   - 

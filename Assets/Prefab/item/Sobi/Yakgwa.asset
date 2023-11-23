@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfdcd69d0e2c94898a06242ac85170e2, type: 3}
+  m_Name: Yakgwa
+  m_EditorClassIdentifier: 
+  itemName: "\uC57D\uACFC"
+  itemIamge: {fileID: 21300000, guid: 534c3b15e5a1d4206a8c9e204d0a7ef8, type: 3}
+  coolTimeIamge: {fileID: 21300000, guid: 534c3b15e5a1d4206a8c9e204d0a7ef8, type: 3}
+  itemPrefab: {fileID: 1202946447627686168, guid: 969b56fe15767ba4985926f6da14b004, type: 3}
+  itemStatusPrefab: {fileID: 7332568455652740340, guid: 6c399339ee39b494bbc647b1cfb58793, type: 3}
+  itemEffect: MaxHP + 35 HP + 20
+  itemTooltip: "\uADF8 \uC815\uB3C4\uB294 \uC57D\uACFC\uC9C0!"
+  value: 20
+  maxHp: 35
+  damage: 0

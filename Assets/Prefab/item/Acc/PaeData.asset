@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd72de52709a4880b5913f50f7ec15a, type: 3}
+  m_Name: PaeData
+  m_EditorClassIdentifier: 
+  itemName: "\uD328\uB7AD\uC774"
+  itemIamge: {fileID: 21300000, guid: 6f7d05ab503274bc68db3ea5faf78142, type: 3}
+  coolTimeIamge: {fileID: 0}
+  itemPrefab: {fileID: 8945415627688658021, guid: 8fe1b3c3f39d948fca6ba48bfa546d0b, type: 3}
+  itemStatusPrefab: {fileID: 7332568455652740340, guid: 6c399339ee39b494bbc647b1cfb58793, type: 3}
+  itemEffect: "\uCD5C\uB300\uCCB4\uB825 + 10 \uACF5\uACA9\uC18D\uB3C4 + 5"
+  itemTooltip: "\uAC15\uD48D\uC5D0 \uB0A0\uC544\uAC00\uC9C0 \uC54A\uAC8C \uC870\uC2EC\uD558\uC2DC\uC624."
+  maxHp: 10
+  moveSpeed: 0
+  damage: 0
+  attackSpeed: 5

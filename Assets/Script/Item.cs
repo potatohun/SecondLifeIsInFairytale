@@ -3,78 +3,109 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
-public class Item: MonoBehaviour
-{
-    public GameObject ItemStatusPrefab;
-    protected GameObject ItemStatus;
-    protected Vector3 ItemStatusPos;
 
-    protected Transform playerTransform;
-
+public class Item : MonoBehaviour
+{   
+    public ItemData item;
+    public Player player;
+    protected GameObject inventory;
+    protected InventoryManager inventoryManager;
+    
     protected float activationDistance = 1.0f;
 
-    //
-    public Image uiPrefab; // Image 컴포넌트를 가진 UI 이미지 프리팹
-    protected Image uiInstance; // 생성된 UI 이미지를 저장할 변수
-
-    protected Canvas targetCanvas;
-    protected RectTransform SlotPostion;
-
-
-    protected GameObject Player;
-    protected Player playerScript;
-    protected InventroyManager Inventory;
+    public GameObject ItemStatus;
 
     protected void Awake()
-    {
-        ItemStatusPos = transform.position + new Vector3(0f, 3.0f, 0f);
-        ItemStatus = Instantiate(ItemStatusPrefab, ItemStatusPos, Quaternion.identity);
+    {   
+        StartCoroutine(MoveUpDown());
+        Vector3 ItemStatusPos = transform.position + new Vector3(0f, 3.75f, 0f);
+        ItemStatus = Instantiate(item.itemStatusPrefab, ItemStatusPos, Quaternion.identity);
         ItemStatus.transform.parent = this.transform;
         ItemStatus.SetActive(false);
 
-        Player = GameObject.Find("Player");
-        playerScript = Player.GetComponent<Player>();
-        playerTransform = Player.transform;
-        Inventory = Player.GetComponentInChildren<InventroyManager>();
+        SetItemStatusInfo(ItemStatus, item.itemName,item.itemIamge,item.itemEffect,item.itemTooltip);
+
+        inventory = GameObject.Find("Inventory");
+        inventoryManager = inventory.GetComponent<InventoryManager>();
+        player= inventoryManager.Player;
     }
 
     protected virtual void Update()
     {
-        //아이템 스테이터스 띄우는 조건
-        float distance = Vector3.Distance(transform.position, playerTransform.position);
+        float distance = Vector3.Distance(transform.position, inventory.transform.position);
 
-        if (ItemStatus != null && distance <= activationDistance)
-        {
+        if (ItemStatus != null &&distance <= activationDistance)
+        {  
             ItemStatus.SetActive(true);
         }
-        else
-        {
-            if (ItemStatus != null)
+        else 
+        {   
+            if(ItemStatus != null)
                 ItemStatus.SetActive(false);
         }
-
     }
-    public virtual void AddUI(float index)
+
+    private void SetItemStatusInfo(GameObject itemStatus,string itemName, Sprite itemImage,string itemEffect, string itemTooltip)
     {
-        //캔버스 찾아서
-        targetCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-        //SlotPostion = GameObject.Find("Slot" + index).GetComponent<RectTransform>();
-        //해당 위치에 ui이미지 생성
-        uiInstance = Instantiate(uiPrefab);
-        uiInstance.rectTransform.position = SlotPostion.position;
-        uiInstance.rectTransform.localScale = new Vector3(0.345f, 0.345f, 0f);
-        uiInstance.transform.SetParent(targetCanvas.transform);
+        TextMeshProUGUI Name = itemStatus.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+        Image Icon = itemStatus.transform.Find("Icon").GetComponent<Image>();
+        TextMeshProUGUI Effect = itemStatus.transform.Find("Effect").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI Tootip = itemStatus.transform.Find("Tooltip").GetComponent<TextMeshProUGUI>();
 
+        Name.text=itemName;
+        Icon.sprite = itemImage;
+        Effect.text=itemEffect;
+        Tootip.text = itemTooltip;
     }
+    IEnumerator MoveUpDown()
+    {
+        float moveDistance = 0.15f;
+        float duration = 0.6f;
+
+        while (true)
+        {
+            // 아래로 이동
+            yield return MoveY(transform.localPosition.y - moveDistance, duration);
+
+            // 잠시 대기
+            yield return new WaitForSeconds(0.5f);
+
+            // 위로 이동
+            yield return MoveY(transform.localPosition.y + moveDistance, duration);
+
+            // 잠시 대기
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    IEnumerator MoveY(float targetY, float duration)
+    {
+        Vector3 startPosition = transform.localPosition;
+        Vector3 endPosition = new Vector3(startPosition.x, targetY, startPosition.z);
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            transform.localPosition = Vector3.Lerp(startPosition, endPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 정확한 위치로 설정
+        transform.localPosition = endPosition;
+    }
+    
     protected void OnDisable()
     {
         if (ItemStatus != null)
         {
             ItemStatus.SetActive(false);
         }
-
+        
     }
 
     protected void OnDestroy()
@@ -84,26 +115,4 @@ public class Item: MonoBehaviour
             Destroy(ItemStatus);
         }
     }
-    /*
-    protected void letsCooldown()
-    {
-        coolTimeInstance.fillAmount=1.0f;
-        currentCooldown = 0.0f;
-        isCoolingDown=true;
-    }
-    protected void UpdateCooldown()
-    {
-        
-        currentCooldown += Time.deltaTime;
-        coolTimeInstance.fillAmount = 1-currentCooldown;
-        if (currentCooldown >= cooldownTime)
-        {
-            isCoolingDown = false;
-            Destroy(uiInstance);
-            Destroy(coolTimeInstance);
-            if(this.gameObject.tag=="Potion")Destroy(this.gameObject);
-    
-        }
-    }
-    */
 }

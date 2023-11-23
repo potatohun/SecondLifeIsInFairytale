@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d95c6ba51674347d0b198f2173218951, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ca269d13a891420f818d72d201d7fb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,5 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282c7621918a84cf7bacc8945868190c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemStatusPrefab: {fileID: 6564505999613588870, guid: 10ffb787461b7486ab7572d32e815fb4, type: 3}
-  uiPrefab: {fileID: 0}
+  item: {fileID: 11400000, guid: 4da4fe705ba5e4ba1a0143db5d092d6a, type: 2}
+  player: {fileID: 0}
+  ItemStatus: {fileID: 0}

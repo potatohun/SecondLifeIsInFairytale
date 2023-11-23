@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI; 
 public class RollPaper : MonoBehaviour
 {
-
     public Text rollpaper_text;
 
     private void Start()

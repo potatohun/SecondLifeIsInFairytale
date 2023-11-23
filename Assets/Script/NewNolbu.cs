@@ -158,7 +158,7 @@ public class NewNolbu : MonoBehaviour
     // hit 시에 나오는 금은보화 상자와 함께 몬스터의 무적상태를 위한 collider2D box 비활성화, 위치 조정 함수 필요
     public IEnumerator hitAndGold()
     {
-        transform.position += new Vector3(0f, 1.3f, 0f);
+        transform.position += new Vector3(0f, 1.5f, 0f);
         SetMoney(0, 1);
         yield return new WaitForSeconds(3f);
         while (currentPatternCoroutine != null)
@@ -168,7 +168,7 @@ public class NewNolbu : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SetCollider(1);
         SetMoney(0, 0);
-        transform.position -= new Vector3(0f, 1.3f, 0f);
+        transform.position -= new Vector3(0f, 1.5f, 0f);
     }
 
     //데미지 입는 함수(= takeDamage) 일단 예비용 가져옴

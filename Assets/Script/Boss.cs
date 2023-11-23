@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour
 {
     public bool isDie;
     GameObject rewardManager;
+    public GameObject cinemachine;
 
     private void Start()
     {
@@ -41,12 +42,12 @@ public class Boss : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(1f);
-
+        cinemachine.SetActive(true);
+        yield return new WaitForSeconds(3f);
         //죽는 애니메이션 실행
 
         rewardManager.gameObject.SetActive(true);
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 
 }

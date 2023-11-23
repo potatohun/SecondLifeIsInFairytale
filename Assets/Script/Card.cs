@@ -20,6 +20,8 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
 
     Vector3 defaultScale;
 
+    public Animator animator;
+
     private void Start()
     {
         //랜덤 1~10 값 설정
@@ -31,19 +33,20 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //마우스 커서 가져다 대면 1.1배 커짐
-        cardScale.localScale = defaultScale * 1.1f;
+        animator.SetBool("OnCursor", true);
+        Debug.Log("커서 가져다댐");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //마우스 커서 떼면 다시 기본 사이즈로
-        cardScale.localScale = defaultScale * 1.0f;
+        animator.SetBool("OnCursor", false);
+        Debug.Log("커서 뗌");
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(PlayerPrefs.GetInt("RollPaper") >= cost)
+        Debug.Log("클릭함");
+        if (PlayerPrefs.GetInt("RollPaper") >= cost)
         {
             carddata[0].UseItem(carddata[randomIndex].useType, cost);
             PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") - cost);

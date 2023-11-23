@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Potion : Sobi
 {  
+
     void Start()
-    {
+    {   
         switch(this.gameObject.name)
         {
             case "Apple(Clone)":
@@ -19,32 +20,16 @@ public class Potion : Sobi
                 this.gameObject.name="Yakgwa";
                 break;   
         }
-    }
 
+        //sobiData.sobitpye=SobiData.SobiType.Potion;
+    }
     public void UsePotion()
     {   
-        switch(this.gameObject.name)
-        {
-            case "Apple":
-                useItem();
-                playerScript.HP += 5;
-                if(playerScript.HP>playerScript.MAXHP)playerScript.HP=playerScript.MAXHP;
-                //Destroy(this.gameObject);
-                break;
-            case "RiceCake":
-                useItem();
-                playerScript.HP += 15;
-                if(playerScript.HP>playerScript.MAXHP)playerScript.HP=playerScript.MAXHP;
-                //Destroy(this.gameObject);
-                break;
-            case "Yakgwa":
-                useItem();
-                playerScript.MAXHP+=10;
-                playerScript.HP+=10;
-                if(playerScript.HP>playerScript.MAXHP)playerScript.HP=playerScript.MAXHP;
-                //Destroy(this.gameObject);
-                break;
-        }
+        if(sobiData.maxHp!=null)player.MAXHP+=sobiData.maxHp;
+        player.HP+=sobiData.value;
+        if(player.HP>player.MAXHP)player.HP=player.MAXHP;
+        Destroy(this.gameObject);
+        
     }
     
 }

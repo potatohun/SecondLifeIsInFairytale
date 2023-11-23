@@ -85,9 +85,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8268909502975874624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1656ae5e873ff684381c1b49220b1994, type: 3}
+  m_Script: {fileID: 11500000, guid: fb17dd5325e0e0143ad59143ee84bcdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  shakeTime: 0
   shakeAmount: 0

@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8255574088053871385}
   - component: {fileID: 5123119559220755275}
-  - component: {fileID: 4281572351638483812}
   - component: {fileID: 1196287078346682921}
   - component: {fileID: -2618047294744731552}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RiceCake
   m_TagString: Potion
   m_Icon: {fileID: 0}
@@ -76,38 +75,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3ad21b41348a4a89a41bdb894b5b0c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4281572351638483812
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2996274718830421279}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &1196287078346682921
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,11 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed761450133a345d382d6305df4c23df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemStatusPrefab: {fileID: 6564505999613588870, guid: 10ffb787461b7486ab7572d32e815fb4, type: 3}
-  ItemStatusPos: {x: 0, y: 0, z: 0}
-  playerTransform: {fileID: 0}
-  activationDistance: 1
+  item: {fileID: 11400000, guid: 57f977f57f9f3459a8a51ea42b1d2161, type: 2}
+  player: {fileID: 0}
   ItemStatus: {fileID: 0}
-  uiPrefab: {fileID: 6910069457707709919, guid: 21817381f5954493bbf6d1ca6c436048, type: 3}
-  coolTimePrefab: {fileID: 7245457028196654339, guid: fa3e3dc10038048a6a9548394c73e1c7, type: 3}
-  isCoolingDown: 0
+  sobiData: {fileID: 11400000, guid: 57f977f57f9f3459a8a51ea42b1d2161, type: 2}

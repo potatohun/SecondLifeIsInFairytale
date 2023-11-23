@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfdcd69d0e2c94898a06242ac85170e2, type: 3}
+  m_Name: Rock
+  m_EditorClassIdentifier: 
+  itemName: "\uC9F1\uB3CC"
+  itemIamge: {fileID: 21300000, guid: 6946d405bfea744d3a8dcc1964e86f09, type: 3}
+  coolTimeIamge: {fileID: 21300000, guid: 6946d405bfea744d3a8dcc1964e86f09, type: 3}
+  itemPrefab: {fileID: 5018219198159954922, guid: 5f1d90401ba6c453a98e389d6a899348, type: 3}
+  itemStatusPrefab: {fileID: 7332568455652740340, guid: 6c399339ee39b494bbc647b1cfb58793, type: 3}
+  itemEffect: 25 Damage
+  itemTooltip: "\uAC1C\uAD6C\uB9AC\uAC00 \uC544\uB2C8\uC5B4\uB3C4 \uC8FD\uC744 \uC218
+    \uC788\uC9C0 \uC54A\uC744\uAE4C?"
+  value: 0
+  maxHp: 0
+  damage: 25

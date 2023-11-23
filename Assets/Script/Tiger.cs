@@ -183,8 +183,12 @@ public class Tiger : MonoBehaviour
         if (HP <= 0)
         {
             dead = true;
-            boss.isDie = true;
             ani.SetTrigger("die");
         }
+    }
+
+    void SetDie()
+    {
+        boss.isDie = true;
     }
 }

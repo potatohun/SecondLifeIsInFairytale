@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8586209584243114792}
-  - component: {fileID: 1343241174162275609}
   - component: {fileID: 3421535570574502848}
+  - component: {fileID: 1343241174162275609}
   - component: {fileID: 3466884955380363937}
   - component: {fileID: -6588321620782069607}
   m_Layer: 6
@@ -35,22 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1343241174162275609
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5018219198159954922}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &3421535570574502848
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,17 +76,33 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6582046967323461550, guid: 274d64617113287499ed1c4165d1d8f3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6946d405bfea744d3a8dcc1964e86f09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1343241174162275609
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018219198159954922}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!50 &3466884955380363937
 Rigidbody2D:
   serializedVersion: 4
@@ -136,10 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596b68db6818d4a4a85c64b9cc08079f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemStatusPrefab: {fileID: 6564505999613588870, guid: 10ffb787461b7486ab7572d32e815fb4, type: 3}
-  uiPrefab: {fileID: 6910069457707709919, guid: 21817381f5954493bbf6d1ca6c436048, type: 3}
-  coolTimePrefab: {fileID: 7245457028196654339, guid: fa3e3dc10038048a6a9548394c73e1c7, type: 3}
-  isCoolingDown: 0
+  item: {fileID: 11400000, guid: f8c29c24bd74b46f4bc05a4faaa4a708, type: 2}
+  player: {fileID: 0}
+  ItemStatus: {fileID: 0}
+  sobiData: {fileID: 11400000, guid: f8c29c24bd74b46f4bc05a4faaa4a708, type: 2}
   TrapPrefab: {fileID: 7562757706756403921, guid: 9959f2758d8c44309b3f7da11af22e5a, type: 3}
   RockPrefab: {fileID: 5018219198159954922}
-  Damage: 15

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5205242663148497042}
   - component: {fileID: 1151769077438761487}
-  - component: {fileID: 1725496279658369580}
   - component: {fileID: -4609526720879539531}
+  - component: {fileID: 6763970705486382592}
   m_Layer: 0
   m_Name: StrawShoes
   m_TagString: Accessory
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c0aa8d8cdf3ee4b4e8f6e5ef2aa93ba6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8252b61b1f32a48c28ddf9bd2320ce8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,26 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1725496279658369580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4863203904972576611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da41b02ddbff4394d860bf536d50184a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemStatusPrefab: {fileID: 6564505999613588870, guid: 10ffb787461b7486ab7572d32e815fb4, type: 3}
-  ItemStatus: {fileID: 0}
-  ItemStatusPos: {x: 0, y: 0, z: 0}
-  playerTransform: {fileID: 0}
-  activationDistance: 2
-  uiPrefab: {fileID: 0}
-  coolTimePrefab: {fileID: 0}
-  isCoolingDown: 0
 --- !u!58 &-4609526720879539531
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -122,3 +102,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.36
+--- !u!114 &6763970705486382592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863203904972576611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b46c5196e9a4f22bb6485daea292f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 46cbc4d40bb5f4177a52cebebd28178e, type: 2}
+  player: {fileID: 0}
+  ItemStatus: {fileID: 0}
+  accessoryData: {fileID: 11400000, guid: 46cbc4d40bb5f4177a52cebebd28178e, type: 2}

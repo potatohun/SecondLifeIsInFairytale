@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     {
         gameManager = this;
 
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
     public static GameManager gamemanager
