@@ -1,13 +1,14 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public GameObject[] weaponEffect;
     public Player player;
     public Vector2 boxSize;
     public Transform boxPos;
 
-    public GameObject attackEffect;
+    public GameObject[] attackEffect = null;
+
 
     public int combo = 1;
     public bool canAttack = true;
@@ -16,7 +17,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (player.ani.GetCurrentAnimatorStateInfo(0).IsName("Idle") || player.ani.GetCurrentAnimatorStateInfo(0).IsName("Walk")) // °ø°İ¾Æ´Ò¶§ ÃÊ±âÈ­
+            //tlqkf
+
+            if (player.ani.GetCurrentAnimatorStateInfo(0).IsName("Idle") || player.ani.GetCurrentAnimatorStateInfo(0).IsName("Walk")) // ï¿½ï¿½ï¿½İ¾Æ´Ò¶ï¿½ ï¿½Ê±ï¿½È­
             {
                 combo = 1;
                 player.ani.SetInteger("Combo", 0);
@@ -34,6 +37,17 @@ public class PlayerAttack : MonoBehaviour
         player.ani.SetInteger("Combo", combo++);
         player.ani.SetTrigger("Attack");
 
+        if (player.ani.GetInteger("Combo") == 3) // ï¿½ï¿½ï¿½İ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        {
+            boxSize = new Vector2(8f, 2.5f);
+            boxPos.transform.localPosition = new Vector3(1.5f, 0f, 0f);
+        }
+        else
+        {
+            boxSize = new Vector2(2.5f, 2.5f);
+            boxPos.transform.localPosition = new Vector3(0.6f, 0f, 0f);
+        }
+
     }
 
     /* IEnumerator ComboAttack()
@@ -46,25 +60,25 @@ public class PlayerAttack : MonoBehaviour
     void Hit()
     {
         Collider2D[] enemy = Physics2D.OverlapBoxAll(boxPos.position, boxSize, 0);
-        foreach (Collider2D collider in enemy) //º´Ã¶ÀÌ¶û Áø±Ô¶û ÅëÇÕÇØ¾ß ÇÏ´Â ÆÄÆ®
+        foreach (Collider2D collider in enemy) //ë³‘ì² ì´ë‘ ì§„ê·œë‘ í†µí•©í•´ì•¼ í•˜ëŠ” íŒŒíŠ¸
         {
             Debug.Log(collider.tag);
             switch (collider.tag)
             {
                 case "Pozol":
-                    collider.GetComponent<Pozol>().TakeDamage(20);//µ¥¹ÌÁö ¾îÄÉÇÔ               
+                    collider.GetComponent<Pozol>().TakeDamage(20);//ë°ë¯¸ì§€ ì–´ì¼€í•¨               
                     break;
                 case "Arrow_Pozol":
-                    collider.GetComponent<ArrowPozol>().TakeDamage(20);//µ¥¹ÌÁö ¾îÄÉÇÔ             
+                    collider.GetComponent<ArrowPozol>().TakeDamage(20);//ë°ë¯¸ì§€ ì–´ì¼€í•¨             
                     break;
                 case "Tiger":
-                    collider.GetComponent<Tiger>().TakeDamage(20);//µ¥¹ÌÁö ¾îÄÉÇÔ             
+                    collider.GetComponent<Tiger>().TakeDamage(20);//ë°ë¯¸ì§€ ì–´ì¼€í•¨             
                     break;
                 case "Nolbu":
-                    collider.GetComponent<NewNolbu>().TakeDamage(1);//µ¥¹ÌÁö ¾îÄÉÇÔ             
+                    collider.GetComponent<NewNolbu>().TakeDamage(1);//ë°ë¯¸ì§€ ì–´ì¼€í•¨             
                     break;
                 case "manim":
-                    collider.GetComponent<Pozol>().TakeDamage(20);//µ¥¹ÌÁö ¾îÄÉÇÔ             
+                    collider.GetComponent<Pozol>().TakeDamage(20);//ë°ë¯¸ì§€ ì–´ì¼€í•¨             
                     break;
             }
         }
@@ -77,24 +91,60 @@ public class PlayerAttack : MonoBehaviour
 
     void PlayAttackSound()
     {
-        //SoundManager.soundManager.GetPlayerAudioClip("SPlayerAttack");
+        SoundManager.soundManager.GetPlayerAudioClip("SPlayerAttack");
     }
 
     void OnAttackEffect()
     {
-        /*GameObject effect = Instantiate(attackEffect, transform.position, transform.rotation);
-        effect.transform.parent = gameObject.transform;
+        GameObject aeffect = Instantiate(attackEffect[player.ani.GetInteger("Combo") - 1], transform.position, transform.rotation);
+        aeffect.transform.parent = gameObject.transform;
 
-        if (gameObject.transform.localScale.x == -2.5f)
+        if (transform.localScale.x == -2.5f)
         {
-           
-            effect.transform.position = effect.transform.position + new Vector3(-1f, -0.1f, 0);
+            Vector3 a = aeffect.transform.localScale;
+            a.x = -a.x;
+            aeffect.transform.localScale = a;
 
+            aeffect.transform.position = aeffect.transform.position + new Vector3(-1f, -0.1f, 0);
         }
         else
+            aeffect.transform.position = aeffect.transform.position + new Vector3(1f, 0.1f, 0);
+
+
+    }
+
+    void onWeaponEffect()
+    {
+        GameObject weffect = null;
+
+        switch (player.weaponType)
         {
-            effect.transform.position = effect.transform.position + new Vector3(1f, 0.1f, 0);
-        }*/
+            case WeaponData.WeaponType.Fire:
+                weffect = Instantiate(weaponEffect[0], transform.position, transform.rotation);
+                break;
+            case WeaponData.WeaponType.Ice:
+                weffect = Instantiate(weaponEffect[1], transform.position, transform.rotation);
+                break;
+            case WeaponData.WeaponType.Blood:
+                weffect = Instantiate(weaponEffect[2], transform.position, transform.rotation);
+                break;
+            case WeaponData.WeaponType.None:
+                return;
+                
+        }
+
+        weffect.transform.parent = gameObject.transform;
+
+        if (transform.localScale.x == -2.5f)
+        {
+            Vector3 a = weffect.transform.localScale;
+            a.x = -a.x;
+            weffect.transform.localScale = a;
+
+            weffect.transform.position = weffect.transform.position + new Vector3(-1.5f, -0.1f, 0);
+        }
+        else
+            weffect.transform.position = weffect.transform.position + new Vector3(1.5f, 0.1f, 0);
 
     }
     private void OnDrawGizmos()

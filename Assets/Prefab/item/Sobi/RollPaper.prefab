@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3664951434966439951}
   - component: {fileID: 4520736241801072177}
   - component: {fileID: 2466452061699840031}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: RollPaper
   m_TagString: RollPaper
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,6 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282c7621918a84cf7bacc8945868190c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 4da4fe705ba5e4ba1a0143db5d092d6a, type: 2}
-  player: {fileID: 0}
-  ItemStatus: {fileID: 0}
+  rollpaper_text: {fileID: 0}

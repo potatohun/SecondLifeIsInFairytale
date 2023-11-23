@@ -22,19 +22,6 @@ public class TalkManager : MonoBehaviour
     }
     private void Start()
     {
-        // 맵 진입시 뜨는 UI 관리
-        if(SceneManager.GetActiveScene().name == "마을" || SceneManager.GetActiveScene().name == "시작")
-        {
-            chapterText.text = SceneManager.GetActiveScene().name;
-        }
-        else
-        {
-            chapterText.text = SceneManager.GetActiveScene().name + "1절";
-        }
-
-        fade.gameObject.SetActive(true);
-        chapterText.gameObject.SetActive(true);
-
         StartCoroutine(FadeIn());                     //코루틴    //판넬 투명도 조절
         talkText = textBox.GetComponentInChildren<Text>();
         textBox.gameObject.SetActive(false);
@@ -56,16 +43,19 @@ public class TalkManager : MonoBehaviour
             {
                 //1포탈일때
                 Move1Page();
+                StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("2Page"))
             {
                 //2포탈일때
                 Move2Page();
+                StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("3Page"))
             {
                 //3포탈일때
                 Move3Page();
+                StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("Portal"))
             {
@@ -103,10 +93,24 @@ public class TalkManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        StartCoroutine(FadeIn());
         Debug.Log("새로운 씬이 로드되었습니다: " + scene.name);
+        mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapController>();
     }
     IEnumerator FadeIn()
     {
+        // 맵 진입시 뜨는 UI 관리
+        if (SceneManager.GetActiveScene().name == "마을" || SceneManager.GetActiveScene().name == "시작")
+        {
+            chapterText.text = SceneManager.GetActiveScene().name;
+        }
+        else
+        {
+            chapterText.text = SceneManager.GetActiveScene().name + PlayerPrefs.GetInt("CurrentVerse").ToString() + "절";
+        }
+
+        fade.gameObject.SetActive(true);
+        chapterText.gameObject.SetActive(true);
         float fadeCount = 1;
         while (fadeCount > 0.0f)
         {

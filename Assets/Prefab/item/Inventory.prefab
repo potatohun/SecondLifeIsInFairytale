@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6577998470878239038}
   - component: {fileID: 6959252697018894908}
   - component: {fileID: 8571140323262681034}
+  - component: {fileID: 1823325471804796969}
   m_Layer: 3
   m_Name: Inventory
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5360742849846822124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04756cd3f4b6fbc498f8591da9e98c1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 50e92423359ed4cad8864eb7f21aac02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
@@ -70,11 +71,37 @@ MonoBehaviour:
   accessorys:
   - {fileID: 0}
   - {fileID: 0}
+  itemList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rollPaperCount: 0
-  RollPaperCountText: {fileID: 0}
+  RollPaperCountText: {fileID: 5020622248472216571, guid: 6eceb38dcfa5e45d6a06c0fdebe22049, type: 3}
   canAddItem: 1
   AdditemCoolTime: 1
   canUseItem: 1
   UseItemCoolTime: 1
   inventoryUI: {fileID: 0}
   Bag: {fileID: 0}
+--- !u!70 &1823325471804796969
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360742849846822124}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0

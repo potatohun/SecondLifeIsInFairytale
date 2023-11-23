@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7110691805357512235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7110691805357512234}
+  - component: {fileID: 7110691805357512233}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7110691805357512234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110691805357512235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2028966, y: 1.4032559, z: -16.097048}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7110691805357512233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110691805357512235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995b90c0b47ec4ff08e62019acdd44bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SobiList:
+  - {fileID: 1812902488520152923, guid: 14dea21e57f3e46ccba8e561ea92c09b, type: 3}
+  - {fileID: 2996274718830421279, guid: 05c2fb03e45335a479b1a4c48ee107b6, type: 3}
+  - {fileID: 1385973454655457719, guid: 5a1788d22f9434bba979700208ee077e, type: 3}
+  - {fileID: 5018219198159954922, guid: 5f1d90401ba6c453a98e389d6a899348, type: 3}
+  - {fileID: 7562757706756403921, guid: 9959f2758d8c44309b3f7da11af22e5a, type: 3}
+  - {fileID: 289522262257606311, guid: 4f1c9e5ee2ca948e69862dc5a22c7471, type: 3}
+  AccList:
+  - {fileID: 8945415627688658021, guid: 8fe1b3c3f39d948fca6ba48bfa546d0b, type: 3}
+  - {fileID: 4863203904972576611, guid: 3c5c121139994c64cad58f98be2e687e, type: 3}
+  - {fileID: 4222134408863057582, guid: 11a9a6adee6d54c3e8ffea05e2e19025, type: 3}
+  - {fileID: 8133055952908453823, guid: d55ea193e3e084418ac17648ba987c11, type: 3}
+  SwordList:
+  - {fileID: 3606473038631979549, guid: 326d161e88ee6084fa78cbb95f61ca70, type: 3}
+  - {fileID: 6366325549244563708, guid: d05183524d682453ea799ddda740336a, type: 3}
+  - {fileID: 2901897609830244326, guid: 35ad889dbf47941d38455830f70d0b62, type: 3}
+  - {fileID: 7452759227837864173, guid: bfd0a52bbc4f949bf983c46d8bf7daea, type: 3}
+  - {fileID: 7710731655619086605, guid: 1ef565f2cff2a4c90920f886bd887ee3, type: 3}

@@ -22,6 +22,7 @@ public class Item : MonoBehaviour
     {   
         StartCoroutine(MoveUpDown());
         Vector3 ItemStatusPos = transform.position + new Vector3(0f, 3.75f, 0f);
+        player = Player.instance;
         ItemStatus = Instantiate(item.itemStatusPrefab, ItemStatusPos, Quaternion.identity);
         ItemStatus.transform.parent = this.transform;
         ItemStatus.SetActive(false);
@@ -30,7 +31,7 @@ public class Item : MonoBehaviour
 
         inventory = GameObject.Find("Inventory");
         inventoryManager = inventory.GetComponent<InventoryManager>();
-        player= inventoryManager.Player;
+        
     }
 
     protected virtual void Update()
@@ -101,11 +102,17 @@ public class Item : MonoBehaviour
     
     protected void OnDisable()
     {
+        StopAllCoroutines();
+        /*
         if (ItemStatus != null)
         {
             ItemStatus.SetActive(false);
-        }
-        
+        }*/;   
+    }
+    protected void OnEnable()
+    {
+        StartCoroutine(MoveUpDown());
+        SetItemStatusInfo(ItemStatus, item.itemName,item.itemIamge,item.itemEffect,item.itemTooltip);
     }
 
     protected void OnDestroy()

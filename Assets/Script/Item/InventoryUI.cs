@@ -12,11 +12,9 @@ public class InventoryUI : MonoBehaviour
     }
     public void AcquireItem(ItemData item,int number)
     {   
-        Debug.Log(item);
-        Debug.Log(number);
         if(number<3)
         {
-        if (slots[number]._item == null)
+            if (slots[number]._item == null)
             {
                 slots[number].AddItem(item);
                 return;

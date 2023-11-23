@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-
-   
     public static SoundManager soundManager;
     public AudioSource playerAudioSource = null;
     public AudioClip[] playerAudioClip = null; 
@@ -14,6 +12,7 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         soundManager = this;
+        playerAudioSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
     }
 
     public void GetPlayerAudioClip(string behaviour)

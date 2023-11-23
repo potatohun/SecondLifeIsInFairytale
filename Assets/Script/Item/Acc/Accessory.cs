@@ -6,6 +6,13 @@ public class Accessory : Item
 {
    public AccessoryData accessoryData;
    
+   public void Start()
+   {
+        if(this.gameObject.name== "Â¤½Å(Clone)") this.gameObject.name="Â¤½Å";
+        else if(this.gameObject.name== "ÆÐ·©ÀÌ(Clone)") this.gameObject.name="ÆÐ·©ÀÌ";
+        else if(this.gameObject.name== "±ºÈ­(Clone)") this.gameObject.name="±ºÈ­";
+        else if(this.gameObject.name== "¾ç¹Ý°«(Clone)") this.gameObject.name="¾ç¹Ý°«";
+   }
     public void EqipAcc(GameObject Accessory)
     {
         Accessory.transform.SetParent(inventoryManager.transform);

@@ -33,6 +33,6 @@ public class PlayerMove : MonoBehaviour
     }
     void PlayMoveSound()
     {
-        //SoundManager.soundManager.GetPlayerAudioClip("SPlayerMove");
+        SoundManager.soundManager.GetPlayerAudioClip("SPlayerMove");
     }
 }

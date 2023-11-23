@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RickCake
   m_EditorClassIdentifier: 
   itemName: "\uB5A1"
-  itemIamge: {fileID: 21300000, guid: a3ad21b41348a4a89a41bdb894b5b0c7, type: 3}
-  coolTimeIamge: {fileID: 21300000, guid: a3ad21b41348a4a89a41bdb894b5b0c7, type: 3}
+  itemIamge: {fileID: 21300000, guid: 5a94cc541df49420b96590e60f83368e, type: 3}
+  coolTimeIamge: {fileID: 21300000, guid: 5a94cc541df49420b96590e60f83368e, type: 3}
   itemPrefab: {fileID: 2996274718830421279, guid: 05c2fb03e45335a479b1a4c48ee107b6, type: 3}
   itemStatusPrefab: {fileID: 7332568455652740340, guid: 6c399339ee39b494bbc647b1cfb58793, type: 3}
   itemEffect: HP + 25

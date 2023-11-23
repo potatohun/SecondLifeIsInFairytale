@@ -17,8 +17,7 @@ MonoBehaviour:
   coolTimeIamge: {fileID: 0}
   itemPrefab: {fileID: 4863203904972576611, guid: 3c5c121139994c64cad58f98be2e687e, type: 3}
   itemStatusPrefab: {fileID: 7332568455652740340, guid: 6c399339ee39b494bbc647b1cfb58793, type: 3}
-  itemEffect: "\uCD5C\uB300\uCCB4\uB825 +30   \uC774\uB3D9\uC18D\uB3C4 +7 \uACF5\uACA9\uC18D\uB3C4
-    +7 \uD798 +20"
+  itemEffect: "\uCD5C\uB300\uCCB4\uB825 +5   \uC774\uB3D9\uC18D\uB3C4 +3"
   itemTooltip: "\uC800\uAC00\uC9C0\uB9CC \uC5C6\uB294 \uAC83\uBCF4\uB2E4\uB294 \uB0AB\uB2E4."
   maxHp: 5
   moveSpeed: 3

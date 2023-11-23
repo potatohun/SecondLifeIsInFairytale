@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0477de6e2d0124831860830ea612f4d9, type: 3}
   m_Name: IceSword
   m_EditorClassIdentifier: 
-  itemName: "\uC5BC\uC74C\uC758 "
+  itemName: "\uC5BC\uC74C\uC758 \uAC80"
   itemIamge: {fileID: 21300000, guid: d2e496a0253c4453b96546e623b640cb, type: 3}
   coolTimeIamge: {fileID: 0}
   itemPrefab: {fileID: 7710731655619086605, guid: 1ef565f2cff2a4c90920f886bd887ee3, type: 3}

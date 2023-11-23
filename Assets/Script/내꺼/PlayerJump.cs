@@ -23,7 +23,7 @@ public class PlayerJump : MonoBehaviour
 
             canDoubleJump = true;
             
-            //SoundManager.soundManager.GetPlayerAudioClip("SPlayerJump");
+            SoundManager.soundManager.GetPlayerAudioClip("SPlayerJump");
         }
         else if (Input.GetButtonDown("Jump") && canDoubleJump == true)
         {
@@ -31,7 +31,7 @@ public class PlayerJump : MonoBehaviour
             player.rigid.AddForce(Vector2.up * player.jumpPower, ForceMode2D.Impulse);
             canDoubleJump = false;
            ;
-            //SoundManager.soundManager.GetPlayerAudioClip("SPlayerJump");
+            SoundManager.soundManager.GetPlayerAudioClip("SPlayerJump");
         }
 
     }

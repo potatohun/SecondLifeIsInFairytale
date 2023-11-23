@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 2518405723597805807}
   - component: {fileID: 7082521578057272888}
   - component: {fileID: 4504727180861842948}
+  - component: {fileID: 2975275300213734445}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -67,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 7563982768300185617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.65, y: 0.81, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6049384292263896193}
@@ -151,19 +152,25 @@ MonoBehaviour:
   sr: {fileID: 0}
   ani: {fileID: 7082521578057272888}
   audio: {fileID: 0}
+  weaponType: 0
   canTakeDamage: 1
   isSeegRight: 1
   createItem: 1
-  ApplePrefab: {fileID: 2717437564705294744, guid: afcccba8ce1650246b877033f7a096bb, type: 3}
-  StrawShouesPrefab: {fileID: 4863203904972576611, guid: 3c5c121139994c64cad58f98be2e687e, type: 3}
+  AmuletPrefab: {fileID: 289522262257606311, guid: 4f1c9e5ee2ca948e69862dc5a22c7471, type: 3}
+  ApplePrefab: {fileID: 0}
+  RiceCakePrefab: {fileID: 2996274718830421279, guid: 05c2fb03e45335a479b1a4c48ee107b6, type: 3}
   YakgwaPrefab: {fileID: 1202946447627686168, guid: 969b56fe15767ba4985926f6da14b004, type: 3}
   TrapPrefab: {fileID: 7562757706756403921, guid: 9959f2758d8c44309b3f7da11af22e5a, type: 3}
   RockPrefab: {fileID: 5018219198159954922, guid: 5f1d90401ba6c453a98e389d6a899348, type: 3}
-  RollPaperPrefab: {fileID: 1186472889583854118, guid: 37ab41592adf040d6b9d0bdbd25c39ea, type: 3}
-  WeaponPrefab: {fileID: 3606473038631979549, guid: 052b19b202f934e229ab6021ebc9dad2, type: 3}
-  HatPrefab: {fileID: 8945415627688658021, guid: 8fe1b3c3f39d948fca6ba48bfa546d0b, type: 3}
-  AmuletPrefab: {fileID: 289522262257606311, guid: 4f1c9e5ee2ca948e69862dc5a22c7471, type: 3}
-  x: 0
+  StrawShouesPrefab: {fileID: 4863203904972576611, guid: 3c5c121139994c64cad58f98be2e687e, type: 3}
+  MillBootsPrefab: {fileID: 4222134408863057582, guid: 11a9a6adee6d54c3e8ffea05e2e19025, type: 3}
+  PaePrefab: {fileID: 8945415627688658021, guid: 8fe1b3c3f39d948fca6ba48bfa546d0b, type: 3}
+  NovelHatPrefab: {fileID: 8133055952908453823, guid: d55ea193e3e084418ac17648ba987c11, type: 3}
+  NomalPrefab: {fileID: 3606473038631979549, guid: 326d161e88ee6084fa78cbb95f61ca70, type: 3}
+  BigPrefab: {fileID: 6366325549244563708, guid: d05183524d682453ea799ddda740336a, type: 3}
+  FirePrefab: {fileID: 2901897609830244326, guid: 35ad889dbf47941d38455830f70d0b62, type: 3}
+  IcePrefab: {fileID: 7710731655619086605, guid: 1ef565f2cff2a4c90920f886bd887ee3, type: 3}
+  BloodPrefab: {fileID: 7452759227837864173, guid: bfd0a52bbc4f949bf983c46d8bf7daea, type: 3}
   canDead: 1
   haveAmulet: 0
   inventory: {fileID: 4818617472529791315}
@@ -220,10 +227,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5228881b2b483f4cb7154c854d9d9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponEffect:
+  - {fileID: 8883712725902695413, guid: 747dde25dd93d4b47a48a0aac623313e, type: 3}
+  - {fileID: 6323023650600514684, guid: 4a46160d291c71f42bd2ae673a5c31c8, type: 3}
+  - {fileID: 7320403963670533399, guid: 341e1810bd98f36409401a2055bb00e8, type: 3}
   player: {fileID: 6683939195745120872}
   boxSize: {x: 2.5, y: 2.5}
   boxPos: {fileID: 2794168112054128802}
-  attackEffect: {fileID: 0}
+  attackEffect:
+  - {fileID: 5166663703745132415, guid: 63d8b4d7aa88cae46b52272484bc990d, type: 3}
+  - {fileID: 4501470071134288381, guid: bf7d622d598f7cd4eac63ebcbed5d75a, type: 3}
+  - {fileID: 239062331700959783, guid: 94b7a4e3a98d58e45b80a9f5b4f70070, type: 3}
   combo: 1
   canAttack: 1
 --- !u!114 &1174173700963174705
@@ -312,6 +326,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dirvec: {x: 0, y: 0, z: 0}
   scanObj: {fileID: 0}
+--- !u!82 &2975275300213734445
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7563982768300185617}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &628819734790749631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319,6 +429,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2174343698469361956}
     m_Modifications:
+    - target: {fileID: 1823325471804796969, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: m_Size.x
+      value: 0.56575835
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823325471804796969, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.000000047683717
+      objectReference: {fileID: 0}
     - target: {fileID: 5360742849846822124, guid: a6741bde553314dd586879ad31d83e45, type: 3}
       propertyPath: m_Name
       value: Inventory
@@ -371,6 +489,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[0]
+      value: 
+      objectReference: {fileID: 4222134408863057582, guid: 11a9a6adee6d54c3e8ffea05e2e19025, type: 3}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[1]
+      value: 
+      objectReference: {fileID: 8133055952908453823, guid: d55ea193e3e084418ac17648ba987c11, type: 3}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[2]
+      value: 
+      objectReference: {fileID: 8945415627688658021, guid: 8fe1b3c3f39d948fca6ba48bfa546d0b, type: 3}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[3]
+      value: 
+      objectReference: {fileID: 4863203904972576611, guid: 3c5c121139994c64cad58f98be2e687e, type: 3}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[4]
+      value: 
+      objectReference: {fileID: 6366325549244563708, guid: d05183524d682453ea799ddda740336a, type: 3}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[5]
+      value: 
+      objectReference: {fileID: 7452759227837864173, guid: bfd0a52bbc4f949bf983c46d8bf7daea, type: 3}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[6]
+      value: 
+      objectReference: {fileID: 2901897609830244326, guid: 35ad889dbf47941d38455830f70d0b62, type: 3}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[7]
+      value: 
+      objectReference: {fileID: 7710731655619086605, guid: 1ef565f2cff2a4c90920f886bd887ee3, type: 3}
+    - target: {fileID: 8571140323262681034, guid: a6741bde553314dd586879ad31d83e45, type: 3}
+      propertyPath: itemList.Array.data[8]
+      value: 
+      objectReference: {fileID: 3606473038631979549, guid: 326d161e88ee6084fa78cbb95f61ca70, type: 3}
     m_RemovedComponents:
     - {fileID: 6959252697018894908, guid: a6741bde553314dd586879ad31d83e45, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a6741bde553314dd586879ad31d83e45, type: 3}
@@ -392,6 +546,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4818617472529791315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04756cd3f4b6fbc498f8591da9e98c1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 50e92423359ed4cad8864eb7f21aac02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

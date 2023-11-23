@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 public class Boss : MonoBehaviour
 {
     public bool isDie;
-    GameObject rewardManager;
+    public GameObject rewardManager;
     public GameObject cinemachine;
 
     private void Start()
     {
         isDie = false;
 
-        GameObject canvas = GameObject.Find("Canvas");
-        rewardManager = canvas.transform.Find("RewardManager").gameObject;
-
+        //GameObject reward = GameObject.Find("Reward");
+        //rewardManager = reward.transform.Find("RewardManager").gameObject;
+        //cinemachine = reward.transform.Find("Director").gameObject;
 
         if (rewardManager != null)
         {
@@ -43,6 +43,7 @@ public class Boss : MonoBehaviour
     IEnumerator Die()
     {
         cinemachine.SetActive(true);
+
         yield return new WaitForSeconds(3f);
         //죽는 애니메이션 실행
 

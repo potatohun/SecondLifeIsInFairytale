@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
+using System.Reflection;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
-    private static Player instance;
+    public static Player instance;
 
     public int HP = 100;
     public int MAXHP = 100;
@@ -19,79 +23,80 @@ public class Player : MonoBehaviour
     public SpriteRenderer sr;
     public Animator ani;
     public AudioSource audio;
-   
 
+
+    public WeaponData.WeaponType weaponType;
     public bool canTakeDamage = true;
 
 
-    //µø¡¯
-    public bool isSeegRight = true;
+    //ÔøΩÔøΩÔøΩÔøΩ
+    public bool isSeeRight = true;
 
     public bool createItem = true;
+
+    public GameObject AmuletPrefab;
     public GameObject ApplePrefab;
-    public GameObject StrawShouesPrefab;
+    public GameObject RiceCakePrefab;
     public GameObject YakgwaPrefab;
     public GameObject TrapPrefab;
     public GameObject RockPrefab;
-    public GameObject RollPaperPrefab;
-    public GameObject WeaponPrefab;
-    public GameObject HatPrefab;
-    public GameObject AmuletPrefab;
 
-    public float x;
+    public GameObject StrawShouesPrefab;
+    public GameObject MillBootsPrefab;
+    public GameObject PaePrefab;
+    public GameObject NovelHatPrefab;
+
+    public GameObject NomalPrefab;
+    public GameObject BigPrefab;
+    public GameObject FirePrefab;
+    public GameObject IcePrefab;
+    public GameObject BloodPrefab;
+    
+    
+
+    
     public bool canDead = true;
     public int haveAmulet = 0;
     //
     public GameObject inventory;
     public InventoryManager inventoryManager;
 
-    private void Start()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded; // sceneLoaded ¿Ã∫•∆Æø° OnSceneLoaded ∏ﬁº“µÂ∏¶ ø¨∞·
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        gameObject.transform.position = Vector3.zero + new Vector3(0,1,0); // æ¿¿Ã ∑ŒµÂµ… ∂ß∏∂¥Ÿ Player ¿ßƒ° (0,0,0)¿∏∑Œ √ ±‚»≠.
-    }
-
-
     private void TestItem()
     {
         if (createItem && Input.GetKey(KeyCode.Alpha4))
         {
-            GameObject Amulet = Instantiate(AmuletPrefab, transform.position, Quaternion.identity);
+            GameObject Amulet = Instantiate(NomalPrefab, transform.position, Quaternion.identity);
             createItem = false;
             StartCoroutine(test());
         }
         if (createItem && Input.GetKey(KeyCode.Alpha5))
         {
-            GameObject Apple = Instantiate(ApplePrefab, transform.position, Quaternion.identity);
+            GameObject Apple = Instantiate(BigPrefab, transform.position, Quaternion.identity);
             createItem = false;
             StartCoroutine(test());
         }
 
         if (createItem && Input.GetKey(KeyCode.Alpha6))
         {
-            GameObject Rock = Instantiate(RockPrefab, transform.position, Quaternion.identity);
+            GameObject Rock = Instantiate(FirePrefab, transform.position, Quaternion.identity);
             createItem = false;
             StartCoroutine(test());
         }
         if (createItem && Input.GetKey(KeyCode.Alpha7))
         {
-            GameObject StrawShoues = Instantiate(StrawShouesPrefab, transform.position, Quaternion.identity);
+            GameObject StrawShoues = Instantiate(IcePrefab, transform.position, Quaternion.identity);
             createItem = false;
             StartCoroutine(test());
         }
         if (createItem && Input.GetKey(KeyCode.Alpha8))
         {
-            GameObject Hat = Instantiate(HatPrefab, transform.position, Quaternion.identity);
+            GameObject Hat = Instantiate(BloodPrefab, transform.position, Quaternion.identity);
             createItem = false;
             StartCoroutine(test());
         }
         if (createItem && Input.GetKey(KeyCode.Alpha9))
         {
-            GameObject Weapon = Instantiate(WeaponPrefab, transform.position, Quaternion.identity);
+            GameObject Weapon = Instantiate(RockPrefab, transform.position, Quaternion.identity);
             createItem = false;
             StartCoroutine(test());
         }
@@ -102,6 +107,15 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         createItem = true;
     }
+
+    private void Start()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded; // sceneLoaded Ïù¥Î≤§Ìä∏Ïóê OnSceneLoaded Î©îÏÜåÎìúÎ•º Ïó∞Í≤∞
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gameObject.transform.position = Vector3.zero + new Vector3(0, 1, 0); // Ïî¨Ïù¥ Î°úÎìúÎê† ÎïåÎßàÎã§ Player ÏúÑÏπò (0,0,0)ÏúºÎ°ú Ï¥àÍ∏∞Ìôî.
+    }
     //
     void Awake()
     {
@@ -111,14 +125,15 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         audio = GetComponent<AudioSource>();
 
+        PlayerPrefs.SetInt("RollPaper", 100);
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // ø¿∫Í¡ß∆Æ∏¶ æ¿ ¿¸»Ø Ω√ø°µµ ∆ƒ±´µ«¡ˆ æ µµ∑œ º≥¡§
+            DontDestroyOnLoad(gameObject); // Ïò§Î∏åÏ†ùÌä∏Î•º Ïî¨ Ï†ÑÌôò ÏãúÏóêÎèÑ ÌååÍ¥¥ÎêòÏßÄ ÏïäÎèÑÎ°ù ÏÑ§Ï†ï
         }
         else
         {
-            // ¿ÃπÃ ¿ŒΩ∫≈œΩ∫∞° ¡∏¿Á«œ∏È ¡ﬂ∫π ª˝º∫µ» ∞Õ¿Ãπ«∑Œ ¿Ã ø¿∫Í¡ß∆Æ∏¶ ∆ƒ±´
+            // Ïù¥ÎØ∏ Ïù∏Ïä§ÌÑ¥Ïä§Í∞Ä Ï°¥Ïû¨ÌïòÎ©¥ Ï§ëÎ≥µ ÏÉùÏÑ±Îêú Í≤ÉÏù¥ÎØÄÎ°ú Ïù¥ Ïò§Î∏åÏ†ùÌä∏Î•º ÌååÍ¥¥
             Destroy(gameObject);
         }
     }
@@ -126,5 +141,9 @@ public class Player : MonoBehaviour
     private void Update()
     {
         TestItem();
+        if(this.transform.localScale.x>0) isSeeRight = true;
+        else isSeeRight = false;
     }
+
+
 }

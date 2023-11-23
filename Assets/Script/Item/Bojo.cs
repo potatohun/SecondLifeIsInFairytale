@@ -15,26 +15,26 @@ public class Bojo : Sobi
     }
     void Start()
     {
-        if(this.gameObject.name=="Trap(Clone)")
-            this.gameObject.name="Trap";
-        if(this.gameObject.name=="Rock(Clone)")
-            this.gameObject.name="Rock";
+        if(this.gameObject.name=="µ£(Clone)")
+            this.gameObject.name="µ£";
+        if(this.gameObject.name=="µ¹(Clone)")
+            this.gameObject.name="µ¹";
 
         rigid = GetComponent<Rigidbody2D>();
-      
-        //sobiData.sobitpye=SobiData.SobiType.Bojo;
+
+        player = Player.instance;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(this.gameObject.name=="UsedTrap"&&other.CompareTag("Enemy"))
+        if(this.gameObject.name=="»ç¿ëÇÑµ£"&&other.CompareTag("Enemy"))
         {
             GameObject Enemy = other.gameObject;
             Enemy EnemyScript = Enemy.GetComponent<Enemy>();
             EnemyScript.TakeDamage(sobiData.damage);
             Destroy(this.gameObject);
         }
-        if(this.gameObject.name=="UsedRock"&&other.CompareTag("Enemy"))
+        if(this.gameObject.name== "»ç¿ëÇÑµ£" && other.CompareTag("Enemy"))
         {
             GameObject Enemy = other.gameObject;
             Enemy EnemyScript = Enemy.GetComponent<Enemy>();
@@ -46,7 +46,7 @@ public class Bojo : Sobi
     public void UseTrap()
     {
         this.transform.position=inventory.transform.position;
-        this.gameObject.name="UsedTrap";
+        this.gameObject.name= "»ç¿ëÇÑµ£";
         this.gameObject.tag="Used";
         this.transform.SetParent(null);
         this.gameObject.SetActive(true);
@@ -54,9 +54,8 @@ public class Bojo : Sobi
     }
     public void UseRock(bool SeeRight)
     {   
-       
         this.transform.position=inventory.transform.position;
-        this.gameObject.name="UsedRock";
+        this.gameObject.name="»ç¿ëÇÑµ¹";
         this.gameObject.tag="Used";
         this.transform.SetParent(null);
         this.gameObject.SetActive(true);

@@ -10,7 +10,7 @@ public class CardData : MonoBehaviour
     public string text;
     public UseType useType;
 
-    public void UseItem(UseType useType, int amount)
+    public void UseItem(UseType useType, string title, int amount)
     {
         //플레이어 스탯에 영향을 주려면 플레이어 스탯을 관리하는 컴포넌트 필요.
         switch (useType)
@@ -30,8 +30,20 @@ public class CardData : MonoBehaviour
             case UseType.speed:
                 Debug.Log(useType + " " + amount);
                 break;
-            case UseType.item:
+            case UseType.Sobi:
+                Debug.Log(title);
+                GameObject tmp1 = ItemManager.Instance.InstantiateItem("sobi", title);
+                Player.instance.inventoryManager.AddReward(tmp1);
+                break;
+            case UseType.acc:
                 Debug.Log(useType + " ");
+                GameObject tmp = ItemManager.Instance.InstantiateItem("acc", title);
+                Player.instance.inventoryManager.AddReward(tmp);
+                break;
+            case UseType.sword:
+                Debug.Log(useType + " ");
+                GameObject tmp2 = ItemManager.Instance.InstantiateItem("sword", title);
+                Player.instance.inventoryManager.AddReward(tmp2);
                 break;
         }
     }
@@ -43,5 +55,9 @@ public enum UseType
     damage,
     jump,
     speed,
-    item
+    Sobi,
+    apple,
+    sword,
+    acc,
+
 }

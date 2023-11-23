@@ -48,7 +48,7 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
         Debug.Log("Å¬¸¯ÇÔ");
         if (PlayerPrefs.GetInt("RollPaper") >= cost)
         {
-            carddata[0].UseItem(carddata[randomIndex].useType, cost);
+            carddata[0].UseItem(carddata[randomIndex].useType, title.GetComponent<Text>().text, cost);
             PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") - cost);
             GameObject parentObject = this.gameObject.transform.parent.gameObject;
             parentObject.SetActive(false);

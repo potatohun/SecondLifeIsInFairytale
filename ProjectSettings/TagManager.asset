@@ -29,6 +29,9 @@ TagManager:
   - Amulet
   - TimeLine
   - Ground
+  - Bag
+  - BossCamera
+  - Enemy
   layers:
   - Default
   - TransparentFX

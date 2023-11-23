@@ -9,22 +9,23 @@ public class Potion : Sobi
     {   
         switch(this.gameObject.name)
         {
-            case "Apple(Clone)":
-                this.gameObject.name="Apple";
+            case "»ç°ú(Clone)":
+                this.gameObject.name="»ç°ú";
 
                 break;
-            case "RiceCake(Clone)":
-                this.gameObject.name="RiceCake";
+            case "¶±(Clone)":
+                this.gameObject.name="¶±";
                 break;
-            case "Yakgwa(Clone)":
-                this.gameObject.name="Yakgwa";
+            case "¾à°ú(Clone)":
+                this.gameObject.name="¾à°ú";
                 break;   
         }
 
         //sobiData.sobitpye=SobiData.SobiType.Potion;
     }
     public void UsePotion()
-    {   
+    {
+        Debug.Log(player);
         if(sobiData.maxHp!=null)player.MAXHP+=sobiData.maxHp;
         player.HP+=sobiData.value;
         if(player.HP>player.MAXHP)player.HP=player.MAXHP;

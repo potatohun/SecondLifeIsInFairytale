@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class bossCamera : MonoBehaviour
 {
-    public CinemachineVirtualCamera playerCamera;
-    public GameObject player;
+    public CinemachineVirtualCamera BossCamera;
+    public GameObject boss;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        //boss = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerCamera.Follow = player.GetComponent<Transform>();
+        BossCamera.Follow = boss.GetComponent<Transform>();
     }
 }
