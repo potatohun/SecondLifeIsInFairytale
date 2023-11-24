@@ -80,6 +80,9 @@ public class PlayerAttack : MonoBehaviour
                 case "manim":
                     collider.GetComponent<Pozol>().TakeDamage(20);//데미지 어케함             
                     break;
+                case "Bossrat":
+                    collider.GetComponent<Bossmouse>().TakeDamage(20);//데미지 어케함             
+                    break;
             }
         }
     }

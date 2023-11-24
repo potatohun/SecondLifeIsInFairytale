@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         audio = GetComponent<AudioSource>();
 
-        PlayerPrefs.SetInt("RollPaper", 100);
+        PlayerPrefs.SetInt("RollPaper", 10);
         if (instance == null)
         {
             instance = this;

@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157603444002468462, guid: 14dea21e57f3e46ccba8e561ea92c09b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.37
+      value: -1.01
       objectReference: {fileID: 0}
     - target: {fileID: 5157603444002468462, guid: 14dea21e57f3e46ccba8e561ea92c09b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 692131289}
   m_Lens:
-    FieldOfView: 31.09
+    FieldOfView: 40
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -2702,7 +2702,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1828074044}
   m_Lens:
-    FieldOfView: 35.76
+    FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
