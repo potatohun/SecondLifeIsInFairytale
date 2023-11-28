@@ -9,7 +9,7 @@ public class doryang_idle : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        mouse = GameObject.FindGameObjectWithTag("Bossrat").GetComponent<Bossmouse>();
+        mouse = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Bossmouse>();
         currentTime = 0f;
     }
 

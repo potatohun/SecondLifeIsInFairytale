@@ -4,33 +4,34 @@ using UnityEngine;
 
 public class nail : MonoBehaviour
 {
-    private Transform playerTransform;
+    private Transform target;
     private Rigidbody2D rb;
-    private float coinSpeed = 10f;
-    private SpriteRenderer render;
+    private float nailSpeed = 20f;
     private Bossmouse mouse;
-    private float damage;
+    private int damage;
 
     void Start()
     {
-        mouse = GameObject.FindGameObjectWithTag("Bossrat").GetComponent<Bossmouse>();
+        mouse = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Bossmouse>();
         damage = mouse.pattern_damage[2];
         if (mouse.phase_state == 2)
         {
-            coinSpeed = 15f;
-            damage = mouse.pattern_damage[2] + 10f;
+            nailSpeed = 20f;
+            damage = mouse.pattern_damage[2] + 10;
         }
-        
-        render = GetComponent<SpriteRenderer>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        DirectionEnemy(playerTransform.position.x, transform.position.x);
+       
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if ((target.position.x - transform.position.x) < 0)
+            transform.Rotate(0f, 180f, 0f);
+
         rb = GetComponent<Rigidbody2D>();
-        Vector3 targetVector = (playerTransform.position - transform.position).normalized;
-        rb.velocity = targetVector * coinSpeed;
-        Invoke("DestroyCoin", 3f);
+        Vector3 targetVector = (target.position - transform.position).normalized;
+        rb.velocity = targetVector * nailSpeed;
+        Invoke("DestroyNail", 4f);
     }
 
-    void DestroyCoin()
+    void DestroyNail()
     {
         Destroy(gameObject);
     }
@@ -39,17 +40,10 @@ public class nail : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("player에게 coin 맞춤");
-            DestroyCoin();
+            PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
+            player.Hit(damage);
+            DestroyNail();
         }
 
-    }
-
-    void DirectionEnemy(float target, float baseobj) // render 좌우 적을 향하도록 조절
-    {
-        if (target < baseobj)
-            render.flipX = true;
-        else
-            render.flipX = false;
     }
 }

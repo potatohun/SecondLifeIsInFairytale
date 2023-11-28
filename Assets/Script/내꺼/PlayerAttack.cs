@@ -65,23 +65,11 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log(collider.tag);
             switch (collider.tag)
             {
-                case "Pozol":
-                    collider.GetComponent<Pozol>().TakeDamage(20);//데미지 어케함               
-                    break;
-                case "Arrow_Pozol":
-                    collider.GetComponent<ArrowPozol>().TakeDamage(20);//데미지 어케함             
-                    break;
-                case "Tiger":
-                    collider.GetComponent<Tiger>().TakeDamage(20);//데미지 어케함             
+                case "Enemy":
+                    collider.GetComponent<Enemy>().TakeDamage(Player.instance.damage);//데미지 어케함             
                     break;
                 case "Nolbu":
                     collider.GetComponent<NewNolbu>().TakeDamage(1);//데미지 어케함             
-                    break;
-                case "manim":
-                    collider.GetComponent<Pozol>().TakeDamage(20);//데미지 어케함             
-                    break;
-                case "Bossrat":
-                    collider.GetComponent<Bossmouse>().TakeDamage(20);//데미지 어케함             
                     break;
             }
         }

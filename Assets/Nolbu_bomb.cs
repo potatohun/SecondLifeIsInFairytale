@@ -10,7 +10,6 @@ public class Nolbu_bomb : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         nolbu = GameObject.FindGameObjectWithTag("Nolbu").GetComponent<NewNolbu>();
-        nolbu.SetCollider(0);
         nolbu.addBomb();
     }
 

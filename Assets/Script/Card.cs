@@ -48,11 +48,26 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
         Debug.Log("클릭함");
         if (PlayerPrefs.GetInt("RollPaper") >= cost)
         {
-            carddata[0].UseItem(carddata[randomIndex].useType, title.GetComponent<Text>().text, cost);
-            PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") - cost);
-            GameObject parentObject = this.gameObject.transform.parent.gameObject;
-            parentObject.SetActive(false);
-            SceneManager.LoadScene("마을");
+            bool invenfull = true;
+            for(int i = 0; i < 3; i++)
+            {
+                if (Player.instance.inventoryManager.inventory[i] == null)
+                {
+                    invenfull = false;
+                }
+            }
+            if(invenfull) 
+            {
+                Debug.Log("인벤토리가 꽉찼습니다.");
+            }
+            else
+            {
+                carddata[0].UseItem(carddata[randomIndex].useType, title.GetComponent<Text>().text, cost);
+                PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") - cost);
+                GameObject parentObject = this.gameObject.transform.parent.gameObject;
+                parentObject.SetActive(false);
+                SceneManager.LoadScene("마을");
+            }
         }
         else
         {

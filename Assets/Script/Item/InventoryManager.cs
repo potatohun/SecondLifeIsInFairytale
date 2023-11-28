@@ -65,6 +65,7 @@ public class InventoryManager : MonoBehaviour
             bool TryAddRollPaper=AddRollPaper(other.gameObject);
             if (TryAddRollPaper)
             {
+                PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") + 1);
                 other.gameObject.SetActive(false);
                 canAddItem = false;
                 StartCoroutine(StartAddItemCooldown());
@@ -96,16 +97,17 @@ public class InventoryManager : MonoBehaviour
     {
         for (int index = 0; index < 3; index++)
         {
-            if (inventory[index] == null)
+            if (inventory[index] == null )
             {
                 inventory[index] = item;
                 item.transform.SetParent(this.transform);
-                Sobi itemData = item.gameObject.GetComponent<Sobi>();
-                Bag.AcquireItem(itemData.sobiData, index);
-                break;
+                Sobi sobiData = item.gameObject.GetComponent<Sobi>();
+                Bag.AcquireItem(sobiData.sobiData, index);
             }
         }
     }
+
+    //public void AddReward(GameObject item)
 
     public bool AddSobi(GameObject item)
     {         

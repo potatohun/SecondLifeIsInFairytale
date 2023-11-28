@@ -38,12 +38,12 @@ public class Arrow : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if(other.tag == "Player")
         {
-            Debug.Log("player¿¡°Ô arrow ¸ÂÃã");
+            PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
+            player.Hit(10);
             DestroyArrow();
-
         }
-
+        
     }
 }

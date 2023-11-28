@@ -32,6 +32,12 @@ TagManager:
   - Bag
   - BossCamera
   - Enemy
+  - 1PageIntro
+  - 2PageIntro
+  - 3PageIntro
+  - CineMachine
+  - Bossrat
+  - Used
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,21 @@ public class ItemManager : MonoBehaviour
     public GameObject[] AccList= new GameObject[4];
     public GameObject[] SwordList = new GameObject[5];
 
+    public GameObject Rollpaer;
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 오브젝트를 씬 전환 시에도 파괴되지 않도록 설정
+        }
+        else
+        {
+            // 이미 인스턴스가 존재하면 중복 생성된 것이므로 이 오브젝트를 파괴
+            Destroy(gameObject);
+        }
+    }
+
     public GameObject InstantiateItem(string type,string name)
     {
         GameObject tmp;
@@ -56,18 +71,17 @@ public class ItemManager : MonoBehaviour
         }
         return null;
     }
-
-    public void Awake()
+    public GameObject DropItem(Vector3 pos)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 오브젝트를 씬 전환 시에도 파괴되지 않도록 설정
-        }
-        else
-        {
-            // 이미 인스턴스가 존재하면 중복 생성된 것이므로 이 오브젝트를 파괴
-            Destroy(gameObject);
-        }
+       int randomNumber = UnityEngine.Random.Range(1, 11);
+       if(randomNumber==0)return null;
+       else 
+       {
+            randomNumber = UnityEngine.Random.Range(1, 11);
+            if(randomNumber<=4) return Instantiate(Rollpaer,pos,Quaternion.identity);
+            else if (randomNumber>4&&randomNumber<=7)return Instantiate(SobiList[UnityEngine.Random.Range(0, SobiList.Length)],pos,Quaternion.identity);
+            else if (randomNumber>7&&randomNumber<=8)return Instantiate(AccList[UnityEngine.Random.Range(0, AccList.Length-1)],pos,Quaternion.identity);
+            else return Instantiate(SwordList[UnityEngine.Random.Range(0, SwordList.Length-1)],pos,Quaternion.identity);
+       }
     }
 }

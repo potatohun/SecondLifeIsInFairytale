@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6354603768209092354}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 6354603768217132456}
   - component: {fileID: 6354603768217132462}
   - component: {fileID: 6354603768217132463}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 6354603769506233705}
   - component: {fileID: 6354603769506233711}
   - component: {fileID: 6354603769506233704}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6354603769536374595}
   - component: {fileID: 6354603769536374604}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6354603769586765805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6354603769586765806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.401, y: -0.067, z: 0}
+  m_LocalPosition: {x: 0.132, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,9 +325,9 @@ GameObject:
   - component: {fileID: 6354603769850090852}
   - component: {fileID: 6354603769850090840}
   - component: {fileID: 6354603769850090847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\uB9C8\uB2D8"
-  m_TagString: manim
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,12 +341,11 @@ Transform:
   m_GameObject: {fileID: 6354603769850090853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.81, y: -3.08177, z: 0}
-  m_LocalScale: {x: 2.8738, y: 2.8738, z: 2.8738}
+  m_LocalScale: {x: 4, y: 4, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6354603769586765805}
   - {fileID: 6354603769997662156}
-  - {fileID: 6354603770023097026}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -469,7 +468,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &6354603769850090847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,19 +478,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 6354603769850090853}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0bec6044683b348ba4ad31fdaabedc, type: 3}
+  m_Script: {fileID: 11500000, guid: 22c07a6c08a83c54685202cb46cf3c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  pos: {fileID: 6354603769586765805}
-  boxsize: {x: 1, y: 1.5}
-  idleTime: 1
-  hudDamageText: {fileID: 2413220396480905056, guid: e96de0bca3852c64195595c469014522, type: 3}
-  hudPos: {fileID: 6354603770023097026}
+  target: {fileID: 0}
+  render: {fileID: 0}
+  rb: {fileID: 0}
+  ani: {fileID: 0}
+  bColl: {fileID: 0}
+  boxsize: {x: 0, y: 0}
+  attackOffset: {x: 0, y: 0, z: 0}
+  isFlipped: 0
+  monsterSpeed: 0
+  damageText: {fileID: 2413220396480905056, guid: e96de0bca3852c64195595c469014522, type: 3}
+  textPos: {fileID: 6354603769586765805}
   Health: {fileID: 6354603769536374604}
-  HPPos: {fileID: 0}
   HP: 100
-  SetTime: 1.5
+  targetCollider: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  isAttacking: 0
+  idleTime: 2
 --- !u!1 &6354603769992008952
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6354603769992008959}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +546,7 @@ GameObject:
   - component: {fileID: 6354603769997662145}
   - component: {fileID: 6354603769997662146}
   - component: {fileID: 6354603769997662147}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,34 +635,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &6354603770023097027
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6354603770023097026}
-  m_Layer: 0
-  m_Name: Square (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6354603770023097026
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6354603770023097027}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.189, y: 0.026, z: 0}
-  m_LocalScale: {x: 0.6132019, y: 0.37960535, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6354603769850090841}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

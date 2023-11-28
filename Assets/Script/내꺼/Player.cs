@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public float jumpPower = 5;
     public float rollSpeed = 3;
     public float attackSpeed = 10;
-    public int damage = 10;
+    public int damage = 40;
     public Rigidbody2D rigid;
     public CapsuleCollider2D playerCollider;
     public SpriteRenderer sr;

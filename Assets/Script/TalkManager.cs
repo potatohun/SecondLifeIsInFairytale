@@ -39,6 +39,24 @@ public class TalkManager : MonoBehaviour
                 Debug.Log("NPC와 대화");
                 TalkWithNPC();
             }
+            else if (playerscanner.ScanObj().gameObject.CompareTag("1PageIntro"))
+            {
+                //1포탈일때
+                Move1PageIntro();
+                StartCoroutine(FadeIn());
+            }
+            else if (playerscanner.ScanObj().gameObject.CompareTag("2PageIntro"))
+            {
+                //2포탈일때
+                Move2PageIntro();
+                StartCoroutine(FadeIn());
+            }
+            else if (playerscanner.ScanObj().gameObject.CompareTag("3PageIntro"))
+            {
+                //3포탈일때
+                Move3PageIntro();
+                StartCoroutine(FadeIn());
+            }
             else if (playerscanner.ScanObj().gameObject.CompareTag("1Page"))
             {
                 //1포탈일때
@@ -62,13 +80,34 @@ public class TalkManager : MonoBehaviour
                 //그냥 포탈일때
                 mapController.MapChange();
                 PlayerPrefs.SetInt("CurrentVerse", PlayerPrefs.GetInt("CurrentVerse") + 1);
-                chapterText.text = PlayerPrefs.GetInt("CurrentChapter").ToString() + "장" + PlayerPrefs.GetInt("CurrentVerse").ToString() + "절";
+                //chapterText.text = PlayerPrefs.GetInt("CurrentChapter").ToString() + "장" + PlayerPrefs.GetInt("CurrentVerse").ToString() + "절";
                 StartCoroutine(FadeIn());
                 //MovePortal();
             }
         }
     }
 
+    public void Move1PageIntro()
+    {
+        PlayerPrefs.SetInt("CurrentChapter", 1);
+        PlayerPrefs.SetInt("CurrentVerse", 1);
+        moveAble = false;
+        SceneManager.LoadScene("1장시작");
+    }
+    public void Move2PageIntro()
+    {
+        PlayerPrefs.SetInt("CurrentChapter", 2);
+        PlayerPrefs.SetInt("CurrentVerse", 1);
+        moveAble = false;
+        SceneManager.LoadScene("2장시작");
+    }
+    public void Move3PageIntro()
+    {
+        PlayerPrefs.SetInt("CurrentChapter", 3);
+        PlayerPrefs.SetInt("CurrentVerse", 1);
+        moveAble = false;
+        SceneManager.LoadScene("3장시작");
+    }
     public void Move1Page()
     {
         PlayerPrefs.SetInt("CurrentChapter", 1);
@@ -102,15 +141,15 @@ public class TalkManager : MonoBehaviour
         // 맵 진입시 뜨는 UI 관리
         if (SceneManager.GetActiveScene().name == "마을" || SceneManager.GetActiveScene().name == "시작")
         {
-            chapterText.text = SceneManager.GetActiveScene().name;
+            //chapterText.text = SceneManager.GetActiveScene().name;
         }
         else
         {
-            chapterText.text = SceneManager.GetActiveScene().name + PlayerPrefs.GetInt("CurrentVerse").ToString() + "절";
+            //chapterText.text = SceneManager.GetActiveScene().name + PlayerPrefs.GetInt("CurrentVerse").ToString() + "절";
         }
 
         fade.gameObject.SetActive(true);
-        chapterText.gameObject.SetActive(true);
+        //chapterText.gameObject.SetActive(true);
         float fadeCount = 1;
         while (fadeCount > 0.0f)
         {
@@ -125,7 +164,7 @@ public class TalkManager : MonoBehaviour
     {
         Npc npc = playerscanner.ScanObj().gameObject.GetComponent<Npc>();
 
-        if (npc.talk_count == npc.words.Count)
+        /*if (npc.talk_count == npc.words.Count)
         {
             textBox.SetActive(false);
             npc.talk_count = 0;
@@ -134,6 +173,8 @@ public class TalkManager : MonoBehaviour
         {
             textBox.SetActive(true);
             talkText.text = npc.words[npc.talk_count++];
-        }
+        }*/
+
+        npc.PlayCineMachine();
     }
 }

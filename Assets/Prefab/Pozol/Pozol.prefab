@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 307050046}
   - component: {fileID: 307050048}
   - component: {fileID: 307050047}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 348796083}
   - component: {fileID: 348796082}
   - component: {fileID: 348796081}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1554707088}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 1685631808}
   - component: {fileID: 1685631810}
   - component: {fileID: 1685631809}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875712950}
   - component: {fileID: 1875712951}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2076759709}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 1547624996}
   m_Layer: 0
   m_Name: Pozol
-  m_TagString: Pozol
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -447,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 2123167186958418050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.64, y: -3.19, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2123167187661501144}
@@ -499,7 +499,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1866646111, guid: 7870efade9ab2bc45977f4b6758d103f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.56, y: 0.56}
@@ -585,19 +585,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2123167186958418050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0bec6044683b348ba4ad31fdaabedc, type: 3}
+  m_Script: {fileID: 11500000, guid: 22c07a6c08a83c54685202cb46cf3c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  pos: {fileID: 2123167187661501144}
-  boxsize: {x: 0.8, y: 1.2}
-  idleTime: 1
-  hudDamageText: {fileID: 2413220396480905056, guid: e96de0bca3852c64195595c469014522, type: 3}
-  hudPos: {fileID: 6593901562749738774}
+  target: {fileID: 0}
+  render: {fileID: 0}
+  rb: {fileID: 0}
+  ani: {fileID: 0}
+  bColl: {fileID: 0}
+  boxsize: {x: 0, y: 0}
+  attackOffset: {x: 0, y: 0, z: 0}
+  isFlipped: 0
+  monsterSpeed: 0
+  damageText: {fileID: 2413220396480905056, guid: e96de0bca3852c64195595c469014522, type: 3}
+  textPos: {fileID: 6593901562749738774}
   Health: {fileID: 1875712951}
-  HPPos: {fileID: 0}
   HP: 100
-  SetTime: 1.8
+  targetCollider: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  isAttacking: 0
+  idleTime: 2
 --- !u!1 &2123167187661501151
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class Nolbu_arrow : StateMachineBehaviour
     {
         if (nolbu.arrowCount == 3)
         {
-            nolbu.bossAni.SetBool("arrowRe", false);
+            nolbu.ani.SetBool("arrowRe", false);
             nolbu.currentPatternCoroutine = null;
         }
     }

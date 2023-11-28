@@ -1,9 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Npc : MonoBehaviour
 {
-    public int talk_count = 0;
-    public List<string> words = new List<string>();
+
+    public PlayableDirector cinemachine;
+
+    private void Start()
+    {
+        cinemachine = GameObject.FindWithTag("CineMachine").GetComponent<PlayableDirector>();
+    }
+
+    public void PlayCineMachine()
+    {
+        cinemachine.Play();
+    }
 }

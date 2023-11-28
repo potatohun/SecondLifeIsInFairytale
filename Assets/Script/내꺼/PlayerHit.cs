@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerHit : MonoBehaviour
 {
     public Player player;
+    public bool isDead = false;
     private void Update()
     {
         TestDead();
         Dead();
-     
     }
 
     void Dead()
@@ -48,28 +48,23 @@ public class PlayerHit : MonoBehaviour
         }
     }
 
-
-
-
-    //
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Enemy") && player.canTakeDamage)      
-            Hit(collision);
+        // if (collision.gameObject.tag.Equals("Enemy") && player.canTakeDamage)
+        // Hit(collision.gameObject.GetComponent<Enemy>);
+
+        if (isDead && collision.gameObject.tag.Equals("Ground"))
+            player.ani.SetTrigger("Dead");
     }
 
-    void Hit(Collision2D collision)
+    public void Hit(int damage)
     {
-
-        player.HP -= collision.gameObject.GetComponent<Enemy>().Attack;
-
-        Debug.Log(" Player HP :" + player.HP);
-        player.ani.SetBool("Hit", true);
-        StartCoroutine(KnockBack(collision.gameObject));
+        if (player.canTakeDamage)
+        {
+            player.HP -= damage;
+            StartCoroutine(KnockBack(gameObject));
+        }
     }
-
-
     IEnumerator KnockBack(GameObject enemy)
     {
         yield return null;
@@ -86,4 +81,5 @@ public class PlayerHit : MonoBehaviour
         player.ani.SetBool("Hit", false);
 
     }
+
 }

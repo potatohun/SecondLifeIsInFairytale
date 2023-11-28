@@ -9,7 +9,7 @@ public class mouse_noise : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        mouse = GameObject.FindGameObjectWithTag("Bossmouse").GetComponent<Bossmouse>();
+        mouse = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Bossmouse>();
         mouse.currentPatternCoroutine = mouse.StartCoroutine(mouse.warningCircle());
     }
 
