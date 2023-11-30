@@ -10,13 +10,28 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentChapter", 1);
-        PlayerPrefs.SetInt("RollPaper", 1);
-        SceneManager.LoadScene("1장시작");
+        PlayerPrefs.SetInt("RollPaper", 0);
+        SceneManager.LoadScene("시작");
     }
 
     public void ContinueBtn()
     {
-        SceneManager.LoadScene("마을");
+        switch (PlayerPrefs.GetInt("CurrentChapter"))
+        {
+            case 1:
+                SceneManager.LoadScene("1장시작");
+                break;
+            case 2:
+                SceneManager.LoadScene("2장시작");
+                break;
+            case 3:
+                SceneManager.LoadScene("3장시작");
+                break;
+            default:
+                SceneManager.LoadScene("1장시작");
+                break;
+        }
+        
     }
 
     public void OptionBtn()

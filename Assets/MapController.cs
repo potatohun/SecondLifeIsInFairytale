@@ -10,6 +10,9 @@ public class MapController : MonoBehaviour
     public GameObject boss_map;
     public GameObject Player;
     int currentmap;
+
+    public AudioSource normal;
+    public AudioSource boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,8 @@ public class MapController : MonoBehaviour
         if(map.Count == 0 )
         {
             boss_map.SetActive(true);
+            normal.Stop();
+            boss.Play();
         }
         else
         {

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Ending : MonoBehaviour
 {
     public Text text;
-    public GameObject btn1;
     public GameObject btn2;
     public string str = "";
 
@@ -32,7 +31,6 @@ public class Ending : MonoBehaviour
             }
             yield return new WaitForSeconds(0.05f);
         }
-        btn1.SetActive(true);
         btn2.SetActive(true);
     }
     public void MainBtn()
