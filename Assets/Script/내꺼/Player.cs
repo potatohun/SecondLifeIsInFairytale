@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public AudioSource audio;
 
 
+    public int weapondamage = 10;
     public WeaponData.WeaponType weaponType;
     public bool canTakeDamage = true;
 
@@ -129,12 +130,12 @@ public class Player : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // 오브젝트를 씬 전환 시에도 파괴되지 않도록 설정
+            DontDestroyOnLoad(this.gameObject); // 오브젝트를 씬 전환 시에도 파괴되지 않도록 설정
         }
         else
         {
             // 이미 인스턴스가 존재하면 중복 생성된 것이므로 이 오브젝트를 파괴
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
@@ -145,5 +146,9 @@ public class Player : MonoBehaviour
         else isSeeRight = false;
     }
 
-
+    public float CalcDamage()
+    {
+        Debug.Log((damage + weapondamage) + (damage + weapondamage) * UnityEngine.Random.Range(0f, 0.1f));
+        return (damage + weapondamage) + (damage + weapondamage) * UnityEngine.Random.Range(0f, 0.11f);
+    }
 }

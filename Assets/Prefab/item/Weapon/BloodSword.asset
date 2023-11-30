@@ -23,5 +23,5 @@ MonoBehaviour:
   maxHp: 0
   moveSpeed: 2
   damage: 17
-  attackSpeed: 5
+  attackSpeed: 7
   weaponType: 2

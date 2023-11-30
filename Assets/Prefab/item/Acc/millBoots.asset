@@ -16,7 +16,7 @@ MonoBehaviour:
   itemIamge: {fileID: 21300000, guid: 1a54d1da1bb6f42cbb5e149551b4c3fb, type: 3}
   coolTimeIamge: {fileID: 0}
   itemPrefab: {fileID: 4222134408863057582, guid: 11a9a6adee6d54c3e8ffea05e2e19025, type: 3}
-  itemStatusPrefab: {fileID: 7332568455652740340, guid: 6c399339ee39b494bbc647b1cfb58793, type: 3}
+  itemStatusPrefab: {fileID: 7332568455652740340, guid: da2c1af5a8d8b48b0b2df2c11ceb5687, type: 3}
   itemEffect: "\uCD5C\uB300\uCCB4\uB825 + 15 \uC774\uB3D9\uC18D\uB3C4 + 7 \uD798
     + 5"
   itemTooltip: "\uCC98\uC74C\uC5D0\uB294 \uBD88\uD3B8\uD558\uC9C0\uB9CC \uC4F0\uB2E4

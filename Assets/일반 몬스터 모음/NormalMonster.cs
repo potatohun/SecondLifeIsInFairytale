@@ -9,7 +9,9 @@ public class NormalMonster : Enemy
     public float idleTime = 2f; // 공격 후 idle 시간
     private bool isIdleAfterAttack = false; // 공격 후 idle 지정 변수
     private bool takeAttack = false; //사망 시 더이상 공격 못하도록 설정
-   
+
+    public AudioSource attack;
+    public AudioSource mouse;
     void Start()
     {
         OnEnable();
@@ -97,5 +99,15 @@ public class NormalMonster : Enemy
             StartCoroutine(stop_time());
             takeAttack = false;
         }
+    }
+
+    public void AttackSound()
+    {
+        attack.Play();
+    }
+
+    public void mousePlay()
+    {
+        mouse.Play();
     }
 }

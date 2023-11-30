@@ -10,9 +10,12 @@ public class DamageText : MonoBehaviour
     TextMeshPro text;
     Color alpha;
     public int damage;
+
+    public AudioSource hitsound;
     // Start is called before the first frame update
     void Start()
     {
+        hitsound.Play();
         text = GetComponent<TextMeshPro>();
         text.text = damage.ToString();
         alpha = text.color;

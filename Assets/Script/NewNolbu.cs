@@ -24,7 +24,10 @@ public class NewNolbu : Enemy
     private bool oneTime = true;
 
     public Boss boss;
-
+    public AudioSource throwCoin;
+    public AudioSource hit;
+    public AudioSource noise;
+    public AudioSource arrow;
     void Start()
     {
         OnEnable();
@@ -238,5 +241,26 @@ public class NewNolbu : Enemy
     {
         boss.IsDie();
         //Destroy(gameObject);
+    }
+
+    public void ThrowSound()
+    {
+        throwCoin.Play();
+    }
+    public void HitSound()
+    {
+        hit.Play();
+    }
+    public void NoiseSound()
+    {
+        noise.Play();
+    }
+    public void NoiseStop()
+    {
+        noise.Stop();
+    }
+    public void ArrowSound()
+    {
+        arrow.Play();
     }
 }

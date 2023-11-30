@@ -9,6 +9,8 @@ public class RangedMonster : Enemy
     private bool isAttacking = false;
     private bool takeAttack = false;
 
+    public AudioSource arrowLoad;
+    public AudioSource arrowShot;
     void Start()
     {
         OnEnable();
@@ -85,5 +87,18 @@ public class RangedMonster : Enemy
         yield return new WaitForSeconds(1.5f);
         isAttacking = false;
         takeAttack = false;
+    }
+
+    public void ArrowLoadSound()
+    {
+        arrowLoad.Play();
+    }
+    public void ArrowLoadStop()
+    {
+        arrowLoad.Stop();
+    }
+    public void ArrowShotSound()
+    {
+        arrowShot.Play();
     }
 }

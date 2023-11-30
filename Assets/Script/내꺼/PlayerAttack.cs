@@ -69,19 +69,20 @@ public class PlayerAttack : MonoBehaviour
                     switch (Player.instance.weaponType)
                     {
                         case WeaponData.WeaponType.None:
-                            collider.GetComponent<Enemy>().TakeDamage(Player.instance.damage);
+                            collider.GetComponent<Enemy>().TakeDamage((int)(Player.instance.CalcDamage()));
                             break;
                         case WeaponData.WeaponType.Ice:
-                            collider.GetComponent<Enemy>().TakeDamage(Player.instance.damage);
+                            collider.GetComponent<Enemy>().TakeDamage((int)(Player.instance.CalcDamage()));
                             collider.GetComponent<Enemy>().StartIceEffect();
                             break;
                         case WeaponData.WeaponType.Fire:
-                            collider.GetComponent<Enemy>().TakeDamage(Player.instance.damage);
+                            collider.GetComponent<Enemy>().TakeDamage((int)(Player.instance.CalcDamage()));
                             collider.GetComponent<Enemy>().StartFireEffect();
                             break;
                         case WeaponData.WeaponType.Blood:
-                            collider.GetComponent<Enemy>().TakeDamage(Player.instance.damage);
-                            //collider.GetComponent<Enemy>(). 흡혈 구현
+                            collider.GetComponent<Enemy>().TakeDamage((int)(Player.instance.CalcDamage()));
+                            Player.instance.HP += (int)(Player.instance.MAXHP * 0.02);
+                            if(Player.instance.MAXHP < Player.instance.HP) Player.instance.HP = Player.instance.MAXHP;
                             break;
                     }
                     break;

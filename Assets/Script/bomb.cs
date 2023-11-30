@@ -12,6 +12,7 @@ public class bomb : MonoBehaviour
     public float size;
     private bool isExploded;
     private Transform playerTransform; // 플레이어의 Transform
+    public AudioSource audioSource;
 
     float distance;
     bool isRight;
@@ -92,5 +93,11 @@ public class bomb : MonoBehaviour
                 Explode();
             }
         }
+    }
+
+
+    public void BombSound()
+    {
+        audioSource.Play();
     }
 }
