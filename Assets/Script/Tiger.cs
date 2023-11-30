@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,9 @@ public class Tiger : Enemy
     public double value;
 
     public Boss boss;
+    public AudioSource axeSound;
+    public AudioSource toothsound;
+    public AudioSource nailsound;
     void Start()
     {
         OnEnable();
@@ -137,5 +141,18 @@ public class Tiger : Enemy
         boss.IsDie();
 
         //Destroy(gameObject);
+    }
+
+    public void AxePlay()
+    {
+        axeSound.Play();
+    }
+    public void NailPlay()
+    {
+        nailsound.Play();
+    }
+    public void ToothPlay()
+    {
+        toothsound.Play();
     }
 }

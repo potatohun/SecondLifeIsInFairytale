@@ -39,6 +39,13 @@ public class Bossmouse : Enemy
     private bool rolling = false;
 
     public Boss boss;
+
+    public AudioSource throwsound;
+    public AudioSource formChangesound;
+    public AudioSource rollingsound;
+    public AudioSource updownsound;
+    public AudioSource noisesound;
+    public AudioSource mouse;
     //초기 설정
     void Start()
     {
@@ -396,5 +403,30 @@ public class Bossmouse : Enemy
     public override void monsterDestroy()
     {
 
+    }
+
+    public void ThrowPlay()
+    {
+        throwsound.Play();
+    }
+    public void FormChangePlay()
+    {
+        formChangesound.Play();
+    }
+    public void RollingPlay()
+    {
+        rollingsound.Play();
+    }
+    public void UpDownPlay()
+    {
+        updownsound.Play();
+    }
+    public void NoisePlay()
+    {
+        noisesound.Play();
+    }
+    public void MousePlay()
+    {
+        mouse.Play();
     }
 }

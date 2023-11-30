@@ -23,6 +23,7 @@ public class phase2_updown : StateMachineBehaviour
         currentTime += Time.deltaTime;
         if (currentTime >= 5f)
         {
+            mouse.UpDownPlay();
             currentTime = 0f;
             mouse.ani.SetTrigger("bottom_all");
         }

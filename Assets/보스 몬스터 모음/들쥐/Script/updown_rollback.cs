@@ -17,11 +17,9 @@ public class updown_rollback : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         mouse.transform.position = Vector3.MoveTowards(mouse.transform.position, mouse.initialPosition, step);
-
         // 초기 위치에 도달하면 원하는 작업 실행
         if (mouse.transform.position == mouse.initialPosition)
         {
-
             animator.SetTrigger("bottom_all");
         }
     }

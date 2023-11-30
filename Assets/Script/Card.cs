@@ -66,7 +66,20 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
                 PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") - cost);
                 GameObject parentObject = this.gameObject.transform.parent.gameObject;
                 parentObject.SetActive(false);
-                SceneManager.LoadScene("마을");
+                Debug.Log(SceneManager.GetActiveScene().name);
+                switch (SceneManager.GetActiveScene().name)
+                {
+                    case "1장":
+                        SceneManager.LoadScene("1장엔딩");
+                        break;
+                    case "2장":
+                        SceneManager.LoadScene("2장엔딩");
+                        break;
+                    case "3장":
+                        SceneManager.LoadScene("3장엔딩");
+                        break;
+                }
+                
             }
         }
         else

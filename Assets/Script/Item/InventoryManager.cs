@@ -101,6 +101,7 @@ public class InventoryManager : MonoBehaviour
             {
                 inventory[index] = item;
                 item.transform.SetParent(this.transform);
+                item.SetActive(false);
                 Sobi sobiData = item.gameObject.GetComponent<Sobi>();
                 Bag.AcquireItem(sobiData.sobiData, index);
                 break;
