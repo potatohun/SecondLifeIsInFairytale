@@ -2120,7 +2120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6344218937700942446, guid: fea2cac8351039f4d8e317c481da33a0, type: 3}
       propertyPath: cardData.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6344218937700942446, guid: fea2cac8351039f4d8e317c481da33a0, type: 3}
       propertyPath: cardData.Array.data[0]
@@ -2137,11 +2137,11 @@ PrefabInstance:
     - target: {fileID: 6344218937700942446, guid: fea2cac8351039f4d8e317c481da33a0, type: 3}
       propertyPath: cardData.Array.data[3]
       value: 
-      objectReference: {fileID: 8040623303416487601, guid: 505dd52a143a9f040ae6ae3d0827b73e, type: 3}
+      objectReference: {fileID: 8040623303416487601, guid: 711c92e4df6057b428f7260a28f7d1bc, type: 3}
     - target: {fileID: 6344218937700942446, guid: fea2cac8351039f4d8e317c481da33a0, type: 3}
       propertyPath: cardData.Array.data[4]
       value: 
-      objectReference: {fileID: 8040623303416487601, guid: d9e757b5a843d7c45abba0da077d3e88, type: 3}
+      objectReference: {fileID: 8040623303416487601, guid: 82f6cf1c043f2fb47899852e084f9b57, type: 3}
     - target: {fileID: 6344218937700942446, guid: fea2cac8351039f4d8e317c481da33a0, type: 3}
       propertyPath: cardData.Array.data[5]
       value: 
@@ -4132,7 +4132,77 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 827199598}
+    m_ColliderPaths:
+    - - X: -40000000
+        Y: -20000000
+      - X: -60000000
+        Y: -20000000
+      - X: -60000000
+        Y: -10000000
+      - X: -70000000
+        Y: -10000000
+      - X: -70000000
+        Y: 0
+      - X: -100000000
+        Y: 0
+      - X: -100000000
+        Y: -20000000
+      - X: -90000000
+        Y: -20000000
+      - X: -90000000
+        Y: -30000000
+      - X: -80000000
+        Y: -30000000
+      - X: -80000000
+        Y: -40000000
+      - X: -70000000
+        Y: -40000000
+      - X: -70000000
+        Y: -50000000
+      - X: -50000000
+        Y: -50000000
+      - X: -50000000
+        Y: -60000000
+      - X: -40000000
+        Y: -60000000
+      - X: -40000000
+        Y: -70000000
+      - X: 110000000
+        Y: -70000000
+      - X: 110000000
+        Y: -60000000
+      - X: 130000000
+        Y: -60000000
+      - X: 130000000
+        Y: -50000000
+      - X: 150000000
+        Y: -50000000
+      - X: 150000000
+        Y: -30000000
+      - X: 160000000
+        Y: -30000000
+      - X: 160000000
+        Y: -20000000
+      - X: 170000000
+        Y: -20000000
+      - X: 170000000
+        Y: 0
+      - X: 140000000
+        Y: 0
+      - X: 140000000
+        Y: -10000000
+      - X: 120000000
+        Y: -10000000
+      - X: 120000000
+        Y: -20000000
+      - X: 110000000
+        Y: -20000000
+      - X: 110000000
+        Y: -30000000
+      - X: -40000000
+        Y: -30000000
   m_CompositePaths:
     m_Paths:
     - - {x: 10.99997, y: -7}
@@ -7287,11 +7357,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 307050046, guid: ff25cdf28985e3548b58cc56a673d4bf, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 307050046, guid: ff25cdf28985e3548b58cc56a673d4bf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2123167186958418050, guid: ff25cdf28985e3548b58cc56a673d4bf, type: 3}
       propertyPath: m_Name
@@ -7580,7 +7650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1541286296
 Transform:
   m_ObjectHideFlags: 0
@@ -10510,11 +10580,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 307050046, guid: ff25cdf28985e3548b58cc56a673d4bf, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 307050046, guid: ff25cdf28985e3548b58cc56a673d4bf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2123167186958418050, guid: ff25cdf28985e3548b58cc56a673d4bf, type: 3}
       propertyPath: m_Name
@@ -10682,6 +10752,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1967158858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967158859}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1967158859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967158858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982438718
 GameObject:
   m_ObjectHideFlags: 0

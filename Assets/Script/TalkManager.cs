@@ -75,6 +75,12 @@ public class TalkManager : MonoBehaviour
                 Move3Page();
                 StartCoroutine(FadeIn());
             }
+            else if (playerscanner.ScanObj().gameObject.CompareTag("Ending"))
+            {
+                //엔딩포탈일때
+                MoveEnding();
+                StartCoroutine(FadeIn());
+            }
             else if (playerscanner.ScanObj().gameObject.CompareTag("Portal"))
             {
                 //그냥 포탈일때
@@ -128,6 +134,12 @@ public class TalkManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
         SceneManager.LoadScene("3장");
+    }
+    public void MoveEnding()
+    {
+        SceneManager.LoadScene("마지막");
+        Player.instance.gameObject.SetActive(false);
+        Canvas.instance.gameObject.SetActive(false);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

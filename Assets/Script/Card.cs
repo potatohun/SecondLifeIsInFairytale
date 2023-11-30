@@ -78,8 +78,7 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
                     case "3장":
                         SceneManager.LoadScene("3장엔딩");
                         break;
-                }
-                
+                }    
             }
         }
         else

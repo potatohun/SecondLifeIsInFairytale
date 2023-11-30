@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        gameObject.transform.position = Vector3.zero + new Vector3(0, 1, 0); // 씬이 로드될 때마다 Player 위치 (0,0,0)으로 초기화.
+        this.gameObject.transform.position = new Vector3(0, 1, 0); // 씬이 로드될 때마다 Player 위치 (0,0,0)으로 초기화.
     }
     //
     void Awake()

@@ -38,6 +38,7 @@ TagManager:
   - CineMachine
   - Bossrat
   - Used
+  - Ending
   layers:
   - Default
   - TransparentFX

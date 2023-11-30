@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Canvas : MonoBehaviour
 {
-    private static Canvas instance;
+    public static Canvas instance;
     // Start is called before the first frame update
     void Awake()
     {

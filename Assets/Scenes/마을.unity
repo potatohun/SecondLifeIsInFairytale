@@ -4395,13 +4395,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4321645179909579077, guid: 43a4b61be0b43403c963a9f7cae7eac5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6683939195745120872, guid: 43a4b61be0b43403c963a9f7cae7eac5, type: 3}
       propertyPath: HP
-      value: 500
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6683939195745120872, guid: 43a4b61be0b43403c963a9f7cae7eac5, type: 3}
       propertyPath: MAXHP
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6683939195745120872, guid: 43a4b61be0b43403c963a9f7cae7eac5, type: 3}
       propertyPath: damage

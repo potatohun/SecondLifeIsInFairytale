@@ -26,6 +26,17 @@ public class RewardManager : MonoBehaviour
     public void SkipBtnClick()
     {
         this.gameObject.SetActive(false);
-        SceneManager.LoadScene("마을");
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "1장":
+                SceneManager.LoadScene("1장엔딩");
+                break;
+            case "2장":
+                SceneManager.LoadScene("2장엔딩");
+                break;
+            case "3장":
+                SceneManager.LoadScene("3장엔딩");
+                break;
+        }
     }
 }

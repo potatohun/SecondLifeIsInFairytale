@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerHit : MonoBehaviour
 {
     public Player player;
     public bool isDead = false;
+    public Image fade;
+    public Text text;
+
+    public GameObject btn;
     private void Update()
     {
         TestDead();
@@ -22,7 +28,7 @@ public class PlayerHit : MonoBehaviour
                 Debug.Log("죽어");
                 player.canDead = false;
                 StartCoroutine(testDead());
-                player.ani.SetTrigger("Dead");
+                player.ani.SetBool("Dead", true);
             }
             else
             {
@@ -54,7 +60,7 @@ public class PlayerHit : MonoBehaviour
         // Hit(collision.gameObject.GetComponent<Enemy>);
 
         if (isDead && collision.gameObject.tag.Equals("Ground"))
-            player.ani.SetTrigger("Dead");
+            player.ani.SetBool("Dead", true);
     }
 
     public void Hit(int damage, GameObject Enemy)
@@ -85,6 +91,43 @@ public class PlayerHit : MonoBehaviour
 
     public void Gameover()
     {
-        Time.timeScale = 0;
+        player.ani.speed = 0;
+        StartCoroutine(FadeIn());
+    }
+    IEnumerator FadeIn()
+    {
+        fade.gameObject.SetActive(true);
+        //chapterText.gameObject.SetActive(true);
+        float fadeCount = 0.0f;
+        while (fadeCount < 1.0f)
+        {
+            fadeCount += 0.01f;
+            fade.color = new Color(0, 0, 0, fadeCount);
+            text.color = new Color(0.8396226f, 0.02082168f, 0f, fadeCount);
+            yield return new WaitForSeconds(0.01f);
+        }
+        btn.SetActive(true);
+    }
+
+    public void MenuBtn()
+    {
+        player.HP = player.MAXHP;
+        player.ani.speed = 1;
+        player.ani.SetBool("Dead", false);
+        player.ani.Play("Idle");
+        btn.SetActive(false);
+        fade.gameObject.SetActive(false);
+        switch (PlayerPrefs.GetInt("CurrentChapter"))
+        {
+            case 1:
+                SceneManager.LoadScene("1장시작");
+                break;
+            case 2:
+                SceneManager.LoadScene("2장시작");
+                break;
+            case 3:
+                SceneManager.LoadScene("3장시작");
+                break;
+        }
     }
 }
