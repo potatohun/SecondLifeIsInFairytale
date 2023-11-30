@@ -26,6 +26,7 @@ public class Tiger : Enemy
         base.OnEnable();
         HP = 300f;
         Health.value = HP;
+        monsterSpeed = 10f;
     }
 
     void Update()
@@ -118,15 +119,15 @@ public class Tiger : Enemy
                 PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
                 if (posIndex == 0)
                 {
-                    player.Hit(10);
+                    player.Hit(10, this.gameObject);
                 }
                 else if (posIndex == 1)
                 {
-                    player.Hit(20);
+                    player.Hit(20, this.gameObject);
                 }
                 else if (posIndex == 2)
                 {
-                    player.Hit(30);
+                    player.Hit(30, this.gameObject);
                 }
             }
         }

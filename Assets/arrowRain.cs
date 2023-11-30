@@ -26,7 +26,7 @@ public class arrowRain : MonoBehaviour
             if (collider.tag == "Player")
             {
                 PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
-                player.Hit(30);
+                player.Hit(30, this.gameObject);
             }
         }
     }

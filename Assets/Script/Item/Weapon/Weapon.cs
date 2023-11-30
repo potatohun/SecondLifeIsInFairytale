@@ -25,7 +25,7 @@ public class Weapon : Item
     }
     public void EqipWeapon(GameObject Weapon)
     {
-        Weapon.transform.SetParent(player.transform);
+        Weapon.transform.SetParent(Player.instance.transform);
         player.MAXHP+=weaponData.maxHp;
         player.moveSpeed+=weaponData.moveSpeed;
         player.damage+=weaponData.damage;

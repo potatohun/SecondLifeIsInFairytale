@@ -447,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 2123167186958418050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.64, y: -3.19, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2123167187661501144}
@@ -593,8 +593,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   ani: {fileID: 0}
   bColl: {fileID: 0}
-  boxsize: {x: 0, y: 0}
-  attackOffset: {x: 0, y: 0, z: 0}
+  boxsize: {x: 0.8, y: 1.2}
+  attackOffset: {x: -1, y: -0.2, z: 0}
   isFlipped: 0
   monsterSpeed: 0
   damageText: {fileID: 2413220396480905056, guid: e96de0bca3852c64195595c469014522, type: 3}

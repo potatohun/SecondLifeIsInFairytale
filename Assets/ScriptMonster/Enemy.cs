@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
             if (collider.tag == "Player")
             {
                 PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
-                player.Hit(20);
+                player.Hit(20, this.gameObject);
             }
         }
     }
@@ -131,6 +131,13 @@ public class Enemy : MonoBehaviour
     //몬스터 제거
     public virtual void monsterDestroy()
     {
+        GameObject item = ItemManager.Instance.DropItem(this.gameObject.transform.position);
+        if (item != null)
+        {
+            item.transform.SetParent(this.transform.parent);
+            item.transform.position = this.gameObject.transform.position;
+        }
+
         Destroy(gameObject);
     }
 

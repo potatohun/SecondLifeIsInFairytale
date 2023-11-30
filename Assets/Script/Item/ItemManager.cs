@@ -38,7 +38,6 @@ public class ItemManager : MonoBehaviour
                     {
                         tmp = Instantiate(SobiList[i]);
                         tmp.name = SobiList[i].name;
-                        tmp.SetActive(false);
                         return tmp;
                     }
                     
@@ -51,19 +50,17 @@ public class ItemManager : MonoBehaviour
                     {
                         tmp = Instantiate(AccList[i]);
                         tmp.name = AccList[i].name;
-                        tmp.SetActive(false);
                         return tmp;
                     }
                 }
                 break;
             case "sword":
-                for(int i=0;i<4;i++)
+                for(int i=0;i<5;i++)
                 {
                     if (name == SwordList[i].name) 
                     {
-                        tmp = Instantiate(SwordList[i]);
+                        tmp = Instantiate(SwordList[i], Player.instance.transform.position, Quaternion.identity);
                         tmp.name = SwordList[i].name;
-                        tmp.SetActive(false);
                         return tmp;
                     }
                 }

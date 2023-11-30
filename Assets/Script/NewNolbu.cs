@@ -33,9 +33,9 @@ public class NewNolbu : Enemy
 
         activePrefabs = new List<GameObject>();
         attackPositions = new Vector3[3];
-        attackPositions[0] = new Vector3(-6.76f, 3.59f, 0f); // 가운데 위치
-        attackPositions[1] = new Vector3(2.79f, 3.59f, 0f); // 왼쪽 위치
-        attackPositions[2] = new Vector3(12.34f, 3.59f, 0f); // 오른쪽 위치
+        attackPositions[0] = new Vector3(-6.76f, 2.8f, 0f); // 가운데 위치
+        attackPositions[1] = new Vector3(2.79f, 2.8f, 0f); // 왼쪽 위치
+        attackPositions[2] = new Vector3(12.34f, 2.8f, 0f); // 오른쪽 위치
     }
 
     protected override void OnEnable()
@@ -138,7 +138,7 @@ public class NewNolbu : Enemy
     //즉사 패턴 ( 그냥 폭탄 소환 => 폭탄 자체의 스크립트로 날라감 )
     public void addBomb()
     {
-        prefab_instance = Instantiate(coinBomb, transform.position, Quaternion.identity);
+        prefab_instance = Instantiate(coinBomb, transform.position + new Vector3(0,1,0), Quaternion.identity);
     }
 
 
@@ -203,7 +203,7 @@ public class NewNolbu : Enemy
             if (col.tag == "Player")
             {
                 PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
-                player.Hit(40);
+                player.Hit(40, this.gameObject);
             }
         }
     }

@@ -342,7 +342,7 @@ public class Bossmouse : Enemy
             if (col.tag == "Player")
             {
                 PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
-                player.Hit(pattern_damage[3]);
+                player.Hit(pattern_damage[3], this.gameObject);
             }
         }
     }
@@ -389,7 +389,7 @@ public class Bossmouse : Enemy
         if (other.gameObject.CompareTag("Player") && (phase_state == 1 || phase_state == 2))
         {
             PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
-            player.Hit(pattern_damage[4]);
+            player.Hit(pattern_damage[4], this.gameObject);
         }
     }
 

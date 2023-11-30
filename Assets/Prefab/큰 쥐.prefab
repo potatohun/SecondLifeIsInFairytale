@@ -110,7 +110,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4815735248380800297
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -154,8 +154,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   ani: {fileID: 0}
   bColl: {fileID: 0}
-  boxsize: {x: 0, y: 0}
-  attackOffset: {x: 0, y: 0, z: 0}
+  boxsize: {x: 1, y: 1}
+  attackOffset: {x: -1.1, y: 0, z: 0}
   isFlipped: 0
   monsterSpeed: 0
   damageText: {fileID: 2413220396480905056, guid: e96de0bca3852c64195595c469014522, type: 3}

@@ -60,7 +60,8 @@ public class bomb : MonoBehaviour
         {
             if (col.CompareTag("Player"))
             {
-                Debug.Log("플레이어에게 데미지 주기");
+                PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
+                player.Hit(9999, this.gameObject);
             }
             else
             {
@@ -71,7 +72,7 @@ public class bomb : MonoBehaviour
 
     void destroyBomb()
     {
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 
     private void OnDrawGizmos()
@@ -84,7 +85,7 @@ public class bomb : MonoBehaviour
     {
         if (!isExploded)
         {
-            if (collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Player"))
             {
                 transform.localScale = new Vector3(2f, 2f, 0f);
                 ani.SetTrigger("bomb");

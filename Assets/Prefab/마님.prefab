@@ -486,8 +486,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   ani: {fileID: 0}
   bColl: {fileID: 0}
-  boxsize: {x: 0, y: 0}
-  attackOffset: {x: 0, y: 0, z: 0}
+  boxsize: {x: 1, y: 1.5}
+  attackOffset: {x: -1.2, y: -0.2, z: 0}
   isFlipped: 0
   monsterSpeed: 0
   damageText: {fileID: 2413220396480905056, guid: e96de0bca3852c64195595c469014522, type: 3}

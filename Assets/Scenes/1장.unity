@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: boss
       value: 
       objectReference: {fileID: 174305519}
+    - target: {fileID: 932321984104157027, guid: 15420b624cbbef8479a28749d6377698, type: 3}
+      propertyPath: monsterSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 932321984940335380, guid: 15420b624cbbef8479a28749d6377698, type: 3}
       propertyPath: m_Name
       value: "\uD638\uB791\uC774"
@@ -4084,13 +4088,41 @@ PrefabInstance:
       propertyPath: boss
       value: 
       objectReference: {fileID: 174305518}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5427312059302472019, guid: 4dcc575ad8f3a62498b2a05a3839f716, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4dcc575ad8f3a62498b2a05a3839f716, type: 3}
 --- !u!1 &2046686697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8864018647632167006, guid: 4dcc575ad8f3a62498b2a05a3839f716, type: 3}
   m_PrefabInstance: {fileID: 2046686696}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2046686698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8864018648698531916, guid: 4dcc575ad8f3a62498b2a05a3839f716, type: 3}
+  m_PrefabInstance: {fileID: 2046686696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2046686699
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046686698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BindingMode: 1
+  m_FollowOffset: {x: 0, y: 0, z: -10}
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_AngularDampingMode: 0
+  m_PitchDamping: 0
+  m_YawDamping: 0
+  m_RollDamping: 0
+  m_AngularDamping: 0
 --- !u!4 &6100936283099923863
 Transform:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentChapter", 1);
-        PlayerPrefs.SetInt("RollPaper", 10);
-        SceneManager.LoadScene("시작");
+        PlayerPrefs.SetInt("RollPaper", 1);
+        SceneManager.LoadScene("1장시작");
     }
 
     public void ContinueBtn()

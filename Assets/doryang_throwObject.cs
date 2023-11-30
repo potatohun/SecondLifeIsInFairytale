@@ -20,7 +20,7 @@ public class doryang_throwObject : MonoBehaviour
 
     void DestroyObject()
     {
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -28,7 +28,7 @@ public class doryang_throwObject : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
-            player.Hit(damage);
+            player.Hit(damage, this.gameObject);
             DestroyObject();
         }
 

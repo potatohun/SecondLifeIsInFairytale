@@ -33,7 +33,7 @@ public class Arrow : MonoBehaviour
 
     void DestroyArrow()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -41,7 +41,7 @@ public class Arrow : MonoBehaviour
         if(other.tag == "Player")
         {
             PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
-            player.Hit(10);
+            player.Hit(10, this.gameObject);
             DestroyArrow();
         }
         

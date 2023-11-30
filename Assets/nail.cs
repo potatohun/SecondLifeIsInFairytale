@@ -33,7 +33,7 @@ public class nail : MonoBehaviour
 
     void DestroyNail()
     {
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -41,7 +41,7 @@ public class nail : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerHit player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHit>();
-            player.Hit(damage);
+            player.Hit(damage, this.gameObject);
             DestroyNail();
         }
 

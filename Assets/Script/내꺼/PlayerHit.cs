@@ -57,12 +57,13 @@ public class PlayerHit : MonoBehaviour
             player.ani.SetTrigger("Dead");
     }
 
-    public void Hit(int damage)
+    public void Hit(int damage, GameObject Enemy)
     {
         if (player.canTakeDamage)
         {
+            player.ani.SetBool("Hit", true);
             player.HP -= damage;
-            StartCoroutine(KnockBack(gameObject));
+            StartCoroutine(KnockBack(Enemy));
         }
     }
     IEnumerator KnockBack(GameObject enemy)
@@ -82,4 +83,8 @@ public class PlayerHit : MonoBehaviour
 
     }
 
+    public void Gameover()
+    {
+        Time.timeScale = 0;
+    }
 }

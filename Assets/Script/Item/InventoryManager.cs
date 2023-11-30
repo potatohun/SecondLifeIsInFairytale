@@ -103,6 +103,7 @@ public class InventoryManager : MonoBehaviour
                 item.transform.SetParent(this.transform);
                 Sobi sobiData = item.gameObject.GetComponent<Sobi>();
                 Bag.AcquireItem(sobiData.sobiData, index);
+                break;
             }
         }
     }
@@ -241,7 +242,8 @@ public class InventoryManager : MonoBehaviour
                 Weapon.transform.SetParent(transform.parent.transform);
                 OldWeapon.RemoveWeapon(oldWeapon);
                 Bag.AcquireItem(NewWeapon.weaponData,5);
-                GameObject weapon = Instantiate(itemManager.InstantiateItem("sword",oldWeapon.name), NewWeaponPos, Quaternion.identity);
+
+                GameObject weapon = itemManager.InstantiateItem("sword", oldWeapon.name);
                 Destroy(oldWeapon);
                 return true;
             }

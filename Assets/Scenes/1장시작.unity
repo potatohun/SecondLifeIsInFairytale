@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7022103638282306187, guid: 6ac8e1d404477774cbc7caea168cef7b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7022103638282306188, guid: 6ac8e1d404477774cbc7caea168cef7b, type: 3}
       propertyPath: m_Name
       value: "\uC720\uB839"
@@ -2273,11 +2277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8268909502975874625, guid: 86ac373f994c84d408108404555e1009, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.98
+      value: -4.829999
       objectReference: {fileID: 0}
     - target: {fileID: 8268909502975874625, guid: 86ac373f994c84d408108404555e1009, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 8268909502975874625, guid: 86ac373f994c84d408108404555e1009, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2313,7 +2317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8268909502975874627, guid: 86ac373f994c84d408108404555e1009, type: 3}
       propertyPath: field of view
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86ac373f994c84d408108404555e1009, type: 3}
