@@ -6,7 +6,7 @@ public class ItemManager : MonoBehaviour
 {
     public static ItemManager Instance;
 
-    public GameObject[] SobiList= new GameObject[6];
+    public GameObject[] SobiList= new GameObject[4];
     public GameObject[] AccList= new GameObject[4];
     public GameObject[] SwordList = new GameObject[5];
 
@@ -32,7 +32,7 @@ public class ItemManager : MonoBehaviour
         switch (type)
         {
             case "sobi":
-                for(int i=0;i<6;i++)
+                for(int i=0;i<4;i++)
                 {
                     if (name == SobiList[i].name) 
                     {
@@ -76,9 +76,9 @@ public class ItemManager : MonoBehaviour
        {
             int randomNumber = UnityEngine.Random.Range(1, 11);
             if(randomNumber<=4) return Instantiate(Rollpaper, pos,Quaternion.identity);
-            else if (randomNumber>4&&randomNumber<=7)return Instantiate(SobiList[UnityEngine.Random.Range(0, SobiList.Length)],pos,Quaternion.identity);
+            else if (randomNumber>5&&randomNumber<=7) return Instantiate(SobiList[UnityEngine.Random.Range(0, SobiList.Length)],pos,Quaternion.identity);
             else if (randomNumber>7&&randomNumber<=9)return Instantiate(AccList[UnityEngine.Random.Range(0, AccList.Length-1)],pos,Quaternion.identity);
-            else return Instantiate(SwordList[UnityEngine.Random.Range(0, SwordList.Length-1)],pos,Quaternion.identity);
+            else return Instantiate(SwordList[UnityEngine.Random.Range(0, SwordList.Length)],pos,Quaternion.identity);
        }
     }
 }

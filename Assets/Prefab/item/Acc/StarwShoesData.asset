@@ -20,6 +20,6 @@ MonoBehaviour:
   itemEffect: "\uCD5C\uB300\uCCB4\uB825 +5   \uC774\uB3D9\uC18D\uB3C4 +3"
   itemTooltip: "\uC800\uAC00\uC9C0\uB9CC \uC5C6\uB294 \uAC83\uBCF4\uB2E4\uB294 \uB0AB\uB2E4."
   maxHp: 5
-  moveSpeed: 3
+  moveSpeed: 1
   damage: 0
   attackSpeed: 0

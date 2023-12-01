@@ -29,8 +29,8 @@ public class Weapon : Item
         Weapon.transform.position = Player.instance.transform.position;
         player.MAXHP += weaponData.maxHp;
         player.moveSpeed+=weaponData.moveSpeed;
-        player.damage+=weaponData.damage;
-        player.weapondamage = weaponData.damage;
+   
+        player.weapondamage += weaponData.damage;
         player.attackSpeed+=weaponData.attackSpeed;
         player.ani.SetFloat("attack Speed", player.attackSpeed);
         isEquiped=true;
@@ -43,7 +43,7 @@ public class Weapon : Item
         if (player.HP > player.MAXHP)
             player.HP = player.MAXHP;
         player.moveSpeed-=weaponData.moveSpeed;
-        player.damage -= weaponData.damage;
+        player.weapondamage -= weaponData.damage;
         player.attackSpeed-=weaponData.attackSpeed;
         isEquiped=false;
 

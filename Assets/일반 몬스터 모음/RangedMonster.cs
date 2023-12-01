@@ -60,12 +60,9 @@ public class RangedMonster : Enemy
         isAttacking = false;
     }
 
-    public virtual void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         if (dead) return;
-
-        if (takeAttack)
-            return;
 
         takeAttack = true;
         textOut(damage);

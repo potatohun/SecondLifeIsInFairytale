@@ -22,7 +22,7 @@ public class Arrow : MonoBehaviour
         else
             render.flipX = true;
 
-        Invoke("DestroyArrow", 6f);
+        Invoke("DestroyArrow", 2f);
     }
 
     // Update is called once per frame

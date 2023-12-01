@@ -529,7 +529,7 @@ MonoBehaviour:
   isSeeRight: 1
   createItem: 1
   AmuletPrefab: {fileID: 289522262257606311, guid: 4f1c9e5ee2ca948e69862dc5a22c7471, type: 3}
-  ApplePrefab: {fileID: 0}
+  ApplePrefab: {fileID: 1812902488520152923, guid: 14dea21e57f3e46ccba8e561ea92c09b, type: 3}
   RiceCakePrefab: {fileID: 2996274718830421279, guid: 05c2fb03e45335a479b1a4c48ee107b6, type: 3}
   YakgwaPrefab: {fileID: 1202946447627686168, guid: 969b56fe15767ba4985926f6da14b004, type: 3}
   TrapPrefab: {fileID: 7562757706756403921, guid: 9959f2758d8c44309b3f7da11af22e5a, type: 3}
@@ -663,7 +663,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 658b9cefc58cd654fb2c264d109f1d3c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

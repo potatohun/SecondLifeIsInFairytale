@@ -22,6 +22,6 @@ MonoBehaviour:
   itemTooltip: "\uB300\uAC10\uAC13\uC744 \uC4F0\uB824\uB294 \uC790, \uADF8 \uBB34\uAC8C\uB97C
     \uACAC\uB38C\uB77C."
   maxHp: 30
-  moveSpeed: 7
+  moveSpeed: -3
   damage: 20
   attackSpeed: 7

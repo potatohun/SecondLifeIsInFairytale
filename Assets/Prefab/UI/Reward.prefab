@@ -222,16 +222,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8631394244168365088, guid: 90ceafa34d2a7754f9f7a159cbd74d5f, type: 3}
       propertyPath: cardData.Array.size
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8631394244168365088, guid: 90ceafa34d2a7754f9f7a159cbd74d5f, type: 3}
-      propertyPath: cardData.Array.data[5]
+      propertyPath: cardData.Array.data[3]
       value: 
       objectReference: {fileID: 8040623303416487601, guid: 7476f6b3924573140bf263395dd0f7d6, type: 3}
     - target: {fileID: 8631394244168365088, guid: 90ceafa34d2a7754f9f7a159cbd74d5f, type: 3}
-      propertyPath: cardData.Array.data[6]
+      propertyPath: cardData.Array.data[4]
       value: 
       objectReference: {fileID: 8040623303416487601, guid: 9c46f38f6b57766479455a0bedc1aa84, type: 3}
+    - target: {fileID: 8631394244168365088, guid: 90ceafa34d2a7754f9f7a159cbd74d5f, type: 3}
+      propertyPath: cardData.Array.data[5]
+      value: 
+      objectReference: {fileID: 8040623303416487601, guid: d9e757b5a843d7c45abba0da077d3e88, type: 3}
+    - target: {fileID: 8631394244168365088, guid: 90ceafa34d2a7754f9f7a159cbd74d5f, type: 3}
+      propertyPath: cardData.Array.data[6]
+      value: 
+      objectReference: {fileID: 8040623303416487601, guid: d9e757b5a843d7c45abba0da077d3e88, type: 3}
     - target: {fileID: 8631394244168365088, guid: 90ceafa34d2a7754f9f7a159cbd74d5f, type: 3}
       propertyPath: cardData.Array.data[7]
       value: 

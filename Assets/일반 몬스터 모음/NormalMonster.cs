@@ -83,9 +83,6 @@ public class NormalMonster : Enemy
     {
         if (dead) return;
 
-        if (takeAttack)
-            return;
-
         takeAttack = true;
         textOut(damage);
 

@@ -41,7 +41,6 @@ public class InventoryManager : MonoBehaviour
         switch (other.tag)
         {
         case "Potion":
-        case "Bojo":
             bool TryAddInventory = AddSobi(other.gameObject);
             if (TryAddInventory)
             {  
@@ -213,7 +212,7 @@ public class InventoryManager : MonoBehaviour
                 Bag.AcquireItem(NewWeapon.weaponData,5);
 
                 GameObject weapon = itemManager.InstantiateItem("sword", oldWeapon.name);
-                Weapon.gameObject.transform.SetParent(newWeaponTranform);
+                weapon.gameObject.transform.SetParent(newWeaponTranform);
                 Destroy(oldWeapon);
                 return true;
             }
@@ -248,26 +247,15 @@ public class InventoryManager : MonoBehaviour
     private void UseSobiItem(int index)
     {
         GameObject item= inventory[index];
-        switch(item.gameObject.tag)
-        {
-            case "Potion":
-                    Potion potion = item.GetComponent<Potion>();
-                    Bag.UseItem(index);
-                    potion.UsePotion();
+        Potion potion = item.GetComponent<Potion>();
+        Bag.UseItem(index);
+        potion.UsePotion();
                     inventory[index]=null;
                     canUseItem=false;
                     StartCoroutine(StartUseItemCooldown());
-                    break;
-            case "Bojo":
-                    Bojo bojo=item.GetComponent<Bojo>();
-                    Bag.UseItem(index);
-                    if(item.gameObject.name=="돌")bojo.UseRock(Player.instance.isSeeRight);
-                    else if(item.gameObject.name=="덫")bojo.UseTrap();
-                    inventory[index]=null;
-                    canUseItem=false;
-                    StartCoroutine(StartUseItemCooldown());
-                break;
-        }       
+                    
+    
+           
     }
     public void UseAmulet(int index)
     {

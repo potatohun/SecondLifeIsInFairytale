@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HpBar : MonoBehaviour
 {
     public Slider healthSlider; // Unity Inspector에서 할당할 슬라이더
+    public Text text;
 
     public float maxHealth;
     private float currentHealth;
@@ -20,7 +21,7 @@ public class HpBar : MonoBehaviour
     {
         maxHealth = Player.instance.MAXHP;
         currentHealth = Player.instance.HP;
-
+        text.text = currentHealth.ToString();
         UpdateHealthBar(); // 체력 바 업데이트
     }
     void UpdateHealthBar()
