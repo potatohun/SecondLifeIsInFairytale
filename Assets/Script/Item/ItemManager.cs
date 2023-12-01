@@ -70,14 +70,14 @@ public class ItemManager : MonoBehaviour
     }
     public GameObject DropItem(Vector3 pos)
     {
-       int randomNumber = UnityEngine.Random.Range(1, 11);
-       if(randomNumber==0)return null;
+       int randomNumber2 = UnityEngine.Random.Range(1, 11);
+       if(randomNumber2==0)return null;
        else 
        {
-            randomNumber = UnityEngine.Random.Range(1, 11);
+            int randomNumber = UnityEngine.Random.Range(1, 11);
             if(randomNumber<=4) return Instantiate(Rollpaper, pos,Quaternion.identity);
             else if (randomNumber>4&&randomNumber<=7)return Instantiate(SobiList[UnityEngine.Random.Range(0, SobiList.Length)],pos,Quaternion.identity);
-            else if (randomNumber>7&&randomNumber<=11)return Instantiate(AccList[UnityEngine.Random.Range(0, AccList.Length-1)],pos,Quaternion.identity);
+            else if (randomNumber>7&&randomNumber<=9)return Instantiate(AccList[UnityEngine.Random.Range(0, AccList.Length-1)],pos,Quaternion.identity);
             else return Instantiate(SwordList[UnityEngine.Random.Range(0, SwordList.Length-1)],pos,Quaternion.identity);
        }
     }

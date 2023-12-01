@@ -12,7 +12,7 @@ public class box : MonoBehaviour
     void Start()
     {
         ani = GetComponent<Animator>();
-        ani.SetBool("end", true);
         boss.IsDie();
+        ani.SetBool("end", true);
     }
 }

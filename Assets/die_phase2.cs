@@ -16,7 +16,7 @@ public class die_phase2 : StateMachineBehaviour
         mouse.bColl.enabled = false;
         mouse.transform.position += new Vector3(0f, -1.53f, 0f);
         mouse.rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-        mouse.render.flipX = true;
+        mouse.render.flipX = false;
         mouse.monsterSpeed = 1f;
         step = mouse.monsterSpeed * Time.deltaTime; // 프레임당 이동 거리
     }

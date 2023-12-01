@@ -110,27 +110,28 @@ public class InventoryManager : MonoBehaviour
     }
 
     public bool AddSobi(GameObject item)
-    {         
-        if(canAddItem&&Input.GetKey(KeyCode.F))
+    {
+        if (canAddItem && Input.GetKey(KeyCode.F))
         {
-            for(int index=0;index<3;index++)
+            for (int index = 0; index < 3; index++)
             {
-                if (inventory[index]==null)
+                if (inventory[index] == null)
                 {
-                    inventory[index]=item;
+                    inventory[index] = item;
+                    Sobi itemData = item.gameObject.GetComponent<Sobi>();
+                    itemData.StopAllCoroutines();
                     item.transform.SetParent(this.transform);
-                    Sobi itemData=item.gameObject.GetComponent<Sobi>();
-                    Bag.AcquireItem(itemData.sobiData,index);
-                    if(item.CompareTag("Amulet"))
+                    Bag.AcquireItem(itemData.sobiData, index);
+                    if (item.CompareTag("Amulet"))
                     {
-                        Player.haveAmulet=index+1;
-                        hasAmulet=true;
+                        Player.haveAmulet = index + 1;
+                        hasAmulet = true;
                     }
                     return true;
                 }
-            }            
+            }
         }
-        return false;   
+        return false;
     }
     public bool AddRollPaper(GameObject RollPaper)
     {

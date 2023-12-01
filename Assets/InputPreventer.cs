@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class InputPreventer : MonoBehaviour
 {
-    void Update()
+    private void OnEnable()
     {
-        // 모든 입력을 무시하려면 아래와 같이 사용합니다.
-        //Input.ResetInputAxes();
-        Player.instance.rigid.velocity = Vector3.zero;
+        Player.instance.rigid.simulated = false;
+    }
+
+    private void OnDisable()
+    {
+        Player.instance.rigid.simulated = true;
     }
 }

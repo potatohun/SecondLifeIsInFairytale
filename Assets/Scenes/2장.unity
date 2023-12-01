@@ -14986,6 +14986,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6663122908292846472, guid: 5c106920933e1644da880aa2d461c553, type: 3}
   m_PrefabInstance: {fileID: 1544850972}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1544850979 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6663122908292846476, guid: 5c106920933e1644da880aa2d461c553, type: 3}
+  m_PrefabInstance: {fileID: 1544850972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1586447994
 GameObject:
   m_ObjectHideFlags: 0
@@ -16758,6 +16763,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 1734677021}
+    - target: {fileID: 8864018647746173643, guid: 4dcc575ad8f3a62498b2a05a3839f716, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1544850979}
     - target: {fileID: 9036438326675287227, guid: 4dcc575ad8f3a62498b2a05a3839f716, type: 3}
       propertyPath: boss
       value: 

@@ -516,7 +516,6 @@ MonoBehaviour:
   MAXHP: 100
   moveSpeed: 5
   jumpPower: 10
-  rollSpeed: 5
   attackSpeed: 0
   damage: 10
   rigid: {fileID: 0}
@@ -544,6 +543,7 @@ MonoBehaviour:
   FirePrefab: {fileID: 2901897609830244326, guid: 35ad889dbf47941d38455830f70d0b62, type: 3}
   IcePrefab: {fileID: 7710731655619086605, guid: 1ef565f2cff2a4c90920f886bd887ee3, type: 3}
   BloodPrefab: {fileID: 7452759227837864173, guid: bfd0a52bbc4f949bf983c46d8bf7daea, type: 3}
+  maxVelocityX: 5
   canDead: 1
   haveAmulet: 0
   inventory: {fileID: 4818617472529791315}

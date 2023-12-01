@@ -36,9 +36,9 @@ public class NewNolbu : Enemy
 
         activePrefabs = new List<GameObject>();
         attackPositions = new Vector3[3];
-        attackPositions[0] = new Vector3(-6.76f, 1.8f, 0f); // 가운데 위치
-        attackPositions[1] = new Vector3(2.79f, 1.8f, 0f); // 왼쪽 위치
-        attackPositions[2] = new Vector3(12.34f, 1.8f, 0f); // 오른쪽 위치
+        attackPositions[0] = new Vector3(-6.76f, 2.8f, 0f); // 가운데 위치
+        attackPositions[1] = new Vector3(2.79f, 2.8f, 0f); // 왼쪽 위치
+        attackPositions[2] = new Vector3(12.34f, 2.8f, 0f); // 오른쪽 위치
     }
 
     protected override void OnEnable()
@@ -109,7 +109,7 @@ public class NewNolbu : Enemy
 
     void arrowRain(int patternIndex)
     {
-        GameObject rain = Instantiate(arrowRains, attackPositions[patternIndex] + new Vector3(0f, 0f, 0f), Quaternion.identity);
+        GameObject rain = Instantiate(arrowRains, attackPositions[patternIndex] + new Vector3(0f, 0.6f, 0f), Quaternion.identity);
     }
 
     //공격 패턴 2

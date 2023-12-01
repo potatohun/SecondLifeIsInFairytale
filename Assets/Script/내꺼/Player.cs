@@ -13,7 +13,6 @@ public class Player : MonoBehaviour
     public int MAXHP = 100;
     public int moveSpeed = 5;
     public float jumpPower = 5;
-    public float rollSpeed = 3;
     public float attackSpeed = 10;
     public int damage = 40;
     public Rigidbody2D rigid;
@@ -50,10 +49,11 @@ public class Player : MonoBehaviour
     public GameObject FirePrefab;
     public GameObject IcePrefab;
     public GameObject BloodPrefab;
-    
-    
 
-    
+    public float maxVelocityX;
+
+
+
     public bool canDead = true;
     public int haveAmulet = 0;
     //
@@ -147,4 +147,22 @@ public class Player : MonoBehaviour
         Debug.Log((damage + weapondamage) + (damage + weapondamage) * UnityEngine.Random.Range(0f, 0.1f));
         return (damage + weapondamage) + (damage + weapondamage) * UnityEngine.Random.Range(0f, 0.11f);
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Ground"))
+            limitMoveSpeed();
+    }
+    void limitMoveSpeed()
+    {
+        if (rigid.velocity.x > maxVelocityX)
+        {
+            rigid.velocity = new Vector2(maxVelocityX, rigid.velocity.y);
+        }
+        if (rigid.velocity.x < (maxVelocityX * -1))
+        {
+            rigid.velocity = new Vector2((maxVelocityX * -1), rigid.velocity.y);
+        }
+
+    }
+
 }

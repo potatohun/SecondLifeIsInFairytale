@@ -27,7 +27,7 @@ public class PlayerRoll : MonoBehaviour
          float lookingDir = transform.localScale.x;
          player.ani.SetTrigger("Roll");
         SoundManager.soundManager.GetPlayerAudioClip("SPlayerRoll");
-         player.rigid.velocity = new Vector2(lookingDir, 0) * player.rollSpeed;
+         player.rigid.velocity = new Vector2(lookingDir, 0) * player.moveSpeed;
 
      }
 
