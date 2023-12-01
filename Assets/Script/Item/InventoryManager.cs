@@ -274,6 +274,7 @@ public class InventoryManager : MonoBehaviour
         Amulet amulet=inventory[index].gameObject.GetComponent<Amulet>();
         Bag.UseItem(index);
         amulet.UseAmulet(index);
+        hasAmulet = false;
     }
     public IEnumerator StartAddItemCooldown()
     {

@@ -512,8 +512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86ef273abd57de4b8be0c1cdf081c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
-  MAXHP: 100
+  HP: 1000
+  MAXHP: 1000
   moveSpeed: 5
   jumpPower: 10
   attackSpeed: 0

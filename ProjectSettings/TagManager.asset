@@ -39,6 +39,8 @@ TagManager:
   - Bossrat
   - Used
   - Ending
+  - Director
+  - RewardManager
   layers:
   - Default
   - TransparentFX

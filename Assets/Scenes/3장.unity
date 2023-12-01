@@ -4132,11 +4132,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4815735249137041044, guid: a8e79e609076db34fb12da7fd7ed3a92, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4815735249137041044, guid: a8e79e609076db34fb12da7fd7ed3a92, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e79e609076db34fb12da7fd7ed3a92, type: 3}
@@ -14251,11 +14251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4815735249137041044, guid: a8e79e609076db34fb12da7fd7ed3a92, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4815735249137041044, guid: a8e79e609076db34fb12da7fd7ed3a92, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8e79e609076db34fb12da7fd7ed3a92, type: 3}
@@ -18201,7 +18201,61 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1982438722}
+    m_ColliderPaths:
+    - - X: 190000000
+        Y: -50000000
+      - X: 210000000
+        Y: -50000000
+      - X: 210000000
+        Y: -20000000
+      - X: 190000000
+        Y: -20000000
+      - X: 190000000
+        Y: -10000000
+      - X: -200000000
+        Y: -10000000
+      - X: -200000000
+        Y: -20000000
+      - X: -210000000
+        Y: -20000000
+      - X: -210000000
+        Y: -40000000
+      - X: -200000000
+        Y: -40000000
+      - X: -200000000
+        Y: -60000000
+      - X: -150000000
+        Y: -60000000
+      - X: -150000000
+        Y: -70000000
+      - X: -110000000
+        Y: -70000000
+      - X: -110000000
+        Y: -80000000
+      - X: -40000000
+        Y: -80000000
+      - X: -40000000
+        Y: -70000000
+      - X: -30000000
+        Y: -70000000
+      - X: -30000000
+        Y: -80000000
+      - X: 50000000
+        Y: -80000000
+      - X: 50000000
+        Y: -90000000
+      - X: 120000000
+        Y: -90000000
+      - X: 120000000
+        Y: -70000000
+      - X: 150000000
+        Y: -70000000
+      - X: 150000000
+        Y: -60000000
+      - X: 190000000
+        Y: -60000000
   m_CompositePaths:
     m_Paths:
     - - {x: 11.99997, y: -9}
@@ -21187,7 +21241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2021184492
 Transform:
   m_ObjectHideFlags: 0
@@ -21846,11 +21900,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 904177944191213954, guid: 03bee1b14a5c83940b55f400cf0264ec, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 904177944191213954, guid: 03bee1b14a5c83940b55f400cf0264ec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1114770848354203055, guid: 03bee1b14a5c83940b55f400cf0264ec, type: 3}
       propertyPath: cinemachine

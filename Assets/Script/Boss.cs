@@ -14,8 +14,8 @@ public class Boss : MonoBehaviour
         isDie = false;
 
         //GameObject reward = GameObject.Find("Reward");
-        //rewardManager = reward.transform.Find("RewardManager").gameObject;
-        //cinemachine = reward.transform.Find("Director").gameObject;
+        rewardManager = GameObject.FindWithTag("RewardManager").gameObject;
+        cinemachine = GameObject.FindWithTag("Director").gameObject;
 
         if (rewardManager != null)
         {
