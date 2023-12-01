@@ -46,7 +46,7 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("Å¬¸¯ÇÔ");
-        if (PlayerPrefs.GetInt("RollPaper") >= cost)
+        if (Canvas.instance.rollpaper.rollpaper >= cost)
         {
             bool invenfull = true;
             for(int i = 0; i < 3; i++)
@@ -63,7 +63,7 @@ public class Card : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IP
             else
             {
                 carddata[0].UseItem(carddata[randomIndex].useType, title.GetComponent<Text>().text, cost);
-                PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") - cost);
+                Canvas.instance.rollpaper.rollpaper -= cost;
                 GameObject parentObject = this.gameObject.transform.parent.gameObject;
                 parentObject.SetActive(false);
                 Debug.Log(SceneManager.GetActiveScene().name);

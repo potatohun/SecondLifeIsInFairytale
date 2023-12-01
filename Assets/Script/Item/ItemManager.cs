@@ -10,7 +10,7 @@ public class ItemManager : MonoBehaviour
     public GameObject[] AccList= new GameObject[4];
     public GameObject[] SwordList = new GameObject[5];
 
-    public GameObject Rollpaer;
+    public GameObject Rollpaper;
     public void Awake()
     {
         if (Instance == null)
@@ -75,9 +75,9 @@ public class ItemManager : MonoBehaviour
        else 
        {
             randomNumber = UnityEngine.Random.Range(1, 11);
-            if(randomNumber<=4) return Instantiate(Rollpaer,pos,Quaternion.identity);
+            if(randomNumber<=4) return Instantiate(Rollpaper, pos,Quaternion.identity);
             else if (randomNumber>4&&randomNumber<=7)return Instantiate(SobiList[UnityEngine.Random.Range(0, SobiList.Length)],pos,Quaternion.identity);
-            else if (randomNumber>7&&randomNumber<=8)return Instantiate(AccList[UnityEngine.Random.Range(0, AccList.Length-1)],pos,Quaternion.identity);
+            else if (randomNumber>7&&randomNumber<=11)return Instantiate(AccList[UnityEngine.Random.Range(0, AccList.Length-1)],pos,Quaternion.identity);
             else return Instantiate(SwordList[UnityEngine.Random.Range(0, SwordList.Length-1)],pos,Quaternion.identity);
        }
     }

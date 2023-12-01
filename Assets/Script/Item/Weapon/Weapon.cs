@@ -25,8 +25,9 @@ public class Weapon : Item
     }
     public void EqipWeapon(GameObject Weapon)
     {
-        Weapon.transform.SetParent(Player.instance.transform);
-        player.MAXHP+=weaponData.maxHp;
+        Weapon.transform.SetParent(Player.instance.transform.parent);
+        Weapon.transform.position = Player.instance.transform.position;
+        player.MAXHP += weaponData.maxHp;
         player.moveSpeed+=weaponData.moveSpeed;
         player.damage+=weaponData.damage;
         player.weapondamage = weaponData.damage;
@@ -39,7 +40,6 @@ public class Weapon : Item
     public void RemoveWeapon(GameObject Weapon)
     {
         player.MAXHP-=weaponData.maxHp;
-        player.HP=player.MAXHP;
         player.moveSpeed-=weaponData.moveSpeed;
         player.damage -= weaponData.damage;
         player.attackSpeed-=weaponData.attackSpeed;

@@ -10,7 +10,6 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("CurrentChapter", 1);
-        PlayerPrefs.SetInt("RollPaper", 0);
         SceneManager.LoadScene("Ω√¿€");
     }
 

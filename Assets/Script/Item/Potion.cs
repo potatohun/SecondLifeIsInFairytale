@@ -25,7 +25,6 @@ public class Potion : Sobi
     }
     public void UsePotion()
     {
-        Debug.Log(player);
         if(sobiData.maxHp!=null)player.MAXHP+=sobiData.maxHp;
         player.HP+=sobiData.value;
         if(player.HP>player.MAXHP)player.HP=player.MAXHP;

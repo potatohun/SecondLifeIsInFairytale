@@ -5,6 +5,7 @@ using UnityEngine;
 public class Canvas : MonoBehaviour
 {
     public static Canvas instance;
+    public Rollpaper_ui rollpaper;
     // Start is called before the first frame update
     void Awake()
     {

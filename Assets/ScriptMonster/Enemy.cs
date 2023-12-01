@@ -138,7 +138,7 @@ public class Enemy : MonoBehaviour
             item.transform.position = this.gameObject.transform.position;
         }
 
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
     public void StartIceEffect()

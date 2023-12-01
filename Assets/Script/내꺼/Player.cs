@@ -1,11 +1,9 @@
 using System;
 using System.Collections;
 using System.Reflection;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
@@ -125,8 +123,6 @@ public class Player : MonoBehaviour
         playerCollider = GetComponent<CapsuleCollider2D>();
         sr = GetComponent<SpriteRenderer>();
         audio = GetComponent<AudioSource>();
-
-        PlayerPrefs.SetInt("RollPaper", 10);
         if (instance == null)
         {
             instance = this;

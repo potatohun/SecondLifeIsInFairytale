@@ -65,8 +65,8 @@ public class InventoryManager : MonoBehaviour
             bool TryAddRollPaper=AddRollPaper(other.gameObject);
             if (TryAddRollPaper)
             {
-                PlayerPrefs.SetInt("RollPaper", PlayerPrefs.GetInt("RollPaper") + 1);
-                other.gameObject.SetActive(false);
+                Canvas.instance.rollpaper.rollpaper += 1;
+                Destroy(other.gameObject);
                 canAddItem = false;
                 StartCoroutine(StartAddItemCooldown());
             }
@@ -109,8 +109,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    //public void AddReward(GameObject item)
-
     public bool AddSobi(GameObject item)
     {         
         if(canAddItem&&Input.GetKey(KeyCode.F))
@@ -138,25 +136,10 @@ public class InventoryManager : MonoBehaviour
     {
         if(canAddItem && Input.GetKey(KeyCode.F))
         {
-            rollPaperCount++;
-
-            RollPaper.transform.SetParent(this.transform);
-            RollPaperCountText.text=rollPaperCount.ToString();
             return true;
         }
         return false;
     }
-    public void UseRollPaper(int number)
-    {
-        rollPaperCount-=number;
-        RollPaperCountText.text=rollPaperCount.ToString();
-    }
-    /* 지금은 두루마리 업데이트가 두루마리 먹을때만 호출이라서 addrollpaper에서 바로 텍스트 변경해도되는데, 나중에 두루마리쓸때라던가 생각하면 따로 업데이트함수있는게나을듯?
-    public void UpdateRollPaperCount(int count)
-    {
-        RollPaperCountText.text=count.ToString();
-    }
-    */
     public bool EqipAccessory(GameObject NewAccessory)
     {  
         if (canAddItem && Input.GetKey(KeyCode.F)&&Input.GetKey(KeyCode.Alpha1))
