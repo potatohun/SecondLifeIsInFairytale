@@ -525,7 +525,7 @@ MonoBehaviour:
   ani: {fileID: 7082521578057272888}
   audio: {fileID: 0}
   weapondamage: 10
-  weaponType: 0
+  weaponType: 3
   canTakeDamage: 1
   isSeeRight: 1
   createItem: 1

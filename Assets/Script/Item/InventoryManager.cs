@@ -147,24 +147,16 @@ public class InventoryManager : MonoBehaviour
             Accessory newAcc = NewAccessory.GetComponent<Accessory>();
             if(accessorys[0]!=null)
             {
-                Vector3 NewAccPos=NewAccessory.transform.position;
+                Transform newAccTranform = newAcc.gameObject.transform.parent;
                 GameObject OldAcc=accessorys[0];
                 Accessory oldAcc = NewAccessory.GetComponent<Accessory>();
                 accessorys[0]=NewAccessory;              
                 newAcc.EqipAcc(NewAccessory);
                 oldAcc.RemoveAcc(OldAcc);
                 Bag.AcquireItem(newAcc.accessoryData,3);
-                /*
-                for(int i=0;i<4;i++)
-                {
-                    if(OldAcc.name==itemManager.AccList[i].name)
-                    {
-                        GameObject Acc = Instantiate(itemManager.AccList[i], NewAccPos, Quaternion.identity);
-                        Destroy(OldAcc);
-                    }
-                }
-                */
-                GameObject Accessory = Instantiate(itemManager.InstantiateItem("acc",OldAcc.name), NewAccPos, Quaternion.identity);
+               
+                GameObject Accessory = itemManager.InstantiateItem("acc", OldAcc.name);
+                Accessory.gameObject.transform.SetParent(newAccTranform);
                 Destroy(OldAcc);
             }
             else 
@@ -180,24 +172,16 @@ public class InventoryManager : MonoBehaviour
             Accessory newAcc = NewAccessory.GetComponent<Accessory>();
             if(accessorys[1]!=null)
             {
-                Vector3 NewAccPos=NewAccessory.transform.position;
+                Transform newAccTranform = newAcc.gameObject.transform.parent;
                 GameObject OldAcc=accessorys[1];
                 Accessory oldAcc = NewAccessory.GetComponent<Accessory>();
                 accessorys[1]=NewAccessory;              
                 newAcc.EqipAcc(NewAccessory);
                 oldAcc.RemoveAcc(OldAcc);
-                Bag.AcquireItem(newAcc.accessoryData,3);
-                /*
-                for(int i=0;i<4;i++)
-                {
-                    if(OldAcc.name==itemManager.AccList[i].name)
-                    {
-                        GameObject Acc = Instantiate(itemManager.AccList[i], NewAccPos, Quaternion.identity);
-                        Destroy(OldAcc);
-                    }
-                }
-                */
-                GameObject Accessory = Instantiate(itemManager.InstantiateItem("acc",OldAcc.name), NewAccPos, Quaternion.identity);
+                Bag.AcquireItem(newAcc.accessoryData,4);
+               
+                GameObject Accessory = itemManager.InstantiateItem("acc", OldAcc.name);
+                Accessory.gameObject.transform.SetParent(newAccTranform);
                 Destroy(OldAcc);
             }
             else 
@@ -218,7 +202,7 @@ public class InventoryManager : MonoBehaviour
             Weapon NewWeapon = newWeapon.GetComponent<Weapon>();
             if (Weapon != null)
             {
-                Vector3 NewWeaponPos=newWeapon.transform.position;
+                Transform newWeaponTranform = NewWeapon.gameObject.transform.parent;
                 GameObject oldWeapon = Weapon;
                 Weapon OldWeapon=oldWeapon.GetComponent<Weapon>();
                 Weapon=newWeapon;
@@ -228,6 +212,7 @@ public class InventoryManager : MonoBehaviour
                 Bag.AcquireItem(NewWeapon.weaponData,5);
 
                 GameObject weapon = itemManager.InstantiateItem("sword", oldWeapon.name);
+                Weapon.gameObject.transform.SetParent(newWeaponTranform);
                 Destroy(oldWeapon);
                 return true;
             }

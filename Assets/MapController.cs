@@ -13,6 +13,8 @@ public class MapController : MonoBehaviour
 
     public AudioSource normal;
     public AudioSource boss;
+
+    public GameManager current_map;
     // Start is called before the first frame update
     void Start()
     {

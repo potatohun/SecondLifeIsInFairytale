@@ -18,7 +18,8 @@ MonoBehaviour:
   itemPrefab: {fileID: 2744533298195075171, guid: 0a2388dfd2f044ab49b37777e141a6fd, type: 3}
   itemStatusPrefab: {fileID: 7332568455652740340, guid: 6c399339ee39b494bbc647b1cfb58793, type: 3}
   itemEffect: "\uB450\uB8E8\uB9C8\uB9AC + 1"
-  itemTooltip: "\uC5B4\uCA54 \uB450\uB8E8\uB9C8\uB9AC"
+  itemTooltip: "\uC5B4\uB518\uAC00 \uC2E0\uAE30\uD568\uC774 \uB290\uAEF4\uC9C0\uB294
+    \uB450\uB8E8\uB9C8\uB9AC\uC774\uB2E4."
   value: 0
   maxHp: 0
   damage: 0

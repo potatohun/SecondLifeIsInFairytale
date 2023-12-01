@@ -134,7 +134,8 @@ public class Enemy : MonoBehaviour
         GameObject item = ItemManager.Instance.DropItem(this.gameObject.transform.position);
         if (item != null)
         {
-            item.transform.SetParent(this.transform.parent);
+            Debug.Log("몬스터의 부모 : " + this.transform.parent.transform);
+            item.transform.SetParent(this.gameObject.transform.parent);
             item.transform.position = this.gameObject.transform.position;
         }
 

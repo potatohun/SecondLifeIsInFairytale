@@ -48,7 +48,7 @@ public class ItemManager : MonoBehaviour
                 {
                     if (name == AccList[i].name) 
                     {
-                        tmp = Instantiate(AccList[i]);
+                        tmp = Instantiate(AccList[i], Player.instance.transform.position, Quaternion.identity);
                         tmp.name = AccList[i].name;
                         return tmp;
                     }

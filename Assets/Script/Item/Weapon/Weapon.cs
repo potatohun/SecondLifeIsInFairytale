@@ -40,6 +40,8 @@ public class Weapon : Item
     public void RemoveWeapon(GameObject Weapon)
     {
         player.MAXHP-=weaponData.maxHp;
+        if (player.HP > player.MAXHP)
+            player.HP = player.MAXHP;
         player.moveSpeed-=weaponData.moveSpeed;
         player.damage -= weaponData.damage;
         player.attackSpeed-=weaponData.attackSpeed;

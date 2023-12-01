@@ -26,7 +26,8 @@ public class Accessory : Item
     public void RemoveAcc(GameObject Accessory)
     {
         player.MAXHP-=accessoryData.maxHp;
-        player.HP=player.MAXHP;
+        if (player.HP > player.MAXHP)
+            player.HP=player.MAXHP;
         player.moveSpeed-=accessoryData.moveSpeed;
         player.damage-=accessoryData.damage;
         player.attackSpeed-=accessoryData.attackSpeed;
