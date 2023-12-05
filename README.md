@@ -1,6 +1,6 @@
 
 # 두번째 인생은 동화속에서
-### 2023학년도 2학기 소프트웨어공학 제출 프로젝트
+##### 2023학년도 2학기 소프트웨어공학 제출 프로젝트
 
 ![제목 없는 동영상 - Clipchamp로 제작 (3)](https://github.com/potatohun/SecondLifeIsInFairytale/assets/107704298/d03eedc8-63c8-4466-abb2-ef2db3c34d51)
 
