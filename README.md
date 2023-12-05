@@ -4,4 +4,4 @@
 빌드 파일 : https://www.dropbox.com/scl/fi/x8cxbx0wjicpu31ams951/SecondLifeIsInFairytale.zip?rlkey=pau4ivcxujirvd2agjnv24po1&dl=0 <br>
 소스코드 파일 위치 : Assets -> Script
 
-<img src="![제목 없는 동영상 - Clipchamp로 제작 (2)](https://github.com/potatohun/SecondLifeIsInFairytale/assets/107704298/7122c9c7-f85f-4365-a6ea-0554e972d806)">
+<img src="![제목 없는 동영상 - Clipchamp로 제작 (3)](https://github.com/potatohun/SecondLifeIsInFairytale/assets/107704298/d03eedc8-63c8-4466-abb2-ef2db3c34d51)">
