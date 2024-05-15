@@ -20,7 +20,7 @@ public class TalkManager : MonoBehaviour
     }
     private void Start()
     {
-        StartCoroutine(FadeIn());                     //ÄÚ·çÆ¾    //ÆÇ³Ú Åõ¸íµµ Á¶Àı
+        StartCoroutine(FadeIn());                     //ì½”ë£¨í‹´    //íŒë„¬ íˆ¬ëª…ë„ ì¡°ì ˆ
         talkText = textBox.GetComponentInChildren<Text>();
         textBox.gameObject.SetActive(false);
         moveAble = false;
@@ -34,57 +34,57 @@ public class TalkManager : MonoBehaviour
         {
             if (playerscanner.ScanObj().gameObject.CompareTag("Npc"))
             {
-                Debug.Log("NPC¿Í ´ëÈ­");
+                Debug.Log("NPCì™€ ëŒ€í™”");
                 TalkWithNPC();
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("1PageIntro"))
             {
-                //1Æ÷Å»ÀÏ¶§
+                //1í¬íƒˆì¼ë•Œ
                 Move1PageIntro();
                 StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("2PageIntro"))
             {
-                //2Æ÷Å»ÀÏ¶§
+                //2í¬íƒˆì¼ë•Œ
                 Move2PageIntro();
                 StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("3PageIntro"))
             {
-                //3Æ÷Å»ÀÏ¶§
+                //3í¬íƒˆì¼ë•Œ
                 Move3PageIntro();
                 StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("1Page"))
             {
-                //1Æ÷Å»ÀÏ¶§
+                //1í¬íƒˆì¼ë•Œ
                 Move1Page();
                 StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("2Page"))
             {
-                //2Æ÷Å»ÀÏ¶§
+                //2í¬íƒˆì¼ë•Œ
                 Move2Page();
                 StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("3Page"))
             {
-                //3Æ÷Å»ÀÏ¶§
+                //3í¬íƒˆì¼ë•Œ
                 Move3Page();
                 StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("Ending"))
             {
-                //¿£µùÆ÷Å»ÀÏ¶§
+                //ì—”ë”©í¬íƒˆì¼ë•Œ
                 MoveEnding();
                 StartCoroutine(FadeIn());
             }
             else if (playerscanner.ScanObj().gameObject.CompareTag("Portal"))
             {
-                //±×³É Æ÷Å»ÀÏ¶§
+                //ê·¸ëƒ¥ í¬íƒˆì¼ë•Œ
                 mapController.MapChange();
                 PlayerPrefs.SetInt("CurrentVerse", PlayerPrefs.GetInt("CurrentVerse") + 1);
-                //chapterText.text = PlayerPrefs.GetInt("CurrentChapter").ToString() + "Àå" + PlayerPrefs.GetInt("CurrentVerse").ToString() + "Àı";
+                //chapterText.text = PlayerPrefs.GetInt("CurrentChapter").ToString() + "ì¥" + PlayerPrefs.GetInt("CurrentVerse").ToString() + "ì ˆ";
                 StartCoroutine(FadeIn());
                 //MovePortal();
             }
@@ -96,46 +96,46 @@ public class TalkManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentChapter", 1);
         PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
-        SceneManager.LoadScene("1Àå½ÃÀÛ");
+        SceneManager.LoadScene("1ì¥ì‹œì‘");
     }
     public void Move2PageIntro()
     {
         PlayerPrefs.SetInt("CurrentChapter", 2);
         PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
-        SceneManager.LoadScene("2Àå½ÃÀÛ");
+        SceneManager.LoadScene("2ì¥ì‹œì‘");
     }
     public void Move3PageIntro()
     {
         PlayerPrefs.SetInt("CurrentChapter", 3);
         PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
-        SceneManager.LoadScene("3Àå½ÃÀÛ");
+        SceneManager.LoadScene("3ì¥ì‹œì‘");
     }
     public void Move1Page()
     {
         PlayerPrefs.SetInt("CurrentChapter", 1);
         PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
-        SceneManager.LoadScene("1Àå");
+        SceneManager.LoadScene("1ì¥");
     }
     public void Move2Page()
     {
         PlayerPrefs.SetInt("CurrentChapter", 2);
         PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
-        SceneManager.LoadScene("2Àå");
+        SceneManager.LoadScene("2ì¥");
     }
     public void Move3Page()
     {
         PlayerPrefs.SetInt("CurrentChapter", 3);
         PlayerPrefs.SetInt("CurrentVerse", 1);
         moveAble = false;
-        SceneManager.LoadScene("3Àå");
+        SceneManager.LoadScene("3ì¥");
     }
     public void MoveEnding()
     {
-        SceneManager.LoadScene("¸¶Áö¸·");
+        SceneManager.LoadScene("ë§ˆì§€ë§‰");
         Player.instance.gameObject.SetActive(false);
         Canvas.instance.gameObject.SetActive(false);
     }
@@ -143,19 +143,19 @@ public class TalkManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         StartCoroutine(FadeIn());
-        Debug.Log("»õ·Î¿î ¾ÀÀÌ ·ÎµåµÇ¾ú½À´Ï´Ù: " + scene.name);
+        Debug.Log("ìƒˆë¡œìš´ ì”¬ì´ ë¡œë“œë˜ì—ˆìŠµë‹ˆë‹¤: " + scene.name);
         mapController = GameObject.FindGameObjectWithTag("MapController").GetComponent<MapController>();
     }
     IEnumerator FadeIn()
     {
-        // ¸Ê ÁøÀÔ½Ã ¶ß´Â UI °ü¸®
-        if (SceneManager.GetActiveScene().name == "¸¶À»" || SceneManager.GetActiveScene().name == "½ÃÀÛ")
+        // ë§µ ì§„ì…ì‹œ ëœ¨ëŠ” UI ê´€ë¦¬
+        if (SceneManager.GetActiveScene().name == "ë§ˆì„" || SceneManager.GetActiveScene().name == "ì‹œì‘")
         {
             //chapterText.text = SceneManager.GetActiveScene().name;
         }
         else
         {
-            //chapterText.text = SceneManager.GetActiveScene().name + PlayerPrefs.GetInt("CurrentVerse").ToString() + "Àı";
+            //chapterText.text = SceneManager.GetActiveScene().name + PlayerPrefs.GetInt("CurrentVerse").ToString() + "ì ˆ";
         }
 
         fade.gameObject.SetActive(true);
@@ -173,17 +173,6 @@ public class TalkManager : MonoBehaviour
     public void TalkWithNPC()
     {
         Npc npc = playerscanner.ScanObj().gameObject.GetComponent<Npc>();
-
-        /*if (npc.talk_count == npc.words.Count)
-        {
-            textBox.SetActive(false);
-            npc.talk_count = 0;
-        }
-        else
-        {
-            textBox.SetActive(true);
-            talkText.text = npc.words[npc.talk_count++];
-        }*/
 
         npc.PlayCineMachine();
     }
